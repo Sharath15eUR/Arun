@@ -1,0 +1,6 @@
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 1$ touch intro2.txt
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 1$ ls -l intro2.txt 
+-rw-rw-r-- 1 arunmanikandan arunmanikandan 0 Jan 23 20:57 intro2.txt
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 1$ chmod g-w intro2.txt 
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 1$ ls -l intro2.txt 
+-rw-r--r-- 1 arunmanikandan arunmanikandan 0 Jan 23 20:57 intro2.txt

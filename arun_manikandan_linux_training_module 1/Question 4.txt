@@ -1,0 +1,87 @@
+arunmanikandan@KDE-ORG:~$ ps 
+    PID TTY          TIME CMD
+   4304 pts/1    00:00:00 bash
+   6735 pts/1    00:00:00 ps
+arunmanikandan@KDE-ORG:~$ ps a
+    PID TTY      STAT   TIME COMMAND
+   1032 tty2     Ssl+   0:01 /usr/lib/xorg/Xorg -nolisten tcp -background none -seat seat0 vt2 -auth /run/sddm/xauth_DJBdYc -noreset -displayfd 16
+   1228 tty1     Ssl+   0:00 /usr/bin/startplasma-wayland
+   4304 pts/1    Ss     0:00 /bin/bash
+   6737 pts/1    R+     0:00 ps a
+arunmanikandan@KDE-ORG:~$ ps u
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+arunman+    1228  0.0  0.9 230224 36480 tty1     Ssl+ 20:37   0:00 /usr/bin/startplasma-wayland
+arunman+    4304  0.0  0.1  11404  5504 pts/1    Ss   20:50   0:00 /bin/bash
+arunman+    6739  0.0  0.1  13752  4608 pts/1    R+   21:15   0:00 ps u
+arunmanikandan@KDE-ORG:~$ ps x
+    PID TTY      STAT   TIME COMMAND
+   1203 ?        Ss     0:00 /usr/lib/systemd/systemd --user
+   1207 ?        S      0:00 (sd-pam)
+   1219 ?        S<sl   0:08 /usr/bin/pipewire
+   1220 ?        Ssl    0:00 /usr/bin/pipewire -c filter-chain.conf
+   1221 ?        S<sl   0:00 /usr/bin/wireplumber
+   1224 ?        S<Lsl   0:09 /usr/bin/pipewire-pulse
+   1225 ?        Ss     0:00 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+   1227 ?        Sl     0:00 /usr/bin/kwalletd6 --pam-login 13 14
+   1228 tty1     Ssl+   0:00 /usr/bin/startplasma-wayland
+   1276 ?        Ssl    0:00 /usr/bin/kwin_wayland_wrapper --xwayland
+   1284 ?        Sl     1:51 /usr/bin/kwin_wayland --wayland-fd 7 --socket wayland-0 --xwayland-fd 8 --xwayland-fd 9 --xwayland-display :1 --xwaylan
+   1296 ?        Ssl    0:00 /usr/libexec/xdg-desktop-portal
+   1304 ?        Ssl    0:00 /usr/libexec/xdg-document-portal
+   1309 ?        Ssl    0:00 /usr/libexec/xdg-permission-store
+   1322 ?        Ssl    0:00 /usr/libexec/xdg-desktop-portal-gtk
+   1369 ?        Ssl    0:00 /usr/libexec/at-spi-bus-launcher
+   1371 ?        S      0:00 /usr/bin/Xwayland :1 -auth /run/user/1000/xauth_AEZsUX -listenfd 86 -listenfd 87 -displayfd 79 -rootless -wm 81
+   1380 ?        S      0:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 11 --address
+   1385 ?        Sl     0:00 /usr/libexec/at-spi2-registryd --use-gnome-session
+   1422 ?        Ssl    0:00 /usr/bin/ksmserver
+   1424 ?        Ssl    0:00 /usr/bin/kded6
+   1458 ?        Ssl    0:06 /usr/bin/plasmashell --no-respawn
+   1468 ?        Ssl    0:00 /usr/lib/x86_64-linux-gnu/libexec/kactivitymanagerd
+   1504 ?        Ssl    0:00 /usr/libexec/dconf-service
+   1528 ?        Ssl    0:00 /usr/bin/gmenudbusmenuproxy
+   1530 ?        Ssl    0:00 /usr/bin/kaccess
+   1532 ?        Ssl    0:00 /usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1
+   1533 ?        Ssl    0:00 /usr/lib/x86_64-linux-gnu/libexec/org_kde_powerdevil
+   1534 ?        Ssl    0:00 /usr/lib/x86_64-linux-gnu/libexec/xdg-desktop-portal-kde
+   1535 ?        Ssl    0:00 /usr/bin/xembedsniproxy
+   1565 ?        S      0:00 /usr/bin/xsettingsd
+   1592 ?        Ss     0:00 /usr/libexec/bluetooth/obexd
+   1740 ?        Ssl    0:00 /usr/bin/kdeconnectd
+   1745 ?        Ssl    0:00 /usr/bin/xwaylandvideobridge
+   1761 ?        Ssl    0:00 /usr/libexec/geoclue-2.0/demos/agent
+   1764 ?        Ssl    0:00 /usr/lib/x86_64-linux-gnu/libexec/DiscoverNotifier
+   1842 ?        Ssl    3:36 /usr/bin/firefox
+   1889 ?        S      0:00 /usr/lib/firefox/firefox-bin -contentproc -ipcHandle 0 -sandboxReporter 1 -initialChannelId {da7ac98a-53dc-4523-a891-da
+   1891 ?        Sl     0:00 /usr/lib/firefox/firefox-bin -contentproc -parentBuildID 20250113121357 -prefsHandle 0 -prefsLen 32152 -prefMapHandle 1
+   1920 ?        Sl     0:10 /usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0 -prefsLen 32293 -prefMapHandle 1 -prefMapSize 26
+   1929 ?        Sl     0:17 /usr/lib/firefox/firefox-bin -contentproc -parentBuildID 20250113121357 -prefsHandle 0 -prefsLen 32293 -prefMapHandle 1
+   2018 ?        Sl     0:00 /usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0 -prefsLen 39687 -prefMapHandle 1 -prefMapSize 26
+   2077 ?        Sl     0:18 /usr/lib/firefox/firefox-bin -contentproc -parentBuildID 20250113121357 -sandboxingKind 0 -prefsHandle 0 -prefsLen 3990
+   2311 ?        Sl     0:01 /usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0 -prefsLen 36974 -prefMapHandle 1 -prefMapSize 26
+   2342 ?        Sl     2:49 /usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0 -prefsLen 36974 -prefMapHandle 1 -prefMapSize 26
+   2374 ?        Sl     0:00 /usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0 -prefsLen 36974 -prefMapHandle 1 -prefMapSize 26
+   2431 ?        Sl     0:12 /usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0 -prefsLen 37031 -prefMapHandle 1 -prefMapSize 26
+   2472 ?        Sl     0:36 /usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0 -prefsLen 37031 -prefMapHandle 1 -prefMapSize 26
+   3090 ?        Ssl    0:00 /usr/lib/x86_64-linux-gnu/libexec/baloorunner
+   4298 ?        Ssl    0:05 /usr/bin/konsole
+   4304 pts/1    Ss     0:00 /bin/bash
+   4405 ?        Sl     0:00 /usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0 -prefsLen 37235 -prefMapHandle 1 -prefMapSize 26
+   5201 ?        Sl     0:00 /usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0 -prefsLen 37236 -prefMapHandle 1 -prefMapSize 26
+   5335 ?        Sl     0:00 /usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0 -prefsLen 37236 -prefMapHandle 1 -prefMapSize 26
+   5536 ?        Sl     0:04 /usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0 -prefsLen 37236 -prefMapHandle 1 -prefMapSize 26
+   5612 ?        Sl     0:01 /usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0 -prefsLen 37236 -prefMapHandle 1 -prefMapSize 26
+   5618 ?        Sl     0:00 /usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0 -prefsLen 37236 -prefMapHandle 1 -prefMapSize 26
+   5669 ?        Sl     0:00 /usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0 -prefsLen 37236 -prefMapHandle 1 -prefMapSize 26
+   5701 ?        Sl     0:00 /usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0 -prefsLen 37236 -prefMapHandle 1 -prefMapSize 26
+   5721 ?        Sl     0:00 /usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0 -prefsLen 37236 -prefMapHandle 1 -prefMapSize 26
+   5742 ?        Ssl    0:00 /usr/bin/speech-dispatcher -s -t 0
+   5758 ?        Sl     0:00 /usr/lib/speech-dispatcher-modules/sd_espeak-ng /etc/speech-dispatcher/modules/espeak-ng.conf
+   5761 ?        Sl     0:00 /usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0 -prefsLen 37236 -prefMapHandle 1 -prefMapSize 26
+   5779 ?        Sl     0:00 /usr/lib/speech-dispatcher-modules/sd_dummy /etc/speech-dispatcher/modules/dummy.conf
+   5782 ?        S      0:00 /usr/lib/speech-dispatcher-modules/sd_openjtalk /etc/speech-dispatcher/modules/openjtalk.conf
+   5891 ?        Sl     0:00 /usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0 -prefsLen 37366 -prefMapHandle 1 -prefMapSize 26
+   5929 ?        Sl     0:00 /usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0 -prefsLen 37366 -prefMapHandle 1 -prefMapSize 26
+   6365 ?        Sl     0:00 /usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0 -prefsLen 37418 -prefMapHandle 1 -prefMapSize 26
+   6742 pts/1    R+     0:00 ps x
+arunmanikandan@KDE-ORG:~$ 

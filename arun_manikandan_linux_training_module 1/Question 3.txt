@@ -1,0 +1,11 @@
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 1$ mkdir -p dir1/dir2 && cd dir1/dir2 && touch intro3.txt && echo "Question 3 intro file." > intro3.txt
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 1/dir1/dir2$ cd .. && cd ..
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 1$ ln -s dir1/dir2/intro3.txt dir1/intro3.txt_link
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 1$ ls -l dir1/dir2
+total 4
+-rw-rw-r-- 1 arunmanikandan arunmanikandan 23 Jan 23 21:11 intro3.txt
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 1$ ls -l dir1/
+total 4
+drwxrwxr-x 2 arunmanikandan arunmanikandan 4096 Jan 23 21:11 dir2
+lrwxrwxrwx 1 arunmanikandan arunmanikandan   20 Jan 23 21:12 intro3.txt_link -> dir1/dir2/intro3.txt
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 1$ 
