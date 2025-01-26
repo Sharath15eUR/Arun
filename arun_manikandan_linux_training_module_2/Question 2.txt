@@ -1,0 +1,45 @@
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module_2$ cat config.txt 
+# Database Settings
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=secretpassword
+
+# Server Settings
+SERVER_HOST=localhost
+SERVER_PORT=8080
+
+# Logging Settings
+LOG_FILE=/var/log/app.log
+LOG_LEVEL=debug
+
+# Network Settings
+API_HOST=localhost
+API_PORT=5000
+
+# Other Configurations
+MAX_CONNECTIONS=100
+TIMEOUT=60
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module_2$ sed 's/localhost/127.0.0.1/g' config.txt > updated_config.txt
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module_2$ cat updated_config.txt 
+# Database Settings
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=secretpassword
+
+# Server Settings
+SERVER_HOST=127.0.0.1
+SERVER_PORT=8080
+
+# Logging Settings
+LOG_FILE=/var/log/app.log
+LOG_LEVEL=debug
+
+# Network Settings
+API_HOST=127.0.0.1
+API_PORT=5000
+
+# Other Configurations
+MAX_CONNECTIONS=100
+TIMEOUT=60

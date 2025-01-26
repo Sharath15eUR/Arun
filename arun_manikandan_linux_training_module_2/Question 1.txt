@@ -1,0 +1,11 @@
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module_2$ dd if=/dev/zero of=sample_file.txt bs=1M count=2
+2+0 records in
+2+0 records out
+2097152 bytes (2.1 MB, 2.0 MiB) copied, 0.00401075 s, 523 MB/s
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module_2$ ls -l
+total 2048
+-rw-rw-r-- 1 arunmanikandan arunmanikandan 2097152 Jan 26 19:58 sample_file.txt
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module_2$ ls -l | awk '$5 > 1048576 {print $9}' > results.txt 
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module_2$ cat results.txt 
+sample_file.txt
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module_2$ 
