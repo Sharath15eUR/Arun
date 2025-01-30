@@ -1,0 +1,24 @@
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 3$ ls
+backup_manager.sh  dummy_source
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 3$ ls dummy_source/
+dummy1.txt  dummy2.txt  dummy3.txt
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 3$ ./backup_manager.sh "./dummy_source/" "./backup_files/" ".txt"
+Files to be backed up:
+dummy1.txt - 27 bytes
+dummy2.txt - 21 bytes
+dummy3.txt - 21 bytes
+Backing up ./dummy_source//dummy1.txt
+Backing up ./dummy_source//dummy2.txt
+Backing up ./dummy_source//dummy3.txt
+Backup completed. Report saved to ./backup_files//backup_report.log.
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 3$ ls 
+backup_files  backup_manager.sh  dummy_source
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 3$ ls backup_files/
+backup_report.log  dummy1.txt  dummy2.txt  dummy3.txt
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 3$ cat backup_files/backup_report.log 
+Backup Summary
+===================
+Total files processed: 3
+Total size of files backed up: 69 bytes
+Backup directory: ./backup_files/
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 3$ 
