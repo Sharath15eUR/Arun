@@ -1,0 +1,17 @@
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 4$ chmod +x ./wifi_details.sh 
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 4$ ls -l
+total 158740
+-rw-rw-r-- 1 arunmanikandan arunmanikandan 162538952 Feb  2 21:21 input.txt
+-rw-r--r-- 1 arunmanikandan arunmanikandan      0	 Feb  2 21:24 terminal_.txt
+-rwxr-xr-x 1 arunmanikandan arunmanikandan      1200 Feb  2 21:08 wifi_details.sh
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 4$ ./wifi_details.sh ./input.txt
+Output saved to output.txt
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 4$ ls -l
+total 159120
+-rw-rw-r-- 1 arunmanikandan arunmanikandan 162538952 Feb  2 21:21 input.txt
+-rw-rw-r-- 1 arunmanikandan arunmanikandan    377837 Feb  2 21:50 output.txt
+-rw-r--r-- 1 arunmanikandan arunmanikandan      1166 Feb  2 21:24 terminal_.txt
+-rwxr-xr-x 1 arunmanikandan arunmanikandan       673 Feb  2 21:48 wifi_details.sh
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 4$
+
+
