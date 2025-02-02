@@ -1,0 +1,11 @@
+Error: File 'nonexistent_file.txt' does not exist.
+2025-02-02 22:42:40 - ./file_analyzer.sh - ERROR: No arguments provided. Use --help for usage.
+./file_analyzer.sh: Error: No arguments provided. Use --help for usage.
+2025-02-02 22:43:24 - ./file_analyzer.sh - ERROR: No arguments provided. Use --help for usage.
+./file_analyzer.sh: Error: No arguments provided. Use --help for usage.
+2025-02-02 22:43:55 - ./file_analyzer.sh - ERROR: Invalid option: -x
+./file_analyzer.sh: Error: Invalid option: -x
+2025-02-02 22:44:09 - ./file_analyzer.sh - ERROR: Keyword is empty or invalid.
+./file_analyzer.sh: Error: Keyword is empty or invalid.
+2025-02-02 22:44:17 - ./file_analyzer.sh - ERROR: File does not exist: nonexistent_file.txt
+./file_analyzer.sh: Error: File does not exist: nonexistent_file.txt

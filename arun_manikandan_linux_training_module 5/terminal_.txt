@@ -1,0 +1,47 @@
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 5$ ls *
+errors.log  file_analyzer.sh
+
+folder1:
+file1.txt  file2.txt  subfolder
+
+folder2:
+file1.txt  file2.txt
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 5$ ./file_analyzer.sh 
+./file_analyzer.sh: Error: No arguments provided. Use --help for usage.
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 5$ ./file_analyzer.sh  --help
+File Analyzer Help:
+Usage: ./file_analyzer.sh [OPTIONS]
+
+Options:
+-d <directory>  Directory to search recursively
+-k <keyword>    Keyword to search for (non-empty)
+-f <file>       File to search directly
+--help          Display this help menu
+
+Examples:
+./file_analyzer.sh -d /path/to/dir -k "search term"
+./file_analyzer.sh -f /path/to/file -k "search term"
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 5$ ./file_analyzer.sh -d folder1 -k Hello
+Found in file: folder1/file1.txt
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 5$ ./file_analyzer.sh -f folder2/file1.txt -k "Hello again"
+Found in file: folder2/file1.txt
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 5$ ./file_analyzer.sh -x
+./file_analyzer.sh: Error: Invalid option: -x
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 5$ ./file_analyzer.sh -d folder1 -k "Dummy content"
+Found in file: folder1/subfolder/file1.txt
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 5$ ./file_analyzer.sh -d folder1 -k ""
+./file_analyzer.sh: Error: Keyword is empty or invalid.
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 5$ ./file_analyzer.sh -f nonexistent_file.txt -k "test"
+./file_analyzer.sh: Error: File does not exist: nonexistent_file.txt
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 5$ cat errors.log 
+2025-02-02 22:42:40 - ./file_analyzer.sh - ERROR: No arguments provided. Use --help for usage.
+./file_analyzer.sh: Error: No arguments provided. Use --help for usage.
+2025-02-02 22:43:24 - ./file_analyzer.sh - ERROR: No arguments provided. Use --help for usage.
+./file_analyzer.sh: Error: No arguments provided. Use --help for usage.
+2025-02-02 22:43:55 - ./file_analyzer.sh - ERROR: Invalid option: -x
+./file_analyzer.sh: Error: Invalid option: -x
+2025-02-02 22:44:09 - ./file_analyzer.sh - ERROR: Keyword is empty or invalid.
+./file_analyzer.sh: Error: Keyword is empty or invalid.
+2025-02-02 22:44:17 - ./file_analyzer.sh - ERROR: File does not exist: nonexistent_file.txt
+./file_analyzer.sh: Error: File does not exist: nonexistent_file.txt
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_linux_training_module 5$ 
