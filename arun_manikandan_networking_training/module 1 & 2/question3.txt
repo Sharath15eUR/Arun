@@ -1,0 +1,70 @@
+arunmanikandan@KDE-ORG:~$ sudo wireshark
+ ** (wireshark:5220) 19:51:30.484378 [GUI WARNING] -- failed to create compose table
+ ** (wireshark:5220) 19:51:32.823666 [Capture MESSAGE] -- Capture Start ...
+ ** (wireshark:5220) 19:51:33.045388 [Capture MESSAGE] -- Capture started
+ ** (wireshark:5220) 19:51:33.045433 [Capture MESSAGE] -- File: "/tmp/wireshark_ens3380VW22.pcapng"
+ ** (wireshark:5220) 19:51:41.491152 [Capture MESSAGE] -- Capture Stop ...
+ ** (wireshark:5220) 19:51:41.722886 [Capture MESSAGE] -- Capture stopped.
+ ** (wireshark:5220) 19:51:41.722925 [Capture WARNING] ./ui/capture.c:722 -- capture_input_closed(): 
+
+
+======================================================== PACKET CAPTURE USING TCPDUMP ===============================================================
+
+
+arunmanikandan@KDE-ORG:~$ sudo tcpdump -i ens33 
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on ens33, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+19:48:59.999677 IP KDE-ORG.43202 > maa05s18-in-f14.1e100.net.https: UDP, length 1252
+19:48:59.999772 IP KDE-ORG.43202 > maa05s18-in-f14.1e100.net.https: UDP, length 1252
+19:48:59.999797 IP KDE-ORG.43202 > maa05s18-in-f14.1e100.net.https: UDP, length 1252
+19:48:59.999813 IP KDE-ORG.43202 > maa05s18-in-f14.1e100.net.https: UDP, length 1252
+19:48:59.999828 IP KDE-ORG.43202 > maa05s18-in-f14.1e100.net.https: UDP, length 1126
+19:49:00.010796 IP maa05s18-in-f14.1e100.net.https > KDE-ORG.43202: UDP, length 32
+19:49:00.010814 IP maa05s18-in-f14.1e100.net.https > KDE-ORG.43202: UDP, length 28
+19:49:00.010894 IP KDE-ORG.43202 > maa05s18-in-f14.1e100.net.https: UDP, length 1252
+19:49:00.010933 IP KDE-ORG.43202 > maa05s18-in-f14.1e100.net.https: UDP, length 1252
+19:49:00.010989 IP KDE-ORG.43202 > maa05s18-in-f14.1e100.net.https: UDP, length 164
+19:49:00.020127 IP maa05s18-in-f14.1e100.net.https > KDE-ORG.43202: UDP, length 28
+19:49:00.041197 IP KDE-ORG.34633 > _gateway.domain: 22461+ [1au] PTR? 14.182.250.142.in-addr.arpa. (56)
+19:49:00.052294 IP 192.168.180.1.59531 > 239.255.255.250.1900: UDP, length 137
+19:49:00.061697 IP maa05s18-in-f14.1e100.net.https > KDE-ORG.43202: UDP, length 82
+19:49:00.061719 IP maa05s18-in-f14.1e100.net.https > KDE-ORG.43202: UDP, length 25
+19:49:00.062057 IP KDE-ORG.43202 > maa05s18-in-f14.1e100.net.https: UDP, length 39
+19:49:00.070607 IP maa05s18-in-f14.1e100.net.https > KDE-ORG.43202: UDP, length 28
+19:49:00.132731 IP KDE-ORG.59060 > 104.18.40.188.https: Flags [P.], seq 3605423935:3605423974, ack 1994662473, win 65535, length 39
+19:49:00.133502 IP KDE-ORG.59060 > 104.18.40.188.https: Flags [FP.], seq 39:63, ack 1, win 65535, length 24
+19:49:00.134151 IP 104.18.40.188.https > KDE-ORG.59060: Flags [.], ack 39, win 64240, length 0
+19:49:00.134162 IP 104.18.40.188.https > KDE-ORG.59060: Flags [.], ack 64, win 64239, length 0
+19:49:00.141675 IP 104.18.40.188.https > KDE-ORG.59060: Flags [FP.], seq 1, ack 64, win 64239, length 0
+19:49:00.141719 IP KDE-ORG.59060 > 104.18.40.188.https: Flags [.], ack 2, win 14764, length 0
+19:49:02.054241 IP _gateway.domain > KDE-ORG.34633: 22461 1/0/1 PTR maa05s18-in-f14.1e100.net. (95)
+19:49:02.057680 IP KDE-ORG.44248 > _gateway.domain: 42851+ [1au] PTR? 128.180.168.192.in-addr.arpa. (57)
+19:49:02.995615 IP KDE-ORG.43858 > maa05s17-in-f10.1e100.net.https: UDP, length 29
+19:49:03.011372 IP maa05s17-in-f10.1e100.net.https > KDE-ORG.43858: UDP, length 28
+19:49:03.068957 IP 192.168.180.1.59531 > 239.255.255.250.1900: UDP, length 137
+19:49:04.071635 IP _gateway.domain > KDE-ORG.44248: 42851 NXDomain 0/0/1 (57)
+19:49:04.072318 IP KDE-ORG.50286 > _gateway.domain: 50290+ [1au] PTR? 2.180.168.192.in-addr.arpa. (55)
+19:49:06.080225 IP 192.168.180.1.59531 > 239.255.255.250.1900: UDP, length 137
+19:49:06.091040 IP _gateway.domain > KDE-ORG.50286: 50290 NXDomain 0/0/1 (55)
+19:49:06.093979 IP KDE-ORG.37027 > _gateway.domain: 65186+ [1au] PTR? 250.255.255.239.in-addr.arpa. (57)
+19:49:08.121199 IP _gateway.domain > KDE-ORG.37027: 65186 NXDomain 0/1/1 (114)
+19:49:08.123077 IP KDE-ORG.51903 > _gateway.domain: 27353+ [1au] PTR? 1.180.168.192.in-addr.arpa. (55)
+19:49:08.761054 IP maa05s17-in-f10.1e100.net.https > KDE-ORG.43858: UDP, length 82
+19:49:08.761223 IP KDE-ORG.43858 > maa05s17-in-f10.1e100.net.https: UDP, length 33
+19:49:12.179583 IP KDE-ORG.55280 > _gateway.domain: 25180+ [1au] PTR? 170.77.250.142.in-addr.arpa. (56)
+19:49:13.751441 IP _gateway.domain > KDE-ORG.34252: 57338 17/0/1 CNAME youtube-ui.l.google.com., A 142.250.195.206, A 142.250.182.78, A 142.250.182.142, A 142.250.77.174, A 142.250.193.110, A 172.217.167.142, A 142.250.182.14, A 142.250.182.46, A 172.217.166.110, A 142.250.183.238, A 172.217.31.206, A 142.250.182.110, A 142.250.205.238, A 142.250.193.142, A 142.250.193.174, A 142.250.196.14 (334)
+19:49:13.751469 IP _gateway.domain > KDE-ORG.35095: 53571 5/0/1 CNAME youtube-ui.l.google.com., AAAA 2404:6800:4007:819::200e, AAAA 2404:6800:4007:829::200e, AAAA 2404:6800:4007:811::200e, AAAA 2404:6800:4007:81a::200e (190)
+19:49:14.997849 IP KDE-ORG.45678 > maa03s37-in-f3.1e100.net.https: Flags [P.], seq 712266371:712266410, ack 2012240043, win 65535, length 39
+19:49:14.998779 IP maa03s37-in-f3.1e100.net.https > KDE-ORG.45678: Flags [.], ack 39, win 64240, length 0
+19:49:15.011425 IP maa03s37-in-f3.1e100.net.https > KDE-ORG.45678: Flags [P.], seq 1:40, ack 39, win 64240, length 39
+19:49:15.052336 IP KDE-ORG.45678 > maa03s37-in-f3.1e100.net.https: Flags [.], ack 40, win 65535, length 0
+19:49:15.099062 IP 192.168.180.1.59531 > 239.255.255.250.1900: UDP, length 137
+19:49:15.102687 IP KDE-ORG.48168 > _gateway.domain: 40174+ [1au] PTR? 35.195.250.142.in-addr.arpa. (56)
+19:49:17.112327 IP _gateway.domain > KDE-ORG.48168: 40174 1/0/1 PTR maa03s37-in-f3.1e100.net. (94)
+^C
+47 packets captured
+74 packets received by filter
+27 packets dropped by kernel
+4294967250 packets dropped by interface
+arunmanikandan@KDE-ORG:~$ 
+

@@ -1,0 +1,13 @@
+What happens when there is a duplicate IP configured in the network?
+
+- Essestially at it's core IP stands for Internet Protocol and is used to uniquely identify systems with a network.
+
+- Most new Operating Systems have built-in IP conflict detection and prevention systems that allows the users to not worry about IP conflicts/
+
+- If 2 devices have the same IP address as one other then they might have intermittent connectivity issues which could lead to timely disconnection of one system from the network as the ARP protocol and only identify one of the system and the other is not identified.
+
+- The device that announces its presence late on an ARP request would never receive a packet as the other device would receive upon faster response.
+
+- If this issue is on a server then devices might fail to resolve domain names and access the internet.
+
+- Vulnerable as hackers can tune in and capture the packets with the duplicate ip.

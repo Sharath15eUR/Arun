@@ -1,0 +1,32 @@
+How to connect to a remote machine using SSH and telnet
+
+SSH stands for Secure Shell and provides a secured way of connecting to a remote machine
+
+Steps to connect to a remote machine using ssh
+
+- Install ssh on both devices
+
+- Once installed run the following command
+  
+	ssh user@remote-ip
+	
+	example usage : arun@172.16.60.209
+
+- When connecting for the first time we would be prompted to accept the fingerprint and type yes
+
+
+Telnet on the other hand is mostly used to test network services
+
+Steps to connect to a remote machine using telnet
+
+- Install telnet if not available
+
+- Once installed run the following command
+
+	telnet remote_ip
+
+	example usage : telnet 172.16.60.209
+
+- If the server is up and running it will prompt for the username and password
+
+- Once after entering the details we are connected to the remote machine

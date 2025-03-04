@@ -1,0 +1,22 @@
+How a DHCP assigns IP address to devices in a network
+
+Step1: DHCPDISCOVER
+	
+	- The client when connected to network first sends a request to locate the DCHP Server.
+	- Intially uses 0.0.0.0 as the source IP and 255.255.255.255 as the destination IP
+
+Step2 : DHCPOFFER
+	
+	- Once the DHCP Server is hit it responds back with an available IP Address, subnet mask, gateway and the others.
+
+Step3 : DHCPREQUEST
+
+	- The client then sends a request to the DCHP server inorder to acknowledge the provided IP Address and others.
+
+Step4 : DHCPACK
+
+	- The DHCP Server confirms the same and acknowledges the same
+
+After the above steps the newly connected device can now access the network through the assigned IP Address and other details untill the lease time.
+
+The lease time refers to the time till which the assigned IP Address would be valid for once the time is done the IP Address is revoked and the device with that IP cannot access the network and needs to repeat the above process again from start. 

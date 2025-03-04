@@ -1,0 +1,45 @@
+How to remote access a system?
+
+METHOD 1 : VNC Viewer
+
+	- To access a remote system using the VNC Viewer we first have to install the necessary packages on linux/distros using the following command : 
+
+	sudo apt install tightvncserver
+
+	- Once the installation is done we can verify the same by running the following
+
+	vncserver
+
+	- To actually the remote system we need to know the IP of the system to be controlled and execture the following : 
+
+	vncviewer <ip_addr>
+
+	example usage : vncviewer 172.16.60.297
+
+
+METHOD 2 : Anydesk
+
+	- To remote access a system using Anydesk we download the client on both the systems at first
+
+	- Once its installed the next step is to use the 9-digit access key from the client.
+
+	- After entering the same the remote system should accept the connection and the remote access is established.
+
+
+METHOD 3 : SSH
+
+	- Install openssh-server on the system using the following commnad : 
+
+	sudo apt install -y openssh-server
+
+	- After installation start the service and enable the same using systemctl:
+
+	sudo systemctl enable ssh
+
+	sudo systemctl start ssh
+
+	- Once the above steps are done on both systems we can access the remote system securely using the ip address of the remote system
+
+	ssh <username>@<ip_addr>
+
+	example usage : ssh arun@172.16.60.109

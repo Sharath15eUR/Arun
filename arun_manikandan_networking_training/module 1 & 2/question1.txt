@@ -1,0 +1,28 @@
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_networking_training/module 1 & 2$ scp -r dummy arunmanikandan@localhost:/home/arunmanikandan/Documents/
+The authenticity of host 'localhost (::1)' can't be established.
+ED25519 key fingerprint is SHA256:AXdC0YPAsxKnx9N1MpcVDwWCM6/YPeB6DrxVWou1mUc.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'localhost' (ED25519) to the list of known hosts.
+arunmanikandan@localhost's password: 
+file2.txt                                                                                                                        100%    0     0.0KB/s   00:00    
+file1.txt                                                                                                                        100%    0     0.0KB/s   00:00    
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_networking_training/module 1 & 2$ ls /home/arunmanikandan/Documents
+dummy
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_networking_training/module 1 & 2$ ls /home/arunmanikandan/Documents/dummy/
+file1.txt  file2.txt
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_networking_training/module 1 & 2$ 
+
+
+=============================================================== USING CP INSTEAD OF SCP ===========================================================================
+
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_networking_training/module 1 & 2$ cp -r ~/arun_manikandan_linux_training/arun_manikandan_networking_training/module\ 1\ \&\ 2/dummy ~/Desktop/
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_networking_training/module 1 & 2$ ls -l ~/Desktop
+total 4
+drwxrwxr-x 2 arunmanikandan arunmanikandan 4096 Mar  4 11:28 dummy
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_networking_training/module 1 & 2$ ls -l ~/Desktop/dummy/
+total 0
+-rw-rw-r-- 1 arunmanikandan arunmanikandan 0 Mar  4 11:30 file1.txt
+-rw-rw-r-- 1 arunmanikandan arunmanikandan 0 Mar  4 11:30 file2.txt
+arunmanikandan@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_networking_training/module 1 & 2$ 
+
