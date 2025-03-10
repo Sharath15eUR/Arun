@@ -1,0 +1,23 @@
+Objective -> To simulate a small network with switches and devices and capture packets along with observing the switches MAC address table
+
+Steps:
+
+Download and install GNS3 (Graphical Network Simulator) to setup and simulate the network
+
+Once installed add the necessary devices to the workflow (For this question I have setup 3 VirutalPC's and one Switch)
+
+Now connect each of the VPCS to the switch using the routing cable and connect each VPCS to a unique Ethernet Port on the switch to avoid collisions
+
+Next step is to assign an IP (Internet Protocol) address to each of these system to ensure inter-connectivity using the built-in terminal and the following command
+
+	ip <ip_address> (It auto checks for duplicate IP's and resolves the same and assigns a default gateway)
+
+After all the three devices are setup with their corresponding IP address we are ready to go
+
+Now to check if all the setup are done correctly we can send a ping request from any one of the devices to the other one if we get a packet in response everyting is setup correctly
+
+To check the MAC Address table open the switch's console and type "show mac address-table" command to view and observe the MAC Adress Table of the switch, here all the details about used and connected ports along with Mac adress of the connected devices are displayed
+
+Now right click on one of the connections and select the capture option to fireup the Wireshark toolkit to capture packets between one of the VPCS and the Switch
+
+After this send a ping request from the other VPC to the current VPC-Switch monitored system to caputure and analyse the same

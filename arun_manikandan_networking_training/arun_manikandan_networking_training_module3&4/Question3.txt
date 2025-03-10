@@ -1,0 +1,68 @@
+
+- Intial Configuration
+
+arunmanikandan@KDE-ORG:~$ ifconfig ens33
+ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.180.128  netmask 255.255.255.0  broadcast 192.168.180.255
+        inet6 fe80::2e46:5a3b:2dd8:8cac  prefixlen 64  scopeid 0x20<link>
+        ether 00:0c:29:85:6a:59  txqueuelen 1000  (Ethernet)
+        RX packets 220563  bytes 250007980 (250.0 MB)
+        RX errors 1483  dropped 5586  overruns 0  frame 0
+        TX packets 128397  bytes 22570648 (22.5 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device interrupt 19  base 0x2000  
+
+- Changing the IP Address
+
+arunmanikandan@KDE-ORG:~$ sudo ifconfig ens33 192.168.200.123 netmask 255.255.255.0 up
+[sudo] password for arunmanikandan:
+
+- Verify the change
+ 
+arunmanikandan@KDE-ORG:~$ ifconfig ens33
+ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.200.123  netmask 255.255.255.0  broadcast 192.168.200.255
+        inet6 fe80::2e46:5a3b:2dd8:8cac  prefixlen 64  scopeid 0x20<link>
+        ether 00:0c:29:85:6a:59  txqueuelen 1000  (Ethernet)
+        RX packets 220670  bytes 250024091 (250.0 MB)
+        RX errors 1483  dropped 0  overruns 0  frame 0
+        TX packets 128492  bytes 22604901 (22.6 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device interrupt 19  base 0x2000  
+
+- Changing the MAC address of the ethernet
+
+arunmanikandan@KDE-ORG:~$ sudo ifconfig ens33 down
+arunmanikandan@KDE-ORG:~$ sudo ifconfig ens33 hw ether 00:AA:13:45:A4:8D
+arunmanikandan@KDE-ORG:~$ sudo ifconfig ens33 up
+arunmanikandan@KDE-ORG:~$ ifconfg ens33
+Command 'ifconfg' not found, did you mean:
+  command 'ifconfig' from deb net-tools (2.10-0.1ubuntu3)
+Try: sudo apt install <deb name>
+arunmanikandan@KDE-ORG:~$ ifconfig ens33
+ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.180.129  netmask 255.255.255.0  broadcast 192.168.180.255
+        inet6 fe80::2e46:5a3b:2dd8:8cac  prefixlen 64  scopeid 0x20<link>
+        ether 00:aa:13:45:a4:8d  txqueuelen 1000  (Ethernet)
+        RX packets 221570  bytes 250253253 (250.2 MB)
+        RX errors 1483  dropped 0  overruns 0  frame 0
+        TX packets 129381  bytes 22801978 (22.8 MB)
+        TX errors 0  dropped 2 overruns 0  carrier 0  collisions 0
+        device interrupt 19  base 0x2000  
+
+- Verifying Internet Connectivity
+
+arunmanikandan@KDE-ORG:~$ ping google.co.in
+PING google.co.in (142.250.196.35) 56(84) bytes of data.
+64 bytes from maa03s45-in-f3.1e100.net (142.250.196.35): icmp_seq=1 ttl=128 time=7.06 ms
+64 bytes from maa03s45-in-f3.1e100.net (142.250.196.35): icmp_seq=2 ttl=128 time=9.84 ms
+64 bytes from maa03s45-in-f3.1e100.net (142.250.196.35): icmp_seq=3 ttl=128 time=8.39 ms
+64 bytes from maa03s45-in-f3.1e100.net (142.250.196.35): icmp_seq=4 ttl=128 time=6.91 ms
+64 bytes from maa03s45-in-f3.1e100.net (142.250.196.35): icmp_seq=5 ttl=128 time=5.52 ms
+64 bytes from maa03s45-in-f3.1e100.net (142.250.196.35): icmp_seq=6 ttl=128 time=13.3 ms
+64 bytes from maa03s45-in-f3.1e100.net (142.250.196.35): icmp_seq=7 ttl=128 time=12.8 ms
+^C
+--- google.co.in ping statistics ---
+7 packets transmitted, 7 received, 0% packet loss, time 7035ms
+rtt min/avg/max/mdev = 5.515/9.121/13.304/2.789 ms
+arunmanikandan@KDE-ORG:~$ 

@@ -1,0 +1,28 @@
+Objective -> To simulate a small network create traffic and analyse one of the packets
+
+
+A packet is essentially a data that is sent over the internet that contains certain details and configurations among them
+
+Steps : 
+
+- Setup a small network in GNS3 (Similar to that of the Question1)
+
+- Create traffic from the Capturing PC inorder to check for example use ping <ip> to populate the ARP table of that pc
+
+- Now in wireshark check the first packet which is essentially the ping request
+
+- As it can be seen (Check images for the image) the frame number is 216 and has 98 bytes that is being sent over the interface
+
+- Followed by the same we can see the Arrival Time along with Frame Length and others
+
+- The next one shows us about the Source and destination MAC address which are
+	Source: 00:50:79:66:68:00 (00:50:79:66:68:00)
+	Destination: 00:50:79:66:68:02 (00:50:79:66:68:02)
+	Type: IPv4 (0x0800)
+
+- We can also see that the TTL (Time To Live) for the packet is set to 64 seconds and the protocol used in ICMP we are also presented with the source and detination IP address
+	Source Address: 192.168.10.1
+	Destination Address: 192.168.10.11
+
+
+Thus by analysing one of the packet we can clearly understand how the network connected devices communicate with each other and understand in a deeper level
