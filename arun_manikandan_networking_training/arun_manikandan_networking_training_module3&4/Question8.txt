@@ -1,0 +1,43 @@
+Objective -> Use Linux to view the MAC address table of a switch (if using a Linux-based network switch). Use the bridge or ip link commands to inspect the MAC table and demonstrate a basic switch's operation.
+
+Steps:
+
+- TO view the MAC Address Table using "sudo bridge fdb show"
+
+arunmanikandan@KDE-ORG:~$ sudo bridge fdb show
+[sudo] password for arunm: 
+01:00:5e:00:00:01 dev ens33 self permanent
+33:33:00:00:00:01 dev ens33 self permanent
+33:33:00:00:00:fb dev ens33 self permanent
+33:33:ff:52:d8:98 dev ens33 self permanent
+01:00:5e:00:00:fb dev ens33 self permanent
+33:33:00:00:00:01 dev virbr0 self permanent
+01:00:5e:00:00:6a dev virbr0 self permanent
+33:33:00:00:00:6a dev virbr0 self permanent
+01:00:5e:00:00:01 dev virbr0 self permanent
+01:00:5e:00:00:fb dev virbr0 self permanent
+52:54:00:5f:b7:12 dev virbr0 vlan 1 master virbr0 permanent
+52:54:00:5f:b7:12 dev virbr0 master virbr0 permanent
+
+- From the above output we can understand VLAN associations , bridge interfaces and MAC address.
+
+- To view the MAC address of the network interface, we use the "ip link show" command
+
+arunmanikandan@KDE-ORG:~$ ip link show
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UNKNOWN mode DEFAULT group default qlen 1000
+    link/ether 00:0c:29:46:68:dd brd ff:ff:ff:ff:ff:ff
+    altname enp2s1
+3: virbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN mode DEFAULT group default qlen 1000
+    link/ether 52:54:00:5f:b7:12 brd ff:ff:ff:ff:ff:ff
+arunmanikandan@KDE-ORG:~$ 
+
+
+How a basic Linux-based Switch works : 
+
+MAC addresses are dynamically learned by a Linux-based switch (bridge):
+
+     The switch logs the arriving port and the source MAC address in the MAC table when a packet reaches an interface.
+     The packet is routed to the appropriate port if the target MAC is known.
+     All ports are flooded if it is unknown.

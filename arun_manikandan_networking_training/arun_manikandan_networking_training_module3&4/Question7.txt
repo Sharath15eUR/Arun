@@ -1,0 +1,47 @@
+Objective -> Describe how you would configure a basic LAN interface using the ip command in Linux
+
+Step:
+
+- Analyse the interfaces first to see which ones are up and which are down using the ip link show command
+arunmanikandan@KDE-ORG:~$ ip link show
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UNKNOWN mode DEFAULT group default qlen 1000
+    link/ether 00:0c:29:46:68:dd brd ff:ff:ff:ff:ff:ff
+    altname enp2s1
+3: virbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN mode DEFAULT group default qlen 1000
+    link/ether 52:54:00:5f:b7:12 brd ff:ff:ff:ff:ff:ff
+
+- If the interface we want to setup is shown as down then up the same using : "ip link set <interface_name> up"
+
+- Now add the ip address to the interface using "ip addr add <ip_addr> dev <interface_name>"
+
+arunmanikandan@KDE-ORG:~$ sudo ip addr add 192.168.10.111/24 dev ens33
+
+- Verify if the Ip address is added or not
+
+arunmanikandan@KDE-ORG:~$ ip addr show ens33
+2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UNKNOWN group default qlen 1000
+    link/ether 00:0c:29:46:68:dd brd ff:ff:ff:ff:ff:ff
+    altname enp2s1
+    inet 192.168.10.111/24 brd 192.168.180.255 scope global dynamic noprefixroute ens33
+       valid_lft 1354sec preferred_lft 1354sec
+    inet6 fe80::934e:2336:3d52:d898/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+
+- TO change the defualt gateway use the command "ip route add defualt via <ip_addr> dev <interface_name>"
+
+arunmanikandan@KDE-ORG:~$ sudo ip route add default via 192.168.10.212 dev ens33
+
+- Check if the new gateway is added or not
+
+arunmanikandan@KDE-ORG:~$ ip route show
+default via 192.168.10.212 dev ens33 
+default via 192.168.180.2 dev ens33 proto dhcp src 192.168.180.130 metric 20100 
+192.168.10.0/24 dev ens33 proto kernel scope link src 192.168.10.111 
+192.168.122.0/24 dev virbr0 proto kernel scope link src 192.168.122.1 linkdown 
+192.168.180.0/24 dev ens33 proto kernel scope link src 192.168.180.130 metric 100 
+arunmanikandan@KDE-ORG:~$ 
+
+
+Thus by following the above instructions one can effectively setup and configure a basic LAN interface using the ip command

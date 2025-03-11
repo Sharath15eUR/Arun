@@ -1,0 +1,20 @@
+Objective -> Examine how Ethernet devices and network interfaces are handled by the Linux kernel.  Write a brief report explaining how Ethernet communication is supported by the Linux kernel.
+
+Through a combination of networking subsystems, device drivers, and network interface controllers (NICs), the Linux kernel offers complete support for Ethernet connectivity. 
+
+Hardware elements that enable network connectivity are called network interface controllers (NICs), sometimes referred to as network adapters. 
+In Linux, a network interface (e.g., eth0, eth1) is used to represent each NIC. 
+Through particular device drivers that control data transmission and reception, the kernel communicates with various interfaces. 
+Advanced features like multiqueue processing, which distributes network traffic over several CPU cores to improve performance, are frequently supported by modern NICs.
+
+Device Drivers: A variety of Ethernet hardware is supported by Linux thanks to its modular driver design. 
+These drivers take care of low-level tasks like processing interrupts, controlling data buffers, and initializing hardware. 
+Additionally, they make it easier to transfer workloads such as TCP segmentation and checksum computation to the NIC hardware, which lowers CPU burden and boosts throughput. 
+
+Network Stack and Traffic Control: Network protocol processing and data flow management between apps and network interfaces are handled by the kernel's networking stack. 
+This stack's packet scheduler controls the NICs' transmit and receive buffers. 
+Using the traffic control (TC) tool, administrators can set up the packet scheduler to apply rules like rate limitation and queue discipline, which will regulate network traffic. 
+
+Management Tools: Administrators can query and adjust NIC settings, including as speed, duplex mode, auto-negotiation, and offload functions, using tools like ethtool. 
+Ethtool, for instance, may show the network interface's current parameters and modify settings to maximize efficiency.
+The Linux kernel guarantees effective and adaptable Ethernet connection by means of this strong infrastructure, supporting a broad range of hardware configurations and networking needs.
