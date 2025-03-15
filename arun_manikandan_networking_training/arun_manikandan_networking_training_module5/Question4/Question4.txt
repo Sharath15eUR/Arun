@@ -1,0 +1,159 @@
+﻿What is DHCP?
+
+
+* DHCP (Dynamic Host Configuration Protocol) is a network management protocol that automatically assigns an IP address and other network config parameters to devices when connected to a network.
+* Without DHCP we will have to manually assign the IP address
+
+
+Why DHCP?
+
+
+* Automation -> Eliminates the need for manual IP assigning
+* Resource Management -> Efficiently allocates limited IP addresses
+* Centralization -> Provides a single Point of Control for network config
+* Error Reduction -> Prevents IP conflicts
+
+
+How DHCP Works?
+
+
+* DHCP mainly functions through the DORA Process
+
+
+1. Discover
+        * Client broadcasts a DHCPDISCOVER message with destination 255.255.255.255
+        * Client has no IP address yet so source is 0.0.0.0
+        * Message contains the client’s MAC Address and optional requested IP
+        * Broadcast reaches all devices on the local network
+
+
+2. Offer
+        * DHCP server responds with a DHCPOFFER message
+        * Offer includes an available IP address and lease duration
+        * Contains the subnet mask , default gateway and other configs
+        * Multiple servers can respond with different offers
+        * Offers are typically unicast directly to the client’s MAC address
+
+
+3. Request
+        * Client selects one offer and broadcasts a DHCPREQUEST
+        * This allows other DHCP servers to know their offers aren’t selected
+        * Request includes the server id of the chosen server
+        * Request confirms the IP address that the client wants to lease
+
+
+4. Acknowledgement
+        * Selected Server sends a DHCPACK message
+        * Confirms the IP address assignment and provides final config parameters
+        * Client now configures its network interface with the provided information
+
+
+Steps to observe the DORA Process
+
+
+* Open up wireshark and selected the network interface we intend to monitor 
+        
+        Example: eth0 or ens33
+
+* Run the following command to call for the DORA process
+        
+        ipconfig /release
+        ipconfig /renew
+
+* The above 2 commands ensures that the IP address is cleared and a new one is requested from the server
+
+* Now in wireshark apply the filter “bootp || dhcp” to capture the DORA Packets
+
+* Now we have the DORA packets 
+
+
+
+
+Analyzing the DORA Packets
+
+
+1. DISCOVER
+  
+
+        * From the above packet the following are understood
+                        
+                - Source IP: 0.0.0.0 (client has no IP yet)
+                - Destination IP: 255.255.255.255 (broadcast)
+                - UDP ports: Source 68, Destination 67
+                - Contains client's MAC address
+                - DHCP Message Type: 1 (DISCOVER)
+                - May contain Parameter Request List (options client wants)
+
+
+        * The client creates a DHCPDISCOVER packet and broadcasts the same to all devices in the network
+
+
+2. OFFER
+        * To the request made the DHCP Server responds:
+
+                - Source IP: 192.168.0.1 (DHCP server)
+                - Destination IP: 255.255.255.255 (often broadcast) or direct to MAC
+                - UDP ports: Source 67, Destination 68
+                - DHCP Message Type: 2 (OFFER)
+                - Your (client) IP address: 192.168.0.150 (example)
+                - Server identifier: 192.168.0.1
+                - Lease time: 600 seconds
+                - Additional parameters: subnet mask, router, DNS, etc.
+
+
+        * The DHCP Server receive the DISCOVER Packet
+        * Checks address pool for available IP
+        * Reserves the IP temporarily
+        * Creates OFFER message with configs
+        * Sends the Response to client
+
+
+3. REQUEST
+        * Client confirms that it wants the offered IP address
+
+                - Source IP: 0.0.0.0 (still no configured IP)
+                - Destination IP: 255.255.255.255 (broadcast)
+                - UDP ports: Source 68, Destination 67
+                - DHCP Message Type: 3 (REQUEST)
+                - Requested IP Address: 192.168.0.150
+                - Server Identifier: 192.168.0.1 (identifies chosen server)
+                - Parameter Request List: configuration options client wants
+
+
+        * Client selects the best offer received
+        * Creates REQUEST packet with server ID and requested IP
+        * Broadcasts Request with server ID and requested IP
+        * Broadcasts REQUEST to inform all the servers
+        * Other servers withdraw their offers
+
+
+4. ACK
+        * Server confirms the assignment
+
+                - Source IP: 192.168.0.1 (DHCP server)
+                - Destination: Client MAC or broadcast
+                - UDP ports: Source 67, Destination 68
+                - DHCP Message Type: 5 (ACK)
+                - Your (client) IP address: 192.168.0.150
+                - Lease time: 600 seconds
+                - Renewal time (T1): 300 seconds
+                - Rebinding time (T2): 525 seconds
+                - All requested configuration parameters
+
+        * The server commits the lease to its database
+        * Sends a ACK with final parameters
+        * Client receives the ACK and configs the network interface
+        * Client may perform ARP to check for IP conflicts
+        * Client begins to use the assigned IP address
+
+
+Problems that can be faced
+
+* IP address exhaustion -> IP pool is too small -> Expand the DHCP Scope
+* IP address conflict -> Duplicate IP or multiple DHCP servers -> Remove conflicts
+* DHCP Server not responding -> Server down / firewall block -> Start service and allow all ports
+
+
+Conclusion
+
+* DHCP being important for IP allocation at enterprise level needs to be configured and understood inorder to properly configure DHCP and timely troubleshoot to ensure smooth network operation.

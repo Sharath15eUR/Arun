@@ -1,0 +1,140 @@
+Objective -> Manually Configure Static IP on Devices
+
+What is static IP address?
+
+	- A static IP is a fixed IP address that is set manually to a device and doesnt change unless manually modified
+
+	- Once configured, the device retains the same IP address even after rebooting
+
+	- Commonly used for devices that require consistent network identity some of which include:
+
+		- Servers
+		- Network Printers
+		- Remote access
+		- IoT devices
+
+Difference between Static and Dynamic IP
+
+	- Static IP is manually assigned whereas a dynamic IP is assigned by DHCP (Dynamic Host Configuration Protocol)
+
+	- Static IP remains the same untill changed whereas Dynamic IP can change over time
+
+	- Static IP are more vulnerable to attack where as Dynamic IP is not due to less exposure caused by regular IP change
+
+Why static IP?
+
+	- It is consistent and Reliable
+
+	- Ensures Remote Access
+
+	- Port forwarding and NAT (Network Address Translation)
+
+	- DNS and Hosting
+
+	- Reduced Network conflicts
+
+
+Steps to configure static IP in Linux
+
+	- First ensure that the system is up to date and install net-tools:
+
+		sudo apt update
+		sudo apt install net-tools
+
+	- The above step is important in order to use the ifconfig command which comes bundled in teh net-tools package
+
+	- Now check the current network interface using the ifconfig command just type ifconfig and hit enter
+
+	- Example output
+
+		ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+		        inet 192.168.180.130  netmask 255.255.255.0  broadcast 192.168.180.255
+		        inet6 fe80::934e:2336:3d52:d898  prefixlen 64  scopeid 0x20<link>
+		        ether 00:0c:29:46:68:dd  txqueuelen 1000  (Ethernet)
+		        RX packets 58824  bytes 56290883 (56.2 MB)
+		        RX errors 118  dropped 8  overruns 0  frame 0
+		        TX packets 32077  bytes 8818246 (8.8 MB)
+		        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+		        device interrupt 19  base 0x2000  
+		
+		lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+		        inet 127.0.0.1  netmask 255.0.0.0
+		        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+		        loop  txqueuelen 1000  (Local Loopback)
+		        RX packets 6502  bytes 678601 (678.6 KB)
+		        RX errors 0  dropped 0  overruns 0  frame 0
+		        TX packets 6502  bytes 678601 (678.6 KB)
+		        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+		
+		virbr0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+		        inet 192.168.122.1  netmask 255.255.255.0  broadcast 192.168.122.255
+		        ether 52:54:00:5f:b7:12  txqueuelen 1000  (Ethernet)
+		        RX packets 0  bytes 0 (0.0 B)
+		        RX errors 0  dropped 0  overruns 0  frame 0
+		        TX packets 0  bytes 0 (0.0 B)
+		        TX errors 0  dropped 21 overruns 0  carrier 0  collisions 0
+		
+
+
+	- In the above it could be understood that ens33 is the Network interface name inet->Current IP address netmask -> Subnet mask broadcast -> Broadcast address
+
+	- To assign static IP to any interface using the following template
+
+		sudo ifconfig <interface_name> <ip_address> netmask <subnetmask> up
+
+		Example:
+
+		sudo ifconfig enp0s3 192.168.1.100 netmask 255.255.255.0 up
+
+	- Now once the static ip is assigned we have to change/set the default gateway to do so use :
+
+		sudo route add default gw <gateway_ip> <interface_name>
+
+		Example:
+
+		sudo route add default gw 192.168.1.1 enp0s3
+
+	- Optionally configure the DNS by editing /etc/resolv.conf file by adding 
+
+		nameserver 8.8.8.8
+		nameserver 8.8.4.4
+
+	- The above ensures that we use Google DNS for resolving although it is purely optional and not necessary
+
+	- Verify changes by running the ifconfig command again
+
+		ifconfig
+
+	- Check the routing table to see if the gateway is changed and set by running
+
+		route -n
+
+	- Now we have successfully setup a static ip and is configured
+
+
+Problems faced:
+
+	- IP Conflict -> Two devices with same IP -> use arp -a to find the conflict
+
+	- No internet -> Wrong gateway or dns -> Check routing by calling ip route
+
+	- Changes lost after restart -> Not made persistent -> add to persistent config file
+
+	- If ifconfig is deprecated then use the ip addr command 
+Common Best Practices
+
+	- Assign IP outside the DHCP range
+
+	- Keep Record of assigned static IP
+
+	- Use Secure DNS 
+
+	- Test connectivity after assigning Static IP
+
+Conclusion
+
+	- Configuring static IP ensures a stable and reliable connection, mainly for servers and other critical devices.
+
+	- Using the ifconfig we have the complete control over the network interfaces thus capable of improving consistency and connectivty
+	
+	

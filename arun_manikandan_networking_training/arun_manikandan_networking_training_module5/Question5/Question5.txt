@@ -1,0 +1,138 @@
+Objective -> Divide the network into 4 subnets
+
+What is subnetting?
+
+	-Subnetting is the process of dividing a larger IP network into smaller, more manageable subnetworks (subnets). It allows for more efficient use of IP addresses, improved network security, and better network organization.
+	
+
+We are given the IP address range : 192.168.1.0/24 and we need to subnet the same into 4 subnetworks
+
+Steps to subnet :
+
+	- Analysing the given IP
+
+		- 192.168.1.0/24 belongs the Class C Range of IP Address with a default subnet mask of 255.255.255.0
+
+		- The /24 in the IP tells us that there are 2^8 total address i.e, 256 total address
+
+		- The valid range would be 192.168.1.0 to 192.168.1.255 (256 address including 192.168.0.1 and 192.168.0.255)
+
+		- The first IP address is always set as the network address so 192.168.1.0 -> Network Address
+
+		- The last IP address is always set as the broadcast address so 192.168.1.255 -> Broadcast Address
+
+	- Dividing into subnets
+
+		- We need to increase the subnet bits to create 4 subnets thus to create 4 subnets we need 2 additional bits
+
+		- 2^2 = 4 bits thus new subnet mask would be /26 -> 255.255.255.192
+
+	- Subnet Calculation
+
+		Subnet			Network Address			First Usable IP			Last Usable IP			Braodcast Address
+
+		1 				192.168.1.0/26			192.168.1.1 			192.168.1.62 			192.168.1.63
+		
+		2 				192.168.1.64/26			192.168.1.65 			192.168.1.126			192.168.1.127
+		
+		3				192.168.1.128/26		192.168.1.129			192.168.1.190			192.168.1.191
+		
+		4				192.168.1.192/26		192.168.1.193			192.168.1.254			192.168.1.255
+
+
+Basic steps to calculate Subnetting:
+
+	- Find the value x such that 2^x >= number of subnets reuqired
+
+	- Calculate the new subnet mask 
+
+	- find the increment by using
+
+		 32 - last set octet value in subnet mask
+
+	- Find the number of hosts using
+
+		32 - new subnet value = y
+		2^y - 2
+
+	- Create the new subnets
+
+Steps:
+
+	- Open cisco packet tracer
+
+	- Create a network with 4 devices each connected to a switch connected to a router (Ref to Setup Image)
+
+	- Assign IP address to the same for example:
+
+		Device	Subnet	IP Address	Subnet Mask	Gateway
+		PC1	Subnet 1	192.168.1.10	255.255.255.192	192.168.1.1
+		PC2	Subnet 2	192.168.1.70	255.255.255.192	192.168.1.65
+		PC3	Subnet 3	192.168.1.130	255.255.255.192	192.168.1.129
+		PC4	Subnet 4	192.168.1.200	255.255.255.192	192.168.1.193
+
+	- Connect devices using the switch 
+
+	- Configure the static IP routes on the router 
+
+		Router1:
+
+			enable
+			configure terminal
+			interface gigabitEthernet 0/1
+			ip address 192.168.1.62 255.255.255.192
+			no shutdown
+			exit
+			interface gigabitEthernet 0/0
+			ip address 192.168.1.190 255.255.255.192
+			no shutdown
+			exit
+			interface gigabitEthernet 0/2
+			ip address 10.0.0.1 255.255.255.252
+			no shutdown
+			exit
+			ip route 192.168.1.64 255.255.255.192 10.0.0.2
+			ip route 192.168.1.192 255.255.255.192 10.0.0.2
+			end
+			copy running-config startup-config
+			show interfaces brief
+			show ip interface brief
+			show ip route
+
+		Router2:
+		
+			enable
+			configure terminal
+			interface gigabitEthernet 0/2
+			ip address 10.0.0.2 255.255.255.252
+			no shutdown
+			exit
+			interface gigabitEthernet 0/0
+			ip address 192.168.1.126 255.255.255.192
+			no shutdown
+			exit
+			interface gigabitEthernet 0/1
+			ip address 192.168.1.254 255.255.255.192
+			no shutdown
+			exit
+			ip route 192.168.1.0 255.255.255.192 10.0.0.1
+			ip route 192.168.1.128 255.255.255.192 10.0.0.1
+			end
+			copy running-config startup-config
+			show interfaces brief
+			show ip interface brief
+			show ip route
+
+	- Use ping to verify the connection 
+
+Common Problems faced:
+
+	- PC cannot ping its gateway -> Incorrect gateway IP on PC -> Verify and correct gateway IP on PC.
+	- PC cannot ping a PC in a different subnet -> Missing static route on router -> Add static route on router to destination network.
+	- Router interface is down -> Cable unplugged or faulty -> Check cable connection and replace if needed.
+	- Ping fails intermittently -> IP address conflict -> Assign unique IP addresses to devices.
+
+Conclusion:
+
+	Thus by understanding how to subnet a network one can efficiently configure any real world network and ensure better connectivity
+	

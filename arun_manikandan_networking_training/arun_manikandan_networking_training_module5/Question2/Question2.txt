@@ -1,0 +1,190 @@
+Objective -> ARP Spoofing Attack Using Packet Tracer
+
+What is ARP Spoofing :
+
+	- ARP Spoofing/Poisoning is a technique used by hackers/attackers to redirect the network traffic.
+
+	- It works by sending fake ARP Packets to associate a MAC address with an uininteded IP i.e the hackers IP
+
+	- This  is mainly used as a Man-in-the-Middle attack (MItM) attacks.
+
+How it works?
+
+	- Attacker sends the fake ARP Replies
+
+		Pretends to be the intended device (Mostly a router)
+
+	- Target updates the ARP table
+
+		Associates the attacker's MAC with the router's IP
+
+	- Traffic Redirection
+
+		Victim sends traffic to the attacker rather than sending it to the router cause of the updated ARP table
+
+	- Attacker Monitors/Modifies
+
+		The attacker having the access to the packets can modify drop or manipulate the same
+
+	- Maintaining of the attack
+
+		Sends regular ARP replies to keep the association
+
+Example
+
+	Attacker’s IP = 192.168.1.100, MAC = 11:22:33:44:55:66
+	
+	Victim’s IP = 192.168.1.10, MAC = 00:11:22:33:44:55
+
+	Router’s IP = 192.168.1.1, MAC = AA:BB:CC:DD:EE:FF
+
+	- Attacker sends:
+	
+	    "192.168.1.1 is at 11:22:33:44:55:66" → to victim
+	    "192.168.1.10 is at 11:22:33:44:55:66" → to router
+	
+	- Traffic between victim and router now goes through the attacker.
+
+Steps:
+
+	- Open up Cisco Packet Tracer to setup a small network
+
+	- Create a small network with 2 PC's connected to a switch which is then connected to a router
+
+	- Mirror the aboe to the right side to create 2 LANS's interconnected with the router
+
+		[PC0] ---->  												 [PC2]
+
+		              [Switch0] ----> [Router] <---- [Switch1] <---- 
+		                
+		[PC1] ---->  												[PC3]
+		
+
+	- Configure the PC's to have the ip address and setup the gateway properly as configured in the router.
+
+		- PC0
+
+			IP : 192.168.1.2
+			Gateway : 192.168.1.1
+
+		- PC1
+
+			IP : 192.168.1.3
+			Gateway : 192.168.1.1
+
+		- PC2
+
+			IP : 192.168.2.2
+			Gateway : 192.168.2.1
+
+		- PC3
+		
+			IP : 192.168.2.3
+			Gateway : 192.168.2.1
+
+		- Router
+
+			- Gigabit0/0 (Inteface)
+
+				IP : 192.168.1.1 
+				Subnet-mask : 255.255.255.0
+
+			- Gigabit0/1 (Interface)
+
+				IP : 192.168.2.1
+				Subnet-mask : 255.255.255.0
+
+			- Both the interfaces are set to be up mode
+			
+	- Now since Cisco Packet Tracer doesnt allow ARP manipulation or statically setting up the ARP table we chagne our approach
+
+	- Intially ping from PC0 to PC1 using the IP address to populate the ARP table
+
+	- Now use arp - a to see the arp table of PC0 which has the IP and MAC address of PC1
+
+	- Similary now ping the router from PC0 to get the MAC details of the Router
+
+	- Since we cant directly spoof we shutdown the router by:
+
+		- Click on router and condfg and enter the following
+
+		-  enable
+
+		- configure terminal
+
+		- interface <interface_name> (with which the switch is connected to )
+
+		- shutdown
+
+	- Now that our router is shutdown we can proceed.
+
+	- Manually change the IP of PC1 to point to that of a router (192.168.1.1)
+
+	- Now send a ping reuqest to the rotuer IP (192.168.1.1)
+
+	- Now the MAC address would be changed to that of the PC1 (The attacker's PC in our case)
+
+	- Now go back to the router and turn on the interface by :
+
+		- enable
+
+		- configure terminal
+
+		- interface <interface_name>
+
+		- no shutdown
+
+	- Now whenever we send some packet to the router or through the router the PC1 (Attacker is able to see the same and manipulate it)
+
+	- Thus we have successfully simulated the ARP spoofing in Cisco Packet Tracer
+
+
+How to Defend ARP Spoofing?
+
+	- Manually define the IP-MAC pairs
+
+	- Limit MAC address per port
+
+	- Encrypt the data
+
+	- Use third party tools to validate and check ARP packets.
+
+Issuses that can be faced:
+
+	- Ping not passing from one LAN to other LAN
+
+		- This can be caused if the router-switch IP is different from that of the PC configured.
+
+		Example : Rotuer -> Interface Gigabit0/1 has an IP 192.168.1.1 and the PC0 and PC1 has 192.168.x.x then it wont work it should rather be 192.168.1.x
+
+		- This can also happen if the default gateway is not configured in the PC so make sure to set the default gateway to point to the correct IP assigned in the router
+
+
+Behaviour of device when a malicious ARP Packet is received?
+
+	- Accepts ARP without validation (IF ARP Validation is not set)
+		
+	- Overwrites the existing ARP table with the new one
+
+	- Forwards traffic to the attacker
+
+	- This is because there is no authenitcation involved in ARP and no encryption
+
+
+Why Cisco Packet Tracer doenst support ARP spoofing directly?
+
+	- Cisco PT is a simulation tool and has its limitations and is not realtime network
+
+	- PT doesnt allow for setting up the MAC address in ARP Table statically using the arp -s command
+
+		syntax -> arp -s <ip> <mac>
+
+	- PT lacks the support for certain tools like arpspoof and also lacks certain arp commands 
+
+	- Due to the above it becomes hard to simulate a real ARP Spoof Attack in PT.
+
+	- The only work arond is to set the MAC directly by changing the IP (This is the above discussed methodology)
+
+Conclusion:
+
+	- This simulation demonstrated how ARP spoofing works and how it can compromise network security. It highlights the importance of securing ARP through static mappings, MAC filtering, and encrypted communication.

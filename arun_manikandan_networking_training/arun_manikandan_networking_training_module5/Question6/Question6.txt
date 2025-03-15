@@ -1,0 +1,94 @@
+Objective -> Given IP address we are supposed to find which class they belong to subnet of each class and provide the range of IP address for the same
+
+Give IP addresses:
+
+	10.1.1.1
+	172.16.5.10
+	192.168.1.5
+
+
+IP Address Classes :
+
+	- Class A
+	
+	    Range: 1.0.0.0 to 126.0.0.0
+	    Default Subnet Mask: 255.0.0.0 (/8)
+	    Number of Networks: 128 (excluding 0.x.x.x and 127.x.x.x)
+	    Number of Hosts per Network: 16,777,214 (2²⁴ - 2)
+	
+	- Class B
+	
+	    Range: 128.0.0.0 to 191.255.0.0
+	    Default Subnet Mask: 255.255.0.0 (/16)
+	    Number of Networks: 16,384
+	    Number of Hosts per Network: 65,534 (2¹⁶ - 2)
+	
+	- Class C
+	
+	    Range: 192.0.0.0 to 223.255.255.0
+	    Default Subnet Mask: 255.255.255.0 (/24)
+	    Number of Networks: 2,097,152
+	    Number of Hosts per Network: 254 (2⁸ - 2)
+	
+	- Class D (Multicast)
+	
+	    Range: 224.0.0.0 to 239.255.255.255
+	    Used for multicast groups – no subnetting or host assignments
+	
+	- Class E (Reserved)
+	
+	    Range: 240.0.0.0 to 255.255.255.255
+	    Reserved for future use – not used for host assignment
+
+
+
+How to find which IP belongs to which Class
+
+	-Take the first octet of the IP address (e.g., for 192.168.1.1, the first octet is 192).
+
+	-Compare the first octet value with the following ranges:
+
+	    1 – 126 → Class A
+	    128 – 191 → Class B
+	    192 – 223 → Class C
+	    224 – 239 → Class D (Multicast)
+	    240 – 255 → Class E (Reserved)
+
+	-Identify the class based on the matched range.
+
+
+For 10.1.1.1
+
+	- It belongs to Class A as it lies between 1.0.0.0 to 126.0.0.0 range
+
+	- Range : 10.0.0.0 to 10.255.255.255
+
+	- Default subnet mask : 255.0.0.0 (/8)
+
+	- Number of hosts : 16,777,214
+
+For 172.16.5.10
+
+	- It belongs to Class B as it lies between 128.0.0.0 to 191.255.0.0
+
+	- Range : 172.16.0.0 to 172.31.255.255
+
+	- Default Subnet mask : 255.255.255.0 (/16)
+
+	- Number of hosts : 65,534
+
+For 192.168.1.5
+
+	- It belongs to Class C as it lies between 192.0.0.0 to 223.255.255.0
+
+	- Range : 192.168.0.0 to 192.168.255.255
+
+	- Default Subnet mask : 255.255.255.0 (/24)
+
+	- Number of hosts : 254
+
+Conclusion:
+
+	- By understanding IP address classes and subnetting, you can efficiently design and manage networks. 
+	- Identifying the class of an IP address helps determine the network size, default subnet mask, and available host range. 
+	- This knowledge ensures better IP address allocation, improved network organization, and enhanced performance.

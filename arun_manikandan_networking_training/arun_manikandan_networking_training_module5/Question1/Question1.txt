@@ -1,0 +1,126 @@
+Objective -> Capture and Analyze ARP Packets Using Wireshark
+
+What is ARP?
+
+	- ARP stand for Address Resolution Protocol
+
+	- It is mainly used to map an IP Address to a MAC Address
+
+	- It operates at the Data Link layer (Layer 2) and helps the devices in a local network to communicate with eachother.
+
+	Type:
+
+		- ARP Request : Who has the IP address? Tell your MAC Address to <Source_IP>
+
+		- ARP Reply : This IP belongs to <DestinationMAC> tell back to the <Source_IP>
+
+
+Where is ARP Used?
+
+	- ARP is mainly employed by devices like routers, switches and servers to resolve MAC Address dynamically in LAN environments
+
+	- In server side and network management, a network admin usually monitor ARP traffic to detect any spoof attempts.
+
+
+Steps : 
+
+	- Open up wireshark
+
+	- Select an active network interface to monitor over (typically eth0 or ens33)
+
+	- Now open up the terminal and send a ping request to a local device in the same network
+
+		Example: ping 192.168.10.111
+
+	- Now in wireshark once the packets are updated apply the filter "arp"
+
+	- Now stop the ping request and analyse the APR Packets
+
+
+Issues that can be faced:
+
+	- No ARP packets present
+
+		 - Usually caused if the wrong interface is selected make sure the correct one is selected.
+
+		 - No ARP Reply received -> Wrong IP address or the device could be offline.
+
+		 - Slow reply -> Congestion so check traffic and try again.
+
+
+Analysis of the ARP Packets:
+
+	- Upon inspection of the ARP Request packet the following things are understood:
+
+		- THe ARP Request is sent in broadcast mode so that all the devices are asked to check and the one with the requested IP sends back its MAC adress.
+
+		- The packet also contains the Sender's MAC Address 
+
+			Sender MAC address: VMware_c0:00:08 (00:50:56:c0:00:08)
+
+		- This is followed by the IP address of the Sender
+
+			Sender IP address: 192.168.180.1
+
+		- The next is the target MAC address
+
+			Target MAC address: 00:00:00_00:00:00 (00:00:00:00:00:00)
+
+			This is all set to 0 because intially the ARP Request doesnt know the actuall mac address and acts as a placeholder
+
+		- The next is the target IP Address
+
+			Target IP address: 192.168.180.130
+
+	- Now we know that the user has tried to ping 192.168.180.130 and since the current device doesnt know where to find it has sent out an ARP Request asking for who has the IP address.
+
+	- Followed by this all the devices connected in the same Network would receive this same ARP Request packet.
+
+	- The device with the target IP sends back an ARP Reply Packet
+
+	- Upon inspection of the ARP Reply Packet the following are understood:
+
+		- All the things are similar to that of the ARP Request Packets and it contains all the details like but this time the receiver becomes the sender:
+
+			- Sender MAC Address
+
+			- Send IP Address
+
+			- Target MAC Address
+			
+			- Target IP Address
+
+		 - Except this time the Target MAC Address is not a palceholder value of all 0's but the actual MAC Address itself.
+
+		 	Target MAC address: VMware_c0:00:08 (00:50:56:c0:00:08) (This is of the sender)
+
+		 - As it can be seen the ARP Reply has the MAC Address of 00:50:56:c0:00:08 the VMWare_c0:00:98 is show as the device is in VMware and it signifies that this ip is associated with a VMWare netowrk device
+
+		 - Thus the following are the new content of the ARP Reply:
+
+		 	 Sender MAC address: VMware_46:68:dd (00:0c:29:46:68:dd) (This is the MAC Address that the ARP Request was created for)
+
+		 	 Sender IP address: 192.168.180.130
+
+		 	 Target MAC address: VMware_c0:00:08 (00:50:56:c0:00:08)
+
+		 	 Target IP address: 192.168.180.1
+
+
+Final Obeservations:
+
+	- The ARP Request is sent for MAC address of 192.168.180.130
+
+	- All devices receive this request but only 192.168.180.130 replies back
+
+	- The ARP Reply contains the MAC Address of 192.168.180.130
+
+
+Conclusion: 
+
+	- ARP plays a pivotal role in LAN Communication by resolving IP's to MAC Address
+
+	- By using wireshark tool we are able to analyse and filter out the ARP packets to check for ARP spoofing
+
+	- Thus by understanding the ARP Protocol we can ensure that we are capable to detect any ARP spoof attempts
+	
