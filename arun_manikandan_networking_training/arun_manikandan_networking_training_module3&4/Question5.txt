@@ -1,0 +1,77 @@
+Objective -> To stimulate a local network including 2 VM Machines (Ubuntu Machines) and connect them through a switch
+
+
+Steps:
+
+	- Install GNS3 VM and the GNS3 Application itself
+
+	- Install the IOU Device (Cisco L2 switch)
+
+	- Generate the IOURC file by following the below command
+
+		- sudo wget http://www.ipvanquish.com/download/CiscoIOUKeygen3f.py
+
+		- Once the above is downloaded do :
+
+		  python3 CiscoIOUKeygen3f.py
+
+		- Ensure that the iourc.txt file is created if not create one using vim/nano or any preffered editor
+
+	- Once the iourc file is generated save it to /etc/GNS3/ or save the same in the /home/ directory 
+
+	- This is necessary inorder for us to startup the Cisco Switch and use the terminal
+
+	- If the above is not configured then we get the IOU Liscense not configured meaning we cannot access the IOU switch
+
+	- Now to install the cisco IOU switch we download the .bin file from the github (Just search cisco switch l2 iou images and click the first link)
+
+	- Once downlaoded extract the same.
+
+	- Now open the gns3 application select new template and click on switch and select the Cisco IOU
+
+	- In the followin menu choose the downloaded bin file and click on install this will show us the Cisco IOU switch in the drag and drop menu
+
+	- Now in the similar way we need to setup a VM follow the same steps except that we now choose guests option and select the Ubuntu Qemu version (For GUI usaged)
+
+	- Now click on download to start the download for the Ubuntu image and download the same (It will redirect)
+
+	- Once it is done it will be available on the Drag and drop menu
+
+	- Now we can drop 2 Ubuntu Machines and the switch and connect the same.
+
+	- Now use the connection tool to connect the machines to the switch.
+
+	- Fire up the VM's and configure their ip address to use the internet or leave it just like that and check for connectivity
+
+	- By default the VM;s will have the IP 127.0.0.1/8 for each vm created the last octet alone changes
+
+	- Try use the ping command to check the interconnectivity
+
+	- Now open the switch interface and use the command below to display the mac address table
+
+		- show mac address-table
+
+	- Thats it we have successfully connected 2 VM's and setup a small network
+
+
+Issuses Faced:
+
+	- When on Windows the setup of GNS3 VM is pretty hectic we might face the issue Intel-Vt/X is not supported on this device to overcome this I followed the below commands
+
+		- Turn off the Hyper-V feature from Turn Windows Features On/Off
+
+		- Use the bcdedit command to setup hypervlauncher to off
+
+		- If on windows 11 then it is recommended to turn off the Memory Integrity Feature from the Core Isolation Menu
+
+	- Once the above are completed restart the system and we must be good to go.
+
+
+
+	- Suppose if we get iourc license is not configured in the GNS3 application then head onto edit>preferences>IOU
+
+	- Here we have to select the remote server and enter the IP and port address of the GNS3 Server both of which are displayed in the VMWare GNS3 server
+
+	- Now if we restart the Client everything should be set
+
+
