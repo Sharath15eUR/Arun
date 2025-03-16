@@ -1,0 +1,161 @@
+Objective -> To capture and analyze DNS, TCP, and UDP traffic using Wireshark
+
+What is DNS?
+
+	- DNS (Domain Name System)
+	
+	- DNS resolves domain names (like www.google.com) to IP addresses.
+
+	- Common issues:
+
+	       * Slow resolution
+	       * Incorrect DNS responses
+	       * Cache poisoning attacks
+
+What is TCP?
+
+	- TCP (Transmission Control Protocol)
+	
+	- TCP is a connection-oriented protocol used for reliable data transmission.
+
+	- Involves 3-way handshake, flow control, and congestion control.
+
+	- Common issues:
+
+	       * High latency
+	       * Connection resets
+	       * Packet retransmissions
+
+
+What is UDP?
+
+	- UDP (User Datagram Protocol)
+	
+	- UDP is a connectionless protocol used for fast, low-latency communication (e.g., VoIP, DNS).
+
+	- Common issues:
+
+	       * Packet loss
+	       * Out-of-order packets
+	       * Lack of retransmission
+
+
+**Check the images for the DNS Frame**
+
+Analysis of the UDP frame:
+
+	1. Frame Layer
+
+       	 	* Packet Length: 85 bytes
+        	* Interface: ens33 (Ethernet)
+
+    2. Ethernet Layer
+
+       		* Source MAC: 00:0c:29:46:68:dd
+        	* Destination MAC: 00:50:56:ed:02:49
+
+    3. IP Layer
+
+       		* Source IP: 192.168.180.130 (Your machine)
+        	* Destination IP: 192.168.180.2 (DNS server)
+       		* Protocol: UDP
+
+    4. UDP Layer
+       		* Source Port: 36875 (Random high port)
+        	* Destination Port: 53 (DNS port)
+
+    5. DNS Layer
+
+       		* Transaction ID: 0x3abc (Used to match request/response)
+        	* Flags: 0x0100 → Recursion Desired (RD = 1)
+        	* Query: www.google.com
+            * Type: A → IPv4 address
+            * Class: IN → Internet
+
+        	*OPT Record:
+
+            	*Payload Size: 1472 → Max DNS message size
+            	*DO (DNSSEC): 0 → DNSSEC not supported
+
+	This is means that :
+
+		- Our machine sent a DNS query using UDP to the DNS server, asking for the IPv4 address of www.google.com with recursion enabled and EDNS0 active.
+
+Analysis of TCP Packets:
+
+	    Step 1 – SYN (Connection Initiation):
+
+        	- Machine (192.168.180.130) sends a SYN packet to Google's IP (e.g., 142.250.183.100) on port 443.
+        	- Packet Details:
+
+            		* Source Port:  53214
+            		* Destination Port: 443 (HTTPS)
+            		* Flags: SYN → Synchronization request
+            		* Sequence Number:2041433 → Used to track order of packets
+
+			- This is the first step in the TCP three-way handshake.
+
+		Step 2 – SYN-ACK (Server Acknowledges):
+		
+		    - Google's server responds with a SYN-ACK packet:
+
+		       		* Source Port: 443
+		       		* Destination Port: 53214 (the same port your machine used)
+		       		* Flags: SYN, ACK → Synchronize and acknowledge
+		      		* Sequence Number: Initial sequence number from the server
+		      		* Acknowledgment Number: 2041434
+
+		     - This is the second step in the TCP three-way handshake.
+
+		Step 3 – ACK (Connection Established):
+
+        	-Machine sends an ACK back to Google's server:
+
+            		* Flags: ACK → Acknowledge successful connection
+            		* Sequence Number: 241435
+            		* Acknowledgment Number: 29182034
+
+			- This completes the three-way handshake and establishes the connection.
+
+Analysis of UDP Packets:
+
+	    Step 1 – UDP Packet Sent (DNS Query):
+
+        	- Machine (192.168.180.130) sends a DNS query to the DNS server (192.168.180.2) using UDP on port 53.
+
+        	- Packet Details:
+
+            		* Source Port: Random high port (e.g., 36875)
+            		* Destination Port: 53 (DNS port)
+            		* Flags: Recursion Desired (RD = 1)
+            		* Transaction ID: Used to match query and response
+            		* Query:
+                			Name: www.google.com
+                			Type: A (IPv4 address request)
+                			Class: IN (Internet)
+
+			- This is the initial DNS request.
+
+		Step 2 – DNS Server Responds (UDP Reply):
+
+        	- The DNS server receives the query and sends back a UDP response:
+
+		            * Source Port: 53
+		            * Destination Port: 36875
+		            * Flags: Response bit set, Recursion Available (RA) = 1
+		            * Transaction ID: Matches the one in the request
+		            * Answer:
+
+		                www.google.com → 142.250.183.100
+		                Type A → IPv4
+		               	TTL → Time-to-Live value (how long the result is valid)
+
+			- UDP is connectionless → No handshake; server sends the response immediately.
+
+		Step 3 – Browser Uses Resolved IP:
+
+        	- Machine caches the IP address (142.250.183.100) for future use.
+
+        	- Now that the DNS resolution is complete, your browser can initiate a TCP connection to Google’s server using the resolved IP address.
+
+			-After DNS resolution, the browser switches to TCP for the actual data transfer.

@@ -1,0 +1,74 @@
+Objective -> to use tracroute to sites and analyse the parameters and explore other options for traceroute 
+
+What is traceroute?
+
+	- traceroute (Linux) is a network diagnostic tool that maps the path packet takes from machine to a destination (like www.google.com).
+
+	- It essentially works by sending ICMP (Internet Message Control Protocol) Echo Request with increasing TTL values.
+
+	- Each router along the path decreases the TTL (Time To Live) and sends a Time Exceede message when TTL reaches zero.
+
+Command : 
+
+	traceroute www.google.com
+
+Sample Output:
+
+	traceroute to www.google.com (142.250.183.100), 30 hops max, 60 byte packets
+	 1  _gateway (192.168.1.1)  1.234 ms  0.923 ms  1.078 ms
+	 2  10.100.1.1 (10.100.1.1)  5.432 ms  4.221 ms  3.456 ms
+	 3  172.217.22.1 (172.217.22.1)  30.612 ms  29.334 ms  28.978 ms
+	 4  142.250.183.100 (142.250.183.100)  35.234 ms  34.867 ms  34.455 ms
+
+Understanding the output:
+
+	- Hop Count:
+
+		* Each line is one hop along the route. (Meaning the message/pacekt is being transfered from one router to the other).
+		* traceroute stops when it reaches the destination or after the max hops (default max_hops = 30).
+
+	- Router Information:
+
+		* First field shows us about the Hop number.
+		* _gateway tells us the router hostname (only if set/available).
+		* 192.168.1.1 is the IP address of the router itself.
+		* 1.234 ms 0.923 ms 1.078 ms is the Round Trip Time (RTT) for each probe.
+
+	- Round Trip Time (RTT):
+
+		* Three RTT values indicate the time taken for eahc probe to reach the router and return backc.
+		* Lower RTT indicates a faster connection.
+		* Higher RTT indicates network congestion or long distance-routing.
+
+	- Missing or timed-out hops:
+
+		* If any of the hop is filtered or blocked then it is indicated as * * * .
+		* This will be followed by a Request timed out message.
+
+	-Final Hop:
+
+		* The last hop always shows the destination IP and confirms that the packet has indeeded reached the destination.
+		* In the above case it is 142.250.183.100 .
+
+Some options that can be used in traceroute:
+
+	1. -n:
+		* Shows numeric IPs only.
+
+	2. -I:
+		* Uses ICMP instead of UDP packets.
+
+	3. -T:
+		* Uses TCP instead of UDP packets.
+
+	4. -q:
+		* Number of probes per hop (default-3).
+
+	5. -m:
+		* Set max TTL (default 30).
+ 
+Conclusion:
+
+	- Thus by using traceroute command one can effective understand the path taken by the packet to reach its destination.
+
+	- It also tells us about network congestion and how well the network is performing by RTT.

@@ -1,0 +1,254 @@
+Objective -> VLAN and Inter-VLAN Routing Detailed Configuration Guide
+
+TASK 1: CREATE VLANs AND ASSIGN PORTS
+
+What is VLAN?
+    - VLAN (Virtual Local Area Network) allows you to segment a physical switch into multiple logical networks. 
+    - Devices within the same VLAN can communicate directly, while communication between different VLANs requires routing.
+
+Why Use VLANs?
+    - Improved network segmentation and isolation.
+    - Reduces broadcast traffic and increases security.
+
+How It Works:
+    - When you create a VLAN, the switch creates a separate broadcast domain.
+    - Ports assigned to a VLAN can only communicate with other ports in the same VLAN.
+
+Switch 0 Configuration:
+    1. Enter configuration mode:
+        enable
+        configure terminal
+
+    2. Create VLAN 10 and VLAN 20:
+        vlan 10
+        name Engineering
+
+        vlan 20
+        name Sales
+
+    3. Assign ports to VLANs:
+        interface fastEthernet 0/1
+        switchport mode access
+        switchport access vlan 10
+
+        interface fastEthernet 0/2
+        switchport mode access
+        switchport access vlan 20
+
+    4. Exit configuration mode:
+        exit
+
+Verification:
+    - Use the following command to verify VLAN assignment:
+        show vlan brief
+
+(Refer to `Initial_Setup.png`)
+
+TASK 2: CONFIGURE TRUNK PORT BETWEEN SWITCHES
+
+What is a Trunk Port?
+    - A trunk port allows multiple VLAN traffic to pass between switches over a single physical link.
+    - Trunk ports use 802.1Q encapsulation to tag frames with the VLAN ID.
+
+Why Use Trunk Ports?
+    - To allow communication between VLANs across switches.
+    - Prevents the need for separate physical links for each VLAN.
+
+How It Works:
+    - 802.1Q tags each frame with the VLAN ID.
+    - The receiving switch reads the tag and forwards the frame to the correct VLAN.
+
+Switch 0 Configuration:
+    1. Enter configuration mode:
+        enable
+        configure terminal
+
+    2. Set port as trunk:
+        interface gigabitEthernet 0/1
+        switchport mode trunk
+        switchport trunk allowed vlan 10,20
+        no shutdown
+
+    3. Exit configuration mode:
+        exit
+
+Switch 1 Configuration:
+    1. Enter configuration mode:
+        enable
+        configure terminal
+
+    2. Set port as trunk:
+        interface gigabitEthernet 0/1
+        switchport mode trunk
+        switchport trunk allowed vlan 10,20
+        no shutdown
+
+    3. Exit configuration mode:
+        exit
+
+Verification:
+    - Check trunk status using:
+        show interfaces trunk
+
+(Refer to `Switch0_Trunk_Interface.png` and `Switch1_Trunk_Interface.png`)
+
+TASK 3: CREATE MANAGEMENT VLAN (VLAN 99)
+
+What is a Management VLAN?
+    - A VLAN used specifically for managing network devices.
+    - Usually isolated from normal data traffic for security.
+
+Why Use a Management VLAN?
+    - To prevent unauthorized access to management interfaces.
+    - Provides secure access for network administrators.
+
+How It Works:
+    - Switch assigns an IP address to the management VLAN.
+    - The IP is used for remote access (SSH, Telnet, etc.).
+
+Switch 0 Configuration:
+    1. Enter configuration mode:
+        enable
+        configure terminal
+
+    2. Create VLAN 99:
+        vlan 99
+        name Management
+
+    3. Assign IP address to VLAN 99:
+        interface vlan 99
+        ip address 192.168.99.1 255.255.255.0
+        no shutdown
+
+    4. Set default gateway:
+        ip default-gateway 192.168.99.254
+
+    5. Assign port to VLAN 99:
+        interface fastEthernet 0/3
+        switchport mode access
+        switchport access vlan 99
+
+    6. Exit configuration mode:
+        exit
+
+Verification:
+    - Use the following commands to verify:
+        show ip interface brief
+        show vlan brief
+
+(Refer to `Created_Management_VLAN.png`)
+
+TASK 4: SET UP SSH ON SWITCH
+
+What is SSH?
+    - SSH (Secure Shell) allows secure remote access to network devices over an encrypted connection.
+
+Why Use SSH?
+    - Encrypts data to prevent eavesdropping.
+    - Provides secure login access to the switch.
+
+How It Works:
+    - RSA keys are generated for encryption.
+    - VTY lines are configured to allow SSH login.
+
+Switch 0 Configuration:
+    1. Enter configuration mode:
+        enable
+        configure terminal
+
+    2. Set hostname and domain:
+        hostname Switch0
+        ip domain-name example.com
+
+    3. Generate RSA keys:
+        crypto key generate rsa
+
+    4. Create user credentials:
+        username admin privilege 15 secret Cisco123
+
+    5. Enable SSH on VTY lines:
+        line vty 0 4
+        transport input ssh
+        login local
+        exit
+
+Verification:
+    - Test SSH access:
+        ssh admin@192.168.99.1
+
+(Refer to `Set_ssh_on_Switch.png`)
+
+TASK 5: CONFIGURE ROUTER-ON-A-STICK (ROAS)
+
+What is ROAS?
+    - Router-on-a-Stick allows a single router interface to handle traffic from multiple VLANs using subinterfaces.
+
+Why Use ROAS?
+    - To enable inter-VLAN communication using a single physical link.
+
+How It Works:
+    - Router creates subinterfaces.
+    - 802.1Q tags are used to identify VLAN traffic.
+
+Router Configuration:
+    1. Enter configuration mode:
+        enable
+        configure terminal
+
+    2. Enable main interface:
+        interface gigabitEthernet 0/0
+        no shutdown
+
+    3. Create subinterface for VLAN 10:
+        interface gigabitEthernet 0/0.10
+        encapsulation dot1Q 10
+        ip address 192.168.10.1 255.255.255.0
+        no shutdown
+
+    4. Create subinterface for VLAN 20:
+        interface gigabitEthernet 0/0.20
+        encapsulation dot1Q 20
+        ip address 192.168.20.1 255.255.255.0
+        no shutdown
+
+    5. Enable IP routing:
+        ip routing
+
+    6. Exit configuration mode:
+        exit
+
+Verification:
+    - Use the following commands to verify:
+        show ip interface brief
+        show ip route
+
+(Refer to `Router_Config_for_VLAN.png`)
+
+TASK 6: TROUBLESHOOTING
+
+    - If inter-VLAN communication fails:
+        - Ensure trunking is enabled.
+        - Check IP addresses and VLAN assignment.
+
+    - If SSH fails:
+        - Ensure VTY lines are configured.
+        - Make sure RSA keys are generated.
+
+    - If router doesn’t forward packets:
+        - Ensure `ip routing` is enabled on the router.
+
+TASK 7: FINAL CONFIGURATION OVERVIEW
+
+    - VLANs created: VLAN 10, VLAN 20, VLAN 99
+    - Trunk ports set up
+    - Router-on-a-Stick configured
+    - SSH enabled
+    - Inter-VLAN communication verified
+
+(Refer to `Updated_Setup_for_InterVLAN.png`)
+
+CONCLUSION
+    - VLANs and inter-VLAN routing are working correctly.
+    - SSH is configured for secure remote access.
+    - VLAN mismatch fixed.
+    - Setup is clean and operational!

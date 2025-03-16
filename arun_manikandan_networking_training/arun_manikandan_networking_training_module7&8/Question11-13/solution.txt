@@ -1,0 +1,119 @@
+Objective -> To implement and test different types of Access Control Lists (ACLs) on a Cisco router using Cisco Packet Tracer.
+
+Types of ACLs
+    - Standard ACL
+        - Filters traffic based on the source IP address only.
+        - Applied close to the destination to avoid blocking unintended traffic.
+    - Extended ACL
+        - Filters traffic based on source IP, destination IP, protocol, and port number.
+        - Applied close to the source to stop unwanted traffic early.
+    - Named ACL
+        - Similar to extended ACL but with a name instead of a number for easier management.
+        - Used when multiple ACLs need to be organized and managed effectively.
+
+Best Practices
+    - Place standard ACLs close to the destination to avoid blocking legitimate traffic.
+    - Place extended ACLs close to the source to stop unwanted traffic early.
+    - Always add a permit any or deny any statement explicitly to avoid confusion with the implicit deny rule.
+    - Use descriptive names for named ACLs for easier identification and troubleshooting.
+
+Network Setup
+    - The network topology was designed as follows:
+        - PC0 and PC1 were connected to a switch (Switch0) using FastEthernet interfaces.
+        - Switch0 was connected to Router0 using a FastEthernet connection.
+        - Router0 was connected to Server0 using a GigabitEthernet connection.
+    - To understand the network topology, please refer to the image (Initial ACL Setup.png). The network connections and devices are clearly shown in that image.
+
+IP Configuration:
+    - PC0:
+        - IP Address: 192.168.1.10
+        - Subnet Mask: 255.255.255.0
+        - Default Gateway: 192.168.1.1
+    - PC1:
+        - IP Address: 192.168.1.11
+        - Subnet Mask: 255.255.255.0
+        - Default Gateway: 192.168.1.1
+    - Router0:
+        - GigabitEthernet0/0:
+            - IP Address: 192.168.1.1
+            - Subnet Mask: 255.255.255.0
+        - GigabitEthernet0/1:
+            - IP Address: 10.0.0.1
+            - Subnet Mask: 255.255.255.0
+    - Server0:
+        - IP Address: 10.0.0.2
+        - Subnet Mask: 255.255.255.0
+        - Default Gateway: 10.0.0.1
+
+Configuration and Results
+    - 1. Standard ACL Configuration
+        - Standard ACLs filter traffic based only on the source IP address. These are used when simple traffic filtering based on the source is sufficient.
+        - Configuration:
+            - Create a standard ACL to deny traffic from PC1 (192.168.1.11) while allowing traffic from other devices:
+                - Router0(config)# access-list 10 deny 192.168.1.11
+                - Router0(config)# access-list 10 permit any
+            - Apply the ACL to the interface:
+                - Router0(config)# interface GigabitEthernet0/0
+                - Router0(config-if)# ip access-group 10 in
+            - Verification:
+                - Router# show access-lists
+        - The result of the above command is shown in the image (Router Access List.png). It confirms that the ACL is applied correctly, and traffic from PC1 is being denied while other traffic is allowed.
+        - Outcome:
+            - Traffic from PC0 was successful.
+            - Traffic from PC1 was denied as expected.
+    - 2. Extended ACL Configuration
+        - Extended ACLs filter traffic based on source IP, destination IP, protocol, and port number. They provide more granular control over network traffic.
+        - Configuration:
+            - Create an extended ACL to allow ICMP (ping) traffic from PC0 to Server0 but block all other traffic:
+                - Router0(config)# access-list 101 permit icmp 192.168.1.10 0.0.0.0 10.0.0.2 0.0.0.0
+                - Router0(config)# access-list 101 deny ip any any
+            - Apply the ACL to the interface:
+                - Router0(config)# interface GigabitEthernet0/1
+                - Router0(config-if)# ip access-group 101 in
+            - Verification:
+                - Router# show access-lists
+        - The result for the extended ACL configuration can be seen in the image (ACL IP Block Results.png). The output confirms that the extended ACL is correctly applied and working as intended.
+        - Outcome:
+            - ICMP traffic from PC0 to Server0 was successful.
+            - All other traffic was blocked.
+    - 3. Named ACL Configuration
+        - Named ACLs allow you to create ACLs using descriptive names instead of numbers. This helps in better organization and management.
+        - Configuration:
+            - Create a named ACL:
+                - Router0(config)# ip access-list extended MY_ACL
+                - Router0(config-ext-nacl)# permit tcp 192.168.1.10 0.0.0.0 any eq 80
+                - Router0(config-ext-nacl)# deny ip any any
+            - Apply the named ACL to an interface:
+                - Router0(config)# interface GigabitEthernet0/1
+                - Router0(config-if)# ip access-group MY_ACL in
+            - Verification:
+                - Router# show access-lists
+        - The result for the named ACL configuration can be seen in the image (Router0 HTTP ACL Config.png). The output confirms that the named ACL is properly configured and active.
+        - Outcome:
+            - HTTP traffic from PC0 was successful.
+            - All other traffic was denied as expected.
+
+Troubleshooting and Issues
+    - Incorrect ACL Order:
+        - ACLs are processed in sequential order. A permit any statement at the top was causing all traffic to bypass the deny statements.
+        - Reordering the ACL fixed the issue.
+    - Implicit Deny Issue:
+        - By default, ACLs have an implicit deny any at the end. This caused some legitimate traffic to be blocked.
+        - Adding an explicit permit statement after the deny fixed the issue.
+    - Wrong Interface Application:
+        - The ACL was initially applied to the wrong interface.
+        - After correcting the interface, the ACL functioned correctly.
+    - Protocol Mismatch:
+        - When configuring extended ACL, the protocol was incorrectly set to ip instead of icmp.
+        - Correcting the protocol resolved the issue.
+
+Conclusion
+    - Standard ACL was configured to allow/deny traffic based on source IP.
+    - Extended ACL was configured to allow/deny traffic based on source, destination, protocol, and port.
+    - Named ACL was configured to organize and manage traffic control using descriptive names.
+    - Issues related to incorrect order, implicit deny, and protocol mismatches were resolved during the exercise.
+
+The results of all these configurations and translations can be seen clearly in the images attached:
+    - Standard ACL result – check the image (Router Access List.png).
+    - Extended ACL result – check the image (ACL IP Block Results.png).
+    - Named ACL result – check the image (Router0 HTTP ACL Config.png).

@@ -1,0 +1,115 @@
+Objective -> To check connection using ping to check if we can reach the given sites and use nsloopkup to find details about the same.
+
+arunm@KDE-ORG:~$ ping www.google.com -c 4
+PING www.google.com (142.250.196.68) 56(84) bytes of data.
+64 bytes from maa03s46-in-f4.1e100.net (142.250.196.68): icmp_seq=1 ttl=128 time=11.7 ms
+64 bytes from maa03s46-in-f4.1e100.net (142.250.196.68): icmp_seq=2 ttl=128 time=9.95 ms
+64 bytes from maa03s46-in-f4.1e100.net (142.250.196.68): icmp_seq=3 ttl=128 time=9.23 ms
+64 bytes from maa03s46-in-f4.1e100.net (142.250.196.68): icmp_seq=4 ttl=128 time=6.39 ms
+
+--- www.google.com ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 4035ms
+rtt min/avg/max/mdev = 6.391/9.308/11.669/1.903 ms
+arunm@KDE-ORG:~$ nslookup www.google.com
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+
+Non-authoritative answer:
+Name:   www.google.com
+Address: 142.250.196.164
+Name:   www.google.com
+Address: 2404:6800:4007:829::2004
+
+arunm@KDE-ORG:~$ ping www.facebook.com -c 4
+PING star-mini.c10r.facebook.com (57.144.124.1) 56(84) bytes of data.
+64 bytes from edge-star-mini-shv-03-bom2.facebook.com (57.144.124.1): icmp_seq=1 ttl=128 time=26.9 ms
+64 bytes from edge-star-mini-shv-03-bom2.facebook.com (57.144.124.1): icmp_seq=2 ttl=128 time=28.8 ms
+64 bytes from edge-star-mini-shv-03-bom2.facebook.com (57.144.124.1): icmp_seq=3 ttl=128 time=37.1 ms
+64 bytes from edge-star-mini-shv-03-bom2.facebook.com (57.144.124.1): icmp_seq=4 ttl=128 time=26.1 ms
+
+--- star-mini.c10r.facebook.com ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 4052ms
+rtt min/avg/max/mdev = 26.113/29.722/37.099/4.370 ms
+arunm@KDE-ORG:~$ nslookup www.facebook.com
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+
+Non-authoritative answer:
+www.facebook.com        canonical name = star-mini.c10r.facebook.com.
+Name:   star-mini.c10r.facebook.com
+Address: 57.144.124.1
+Name:   star-mini.c10r.facebook.com
+Address: 2a03:2880:f188:181:face:b00c:0:25de
+
+
+arunm@KDE-ORG:~$ ping www.amazon.com -c 4
+PING d3ag4hukkh62yn.cloudfront.net (108.158.57.229) 56(84) bytes of data.
+64 bytes from server-108-158-57-229.bom78.r.cloudfront.net (108.158.57.229): icmp_seq=1 ttl=128 time=27.8 ms
+64 bytes from server-108-158-57-229.bom78.r.cloudfront.net (108.158.57.229): icmp_seq=2 ttl=128 time=29.8 ms
+64 bytes from server-108-158-57-229.bom78.r.cloudfront.net (108.158.57.229): icmp_seq=3 ttl=128 time=37.1 ms
+64 bytes from server-108-158-57-229.bom78.r.cloudfront.net (108.158.57.229): icmp_seq=4 ttl=128 time=36.0 ms
+
+--- d3ag4hukkh62yn.cloudfront.net ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 4051ms
+rtt min/avg/max/mdev = 27.811/32.679/37.093/3.945 ms
+arunm@KDE-ORG:~$ nslookup www.amazon.com
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+
+Non-authoritative answer:
+www.amazon.com  canonical name = tp.47cf2c8c9-frontier.amazon.com.
+tp.47cf2c8c9-frontier.amazon.com        canonical name = www.amazon.com.edgekey.net.
+www.amazon.com.edgekey.net      canonical name = e15316.dsca.akamaiedge.net.
+Name:   e15316.dsca.akamaiedge.net
+Address: 23.45.165.100
+Name:   e15316.dsca.akamaiedge.net
+Address: 2600:140f:6:6ad::3bd4
+Name:   e15316.dsca.akamaiedge.net
+Address: 2600:140f:6:68d::3bd4
+
+arunm@KDE-ORG:~$ ping www.github.com -c 4
+PING github.com (20.207.73.82) 56(84) bytes of data.
+64 bytes from 20.207.73.82: icmp_seq=1 ttl=128 time=19.8 ms
+64 bytes from 20.207.73.82: icmp_seq=2 ttl=128 time=18.0 ms
+64 bytes from 20.207.73.82: icmp_seq=3 ttl=128 time=26.7 ms
+64 bytes from 20.207.73.82: icmp_seq=4 ttl=128 time=25.2 ms
+
+--- github.com ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 4205ms
+rtt min/avg/max/mdev = 18.038/22.448/26.667/3.601 ms
+arunm@KDE-ORG:~$ nslookup www.github.com
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+
+Non-authoritative answer:
+www.github.com  canonical name = github.com.
+Name:   github.com
+Address: 20.207.73.82
+
+arunm@KDE-ORG:~$ ping www.cisco.com -c 4
+PING e2867.dsca.akamaiedge.net (23.220.238.70) 56(84) bytes of data.
+64 bytes from a23-220-238-70.deploy.static.akamaitechnologies.com (23.220.238.70): icmp_seq=1 ttl=128 time=6.85 ms
+64 bytes from a23-220-238-70.deploy.static.akamaitechnologies.com (23.220.238.70): icmp_seq=2 ttl=128 time=8.75 ms
+64 bytes from a23-220-238-70.deploy.static.akamaitechnologies.com (23.220.238.70): icmp_seq=3 ttl=128 time=7.77 ms
+64 bytes from a23-220-238-70.deploy.static.akamaitechnologies.com (23.220.238.70): icmp_seq=4 ttl=128 time=6.15 ms
+
+--- e2867.dsca.akamaiedge.net ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 4071ms
+rtt min/avg/max/mdev = 6.150/7.380/8.749/0.977 ms
+arunm@KDE-ORG:~$ nslookup www.cisco.com
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+
+Non-authoritative answer:
+www.cisco.com   canonical name = www.cisco.com.akadns.net.
+www.cisco.com.akadns.net        canonical name = wwwds.cisco.com.edgekey.net.
+wwwds.cisco.com.edgekey.net     canonical name = wwwds.cisco.com.edgekey.net.globalredir.akadns.net.
+wwwds.cisco.com.edgekey.net.globalredir.akadns.net      canonical name = e2867.dsca.akamaiedge.net.
+Name:   e2867.dsca.akamaiedge.net
+Address: 23.220.238.70
+Name:   e2867.dsca.akamaiedge.net
+Address: 2600:140f:6:6a9::b33
+Name:   e2867.dsca.akamaiedge.net
+Address: 2600:140f:6:68e::b33
+
+arunm@KDE-ORG:~$ 

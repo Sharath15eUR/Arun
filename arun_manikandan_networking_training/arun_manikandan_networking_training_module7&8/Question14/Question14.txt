@@ -1,0 +1,127 @@
+Objective
+
+The purpose of this configuration exercise was to demonstrate the implementation of Static NAT, Dynamic NAT, and PAT (Port Address Translation) using Cisco Packet Tracer. The goal was to understand how different NAT types translate private IP addresses to public IP addresses, allowing internal network devices to communicate with external networks.
+
+Types of NAT
+    - Static NAT
+        - One-to-One mapping of private to public IP.
+        - Used when specific internal devices need to be accessed from outside the network.
+    - Dynamic NAT
+        - A pool of public IP addresses is assigned to internal devices.
+        - Used when multiple internal devices need to access the external network using different IPs.
+    - PAT (Port Address Translation)
+        - Many-to-One mapping of private IPs to a single public IP using port numbers.
+        - Used to conserve public IP addresses by sharing a single IP among many devices.
+
+Network Setup
+    - The network topology was designed as follows:
+        - PC0 and PC1 were connected to a switch (Switch0) using FastEthernet interfaces.
+        - Switch0 was connected to Router0 using a FastEthernet connection.
+        - Router0 was connected to Server0 using a GigabitEthernet connection.
+    - To understand the network topology, please refer to the image (NAT_Basic_Setup.png). The network connections and devices are clearly shown in that image.
+
+IP Configuration:
+    - PC0:
+        - IP Address: 192.168.1.10
+        - Subnet Mask: 255.255.255.0
+        - Default Gateway: 192.168.1.1
+    - PC1:
+        - IP Address: 192.168.1.11
+        - Subnet Mask: 255.255.255.0
+        - Default Gateway: 192.168.1.1
+    - Router0:
+        - GigabitEthernet0/0:
+            - IP Address: 192.168.1.1
+            - Subnet Mask: 255.255.255.0
+        - GigabitEthernet0/1:
+            - IP Address: 10.0.0.1
+            - Subnet Mask: 255.255.255.0
+    - Server0:
+        - IP Address: 10.0.0.2
+        - Subnet Mask: 255.255.255.0
+        - Default Gateway: 10.0.0.1
+
+Configuration and Results
+    - 1. Static NAT Configuration
+        - Static NAT maps a private IP address to a specific public IP address. This type of NAT is used when a device inside the network needs to be accessible from the outside network at a fixed IP address.
+        - Configuration:
+            - Configure Router0 interfaces:
+                - Router0(config)# interface GigabitEthernet0/0
+                - Router0(config-if)# ip address 192.168.1.1 255.255.255.0
+                - Router0(config-if)# no shutdown
+                - Router0(config)# interface GigabitEthernet0/1
+                - Router0(config-if)# ip address 10.0.0.1 255.255.255.0
+                - Router0(config-if)# no shutdown
+            - Set up static NAT translation:
+                - Router0(config)# ip nat inside source static 192.168.1.10 10.0.0.10
+                - Router0(config)# interface GigabitEthernet0/0
+                - Router0(config-if)# ip nat inside
+                - Router0(config)# interface GigabitEthernet0/1
+                - Router0(config-if)# ip nat outside
+            - Verification:
+                - Router# show ip nat translations
+        - The result of the above command is shown in the image (Router0_StaticNAT_config.png). It shows the successful translation from the private IP to the public IP. The output confirms that the static NAT mapping is active.
+        - Outcome:
+            - Successful ICMP request translation confirmed.
+            - NAT successfully translated private IP to public IP.
+    - 2. Dynamic NAT Configuration
+        - Dynamic NAT assigns public IP addresses dynamically from a pool. When an internal device sends a request, it picks an available public IP from the pool.
+        - Configuration:
+            - Define the NAT pool:
+                - Router0(config)# ip nat pool MYPOOL 10.0.0.20 10.0.0.30 netmask 255.255.255.0
+            - Create an access list to allow traffic:
+                - Router0(config)# access-list 1 permit 192.168.1.0 0.0.0.255
+            - Bind the pool to the access list:
+                - Router0(config)# ip nat inside source list 1 pool MYPOOL
+                - Router0(config)# interface GigabitEthernet0/0
+                - Router0(config-if)# ip nat inside
+                - Router0(config)# interface GigabitEthernet0/1
+                - Router0(config-if)# ip nat outside
+            - Verification:
+                - Router# show ip nat translations
+        - The output for the dynamic NAT result can be seen in the image (Router0_DynamicNAT_config.png). It shows that the router is dynamically assigning public IP addresses from the pool to internal devices as they make requests to the external network.
+        - Outcome:
+            - Dynamic NAT assigned public IP from the pool.
+            - Successfully translated private to public IP using dynamic NAT.
+    - 3. Port Address Translation (PAT) Configuration
+        - PAT allows multiple devices to share a single public IP address by using different port numbers.
+        - Configuration:
+            - Create an access list:
+                - Router0(config)# access-list 1 permit 192.168.1.0 0.0.0.255
+            - Bind PAT to the outside interface:
+                - Router0(config)# ip nat inside source list 1 interface GigabitEthernet0/1 overload
+                - Router0(config)# interface GigabitEthernet0/0
+                - Router0(config-if)# ip nat inside
+                - Router0(config)# interface GigabitEthernet0/1
+                - Router0(config-if)# ip nat outside
+            - Verification:
+                - Router# show ip nat translations
+        - The output for PAT can be seen in the image (Router0_PAT_config.png). It shows that multiple devices are sharing a single public IP address through port differentiation.
+        - Outcome:
+            - PAT successfully translated multiple private IPs to a single public IP using port numbers.
+
+Troubleshooting and Issues
+    - Request Timed Out:
+        - The issue was due to an incorrect default gateway configuration on the server. The gateway was corrected to 10.0.0.1.
+        - After fixing the gateway, ICMP requests were successful.
+    - ACL Blocking Traffic:
+        - The extended ACL was incorrectly configured, causing the traffic to be dropped.
+        - After removing and reconfiguring the ACL, traffic flow was restored.
+    - Firewall Issue:
+        - The firewall on the server was initially blocking ICMP requests.
+        - After disabling the firewall, the pings started working as expected.
+    - Port Mismatch Issue:
+        - In PAT configuration, the router was not correctly assigning ports. After restarting the router and reconfiguring the PAT, the translation worked correctly.
+
+Conclusion
+    - Static NAT was used to establish a fixed mapping between internal and external IP addresses.
+    - Dynamic NAT dynamically assigned IP addresses from a pool.
+    - PAT allowed multiple internal devices to share a single public IP using port numbers.
+    - Issues with firewall, ACL, and default gateway were resolved during the exercise.
+
+The results of all these configurations and translations can be seen clearly in the images attached:
+    - Static NAT result – check the image (Router0_StaticNAT_config.png).
+    - Dynamic NAT result – check the image (Router0_DynamicNAT_config.png).
+    - PAT result – check the image (Router0_PAT_config.png).
+
+Outcome: All NAT configurations were successfully implemented and verified through ping tests and show ip nat translations output.
