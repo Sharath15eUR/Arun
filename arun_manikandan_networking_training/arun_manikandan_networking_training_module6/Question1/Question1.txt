@@ -1,0 +1,142 @@
+Objective  -> to capture and analyze ARP packets using Wireshark, followed by an explanation of the importance of ARP in packet forwarding
+
+What is ARP?
+
+	- ARP is a protocol used to map an IP address to a MAC (Media Access Control) address within a local network.
+
+	- When a device wants to communicate with another device in the same network, it needs the MAC address of the destination device.
+
+	- ARP helps resolve this by broadcasting a request to find the MAC address associated with an IP address.
+
+Why ARP is important?
+
+	- Ensures communication within the same subnet.
+
+	- Without ARP, devices wouldn’t know how to route packets to the correct destination.
+
+	- Used in both IPv4 and IPv6 networks.
+
+How ARP Works?
+
+	1. ARP Request:
+	
+	    - A device sends a broadcast ARP request packet:
+	    - Who has 192.168.1.10? Tell 192.168.1.1
+	
+	2. ARP Reply:
+	
+	   -  The target device responds with an ARP reply:
+	   - 192.168.1.10 is at 00:1A:2B:3C:4D:5E
+	
+	3. Caching:
+	
+	   - The MAC address is cached in the ARP table to reduce future ARP requests.
+
+Importance of ARP in Packet Forwarding :
+
+	- ARP allows devices to discover the MAC address associated with an IP address.
+
+	- ARP is essential for Layer 2 (Data Link Layer) communication in the OSI model:
+	
+	    - IP addresses are used at Layer 3 (Network Layer).
+	    - Ethernet frames require a MAC address at Layer 2 to forward packets.
+
+Steps :
+
+	- Open Wireshark.
+
+	- Start capturing packets on the network interface.
+
+	- Use the filter "arp" to filter out only the arp packets.
+
+	- To force the device to generate a new ARP request (instead of using the cache) use :
+
+		sudo ip -s -s neigh flush all
+
+	- Analyse the generated ARP Packets
+
+
+Analysis of the ARP Packet : 
+
+	1. ARPREQUEST:
+
+		Contents:
+
+			Hardware type: Ethernet (1)
+			Protocol type: IPv4 (0x0800)
+			Hardware size: 6
+			Protocol size: 4
+			Opcode: request (1)
+			Sender MAC address: VMware_46:68:dd (00:0c:29:46:68:dd)
+			Sender IP address: 192.168.180.130
+			Target MAC address: 00:00:00_00:00:00 (00:00:00:00:00:00)
+			Target IP address: 192.168.180.254
+
+		- As it can be seen the type of connection the system is using is a wired connection (Ethernet).
+
+		- The protocol type is IPv4.
+
+		- Here Hardware Size is 6 indicating that we require a MAC address of 48 bits ie 6 bytes.
+
+		- Similarly the Protocol size is 4 indicating IPv4 as it requires 4 bytes or 32 bits IP Address.
+
+		- The opcode states request indicating that the packet is ARPREQUEST packet.
+
+		- Then we have the MAC and IP address of the sender itself so that the device that has the IP that we are looking for can reply back to us.
+
+		- This is followed by the MAC and IP address of the target and only the target IP is known so it contains value and the MAC holds the placeholder value of all 0's.
+
+		- Thus this can be said as "Who has 192.168.180.254" tell "192.168.180.130".
+
+	2. ARPREPLY:
+
+		Contents:
+
+			Hardware type: Ethernet (1)
+			Protocol type: IPv4 (0x0800)
+			Hardware size: 6
+			Protocol size: 4
+			Opcode: reply (2)
+			Sender MAC address: VMware_f9:e3:45 (00:50:56:f9:e3:45)
+			Sender IP address: 192.168.180.254
+			Target MAC address: VMware_46:68:dd (00:0c:29:46:68:dd)
+			Target IP address: 192.168.180.130
+
+		- As it can be seen the type of connection the system is using is a wired connection (Ethernet).
+
+		- The protocol type is IPv4.
+
+		- Here Hardware Size is 6 indicating that we require a MAC address of 48 bits i.e, 6 bytes.
+
+		- Similarly the Protocol size is 4 indicating IPv4 as it requires 4 bytes or 32 bits IP Address.
+
+		- The opcode states reply meaning that this one is ARPREPLY Packet.
+
+		- Then we have the MAC and IP address of the target machine that we tried to map in the ARPREQUEST.
+
+		- Then we have the target MAC and IP address which is that of the ARPREQUEST sender.
+
+		- Thus this can be said as "192.168.180.254" is at VMware_f9:e3:45 (00:50:56:f9:e3:45).
+
+Common Problems faced:
+
+	1. ARP request not showing up:	
+
+		- ARP cache already populated so clear ARP cache using "ip neigh flush".
+
+	2. No ARP Reply:
+
+		-Firewall blocking ARP requests so temporarily disable firewall.
+
+	3. Duplicate IP address:
+
+		- Two devices have the same IP so check IP connections and correct conflicts.
+
+
+Conclusion:
+
+	- ARP enables devices to communicate within a local network by resolving MAC addresses.
+
+	- It ensures that packets are forwarded correctly within the same subnet, bridging the gap between Layer 2 (Data Link Layer) and Layer 3 (Network Layer).
+
+	- Wireshark helps in troubleshooting network connectivity issues.

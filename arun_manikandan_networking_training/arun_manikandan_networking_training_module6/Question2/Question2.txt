@@ -1,0 +1,120 @@
+Objective -> Manually configure static routes on a router to direct packets to different subnets. Use the ip route command and verify connectivity using ping and traceroute.
+
+
+What is Static Routing?
+
+    - Static routing is the process of manually defining the path for packets between networks.
+
+    - Unlike dynamic routing, static routes are fixed and do not adjust automatically.
+
+Why Static Routing?
+
+    - Useful in small networks where there’s minimal network change.
+    - Provides full control over routing paths.
+
+Network setup :
+
+
+	Device			Interface			IP Address			Subnet Mask			Role
+
+	Router 1		FastEthernet0/0		192.168.10.1		255.255.255.0		Subnet A
+
+	Router 1		FastEthernet0/1		10.0.0.1			255.255.255.252		Point-to-Point
+
+	Router 2		FastEthernet0/0		10.0.0.2			255.255.255.252		Point-to-Point
+
+	Router 2		FastEthernet0/1		192.168.20.1		255.255.255.0		Subnet B
+
+	Switch 1		FastEthernet0/1-2	N/A					N/Address			Connected to Router 1 and PC1
+	
+	Switch 2		FastEthernet0/1-2	N/A					N/A					Connected to Router 2 and PC2
+
+	PC1				Ethernet0			192.168.10.2		255.255.255.0		Connected to Subnet A
+
+	PC2				Ethernet0			192.168.20.2		255.255.255.0		Connected to Subnet B
+
+Steps:
+
+	- Open Cisco Packet Tracer.
+
+	- Drag and drop 2 routers 2 switches and 2 routers.
+
+	- Connect the devices such that each pc is connected to a unique switch which are connected to a unique router.
+
+	- Use crossover cable to interconnect the routers now.
+
+	- Now configure the PC's using following
+
+		PC1:
+			IP Address: 192.168.10.2
+			Subnet Mask: 255.255.255.0
+			Default Gateway: 192.168.10.1
+
+		PC2:
+			IP Address: 192.168.20.2
+			Subnet Mask: 255.255.255.0
+			Default Gateway: 192.168.20.1
+
+	- Now configure the router 1 by following 
+
+		Router> enable
+		Router# configure terminal
+		Router(config)# interface g0/0
+		Router(config-if)# ip address 192.168.10.1 255.255.255.0
+		Router(config-if)# no shutdown
+		Router(config-if)# exit
+		Router(config)# interface g0/1
+		Router(config-if)# ip address 10.0.0.1 255.255.255.252
+		Router(config-if)# no shutdown
+
+	- Similary configure the router 2
+
+		Router> enable
+		Router# configure terminal
+		Router(config)# interface g0/0
+		Router(config-if)# ip address 10.0.0.2 255.255.255.252
+		Router(config-if)# no shutdown
+		Router(config-if)# exit
+		Router(config)# interface g0/1
+		Router(config-if)# ip address 192.168.20.1 255.255.255.0
+		Router(config-if)# no shutdown
+
+	- Now that the devices are setup we now have to create a static route to subnet A through Router 1.
+
+	- On router 1:
+
+		Router# configure terminal
+		Router(config)# ip route 192.168.20.0 255.255.255.0 10.0.0.2
+		Router(config)# exit
+		Router# write memory
+
+	- On router 2:
+
+		Router# configure terminal
+		Router(config)# ip route 192.168.10.0 255.255.255.0 10.0.0.1
+		Router(config)# exit
+		Router# write memory
+
+	- Check the connectivity using:
+
+		ping 192.168.20.2 (From PC1 to PC2)
+
+	- Thus we have configured a static route.
+
+
+Problems faced:
+
+	1. Ping Fails
+		- Missing or wrong static route	-> Verify with show ip route.
+
+	2. No Response
+		- Interface is down ->	Use "no shutdown" on interfaces.
+
+	3. PCs Can't Communicate
+		- Wrong default gateway on PCs -> Double-check gateway IPs using "show ip route"
+
+Conclusion:
+
+	- Thus we have configured static route for 2 routers to enable different subnets to communicate with eachother
+
+	- Verified the connectivity using ping and traceroute/tracert

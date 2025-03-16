@@ -1,0 +1,164 @@
+Objective → Network Address Translation (NAT) Configuration in Cisco Packet Tracer
+
+What is NAT (Network Address Translation):
+
+    - NAT allows a private network to connect to external public networks (like the internet) using a single public IP address.
+
+    - It translates private IP addresses (e.g., 192.168.x.x) to a public IP address, enabling internet access for devices on the private network.
+
+    - NAT is essential because IPv4 addresses are limited and private IP addresses cannot directly access public networks.
+
+How NAT Works:
+
+    -Private to Public Translation:
+        * Devices in a private network use private IP addresses (192.168.x.x) for internal communication.
+        * When a device wants to access the internet, the NAT router replaces the source IP (private IP) with a public IP.
+
+    - Maintaining Connection:
+        * NAT creates a translation table to remember the internal-private to external-public mapping.
+        * When the external server responds, NAT reverses the process — replacing the public IP with the original private IP.
+
+Types of NAT:
+
+    - Static NAT – One-to-one mapping between private and public IP.
+
+    - Dynamic NAT – Maps private IPs to a pool of public IPs.
+
+    - PAT (Port Address Translation) – Maps multiple private IPs to a single public IP using different port numbers.
+
+Example:
+
+    - Private IP: 192.168.1.10
+
+    - Public IP (assigned to router): 10.0.0.1
+
+	When 192.168.1.10 sends a ping to 10.0.0.2, NAT translates the packet like:
+
+	192.168.1.10 → 10.0.0.1 → 10.0.0.2
+
+	When the reply comes back:
+
+	10.0.0.2 → 10.0.0.1 → 192.168.1.10
+
+Steps to Configure NAT:
+	1. Setup the Network:
+
+	    - Create a network with:
+
+	        2 PCs connected to a switch.
+	        Connect the switch to Router0 using a GigabitEthernet interface.
+	        Connect Router0 to Server0 using another GigabitEthernet interface (instead of Router1).
+	        Set up Server0 to simulate an external network with a static IP.
+
+	2. Assign IP Addresses:
+
+			PC1:
+
+			IP: 192.168.1.10  
+			Subnet Mask: 255.255.255.0  
+			Gateway: 192.168.1.1  
+
+			PC2:
+
+			IP: 192.168.1.20  
+			Subnet Mask: 255.255.255.0  
+			Gateway: 192.168.1.1  
+
+			Router0:
+
+			Gigabit0/0 → 192.168.1.1 (Private Network)  
+			Gigabit0/1 → 10.0.0.1 (Connected to Server0)  
+
+			Server0:
+
+			IP: 10.0.0.2  
+			Subnet Mask: 255.255.255.0  
+			Gateway: 10.0.0.1  
+
+	3. Configure NAT on Router0:
+
+    	- Define the private network:
+
+			Router0(config)# access-list 1 permit 192.168.1.0 0.0.0.255  
+
+    	- Set up NAT to translate private IPs to the public IP:
+
+			Router0(config)# ip nat inside source list 1 interface Gigabit0/1 overload  
+
+   		- Mark internal and external interfaces:
+
+			Router0(config)# interface Gigabit0/0  
+			Router0(config-if)# ip nat inside  
+			Router0(config-if)# exit  
+
+			Router0(config)# interface Gigabit0/1  
+			Router0(config-if)# ip nat outside  
+			Router0(config-if)# exit  
+
+    	- Set up a static route to reach the server:
+
+			Router0(config)# ip route 10.0.0.0 255.255.255.0 10.0.0.2  
+
+	4. Configure Server0 to Simulate an External Network:
+
+    	Since Server0 is directly connected, no additional configuration is required apart from assigning the IP and gateway.
+
+	5. Test NAT Configuration:
+
+	    From PC1:
+	    Ping the server to test NAT:
+
+			C:\> ping 10.0.0.2  
+
+   		 From Router0:
+
+    	Check NAT translations:
+
+			Router# show ip nat translations  
+			Example output of successful NAT translation:
+
+			Pro  Inside global     Inside local       Outside local      Outside global  
+			icmp 10.0.0.1:1        192.168.1.20:1     10.0.0.2:1         10.0.0.2:1  
+			icmp 10.0.0.1:2        192.168.1.10:2     10.0.0.2:2         10.0.0.2:2  
+
+	PS: Refer to the PDU images uploaded in the same Directory for better clarity.
+
+Issues That Can Be Faced:
+
+	1. Ping Fails:
+
+	   * NAT misconfigured — Check if ip nat inside and ip nat outside are set correctly.
+	   * Incorrect ACL — Ensure that the access list permits internal addresses.
+	   * Loopback on Router1 is down — Ensure that the loopback interface is active (no shutdown).
+
+	2. No NAT Translations Visible:
+
+	   * NAT might not be set up on the correct interfaces — Verify ip nat inside and ip nat outside.
+
+	3. One-Way Communication:
+
+	   * No static route on Router1 — Ensure the default route (0.0.0.0) is pointing to the loopback.
+
+Behavior After Successful NAT:
+
+    - PC's private IP (192.168.1.20) is translated to public IP (10.0.0.1) before leaving Router0.
+
+    - Router1 receives packets with source IP as 10.0.0.1 and sends a reply.
+
+    - NAT table on Router0 tracks the mapping and translates the packet back to 192.168.1.20 when the response comes.
+
+Why NAT is Used in Real-World Networks:
+
+    - Preserves IPv4 addresses due to shortage of public IPs.
+
+    - Allows internal networks to communicate with external networks securely.
+
+    - NAT adds a layer of security by hiding internal IPs from the external network.
+
+Conclusion:
+
+    - NAT allows private networks to access the internet using a single public IP address.
+
+    - This setup demonstrated how to configure and test NAT in a Cisco Packet Tracer simulation.
+
+    - Troubleshooting included misconfigured interfaces, incorrect ACLs, and missing routes.

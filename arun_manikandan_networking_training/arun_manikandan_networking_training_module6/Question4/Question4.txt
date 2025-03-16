@@ -1,0 +1,80 @@
+Objective ->  Identify the class of each IP address.Determine if it is private or public.Explain how NAT would handle a private IP when accessing the internet.
+
+Given IP's:
+
+	- 192.168.10.5
+	- 172.20.15.1
+	-  8.8.8.8
+
+
+Identifying the classes:
+
+	IP Address			Class			Reason
+	
+	192.168.10.5		Class C			Ranges from 192.0.0.0 to 223.255.255.255
+	
+	172.20.15.1			Class B			Ranges from 128.0.0.0 to 191.255.255.255
+	
+	8.8.8.8				Class A			Ranges from 0.0.0.0 to 127.255.255.255
+
+
+Determining if it is Private or Public IP:
+
+	- 192.168.10.5 is Private IP because it is a part of 192.168.0.0/16 which is reserved for private usage.
+
+	- 172.20.15.1 is Private IP because it is a part of 172.20.0.0/12 which is reserved for private usage.
+
+	- 8.8.8.8 is Public IP that is provided by Google as part of Google's DNS server
+
+
+How to find if an IP is public or private?
+
+	- If an IP falls in any of these ranges it is private:
+
+		* 10.0.0.0/8
+		* 172.16.0.0/12
+		* 192.168.0.0/16
+
+	- If it doesnt fall in that block range then it is a public IP address/.
+
+How NAT handles a Private IP when using internet?
+
+	- NAT or Network Address Translation allows devices with Private IP address to communicate with devices of external network.
+
+	- This is acheived by mapping the private IP to that of a public IP address.
+
+	- When a private IP wants to access internet the following is done by NAT:
+
+		* Private IP is translated into public IP address by router performing NAT.
+
+		* The router then keeps track of connection using NAT table which is repsonsible to map Private to Public IP translations.
+
+		* When a response is received the router looks up the NAT table and translates the Public IP back into Private IP address.
+
+		* This packet is then delivered to the device that made the request.
+
+Example:
+
+	- Internal IP -> 192.168.10.5
+
+	- NAT Translated IP -> 203.0.113.1
+
+	- Public IP -> 203.0.113.1
+
+	- Reply from server is sent to 203.0.113.1
+
+	- NAT then looks up the table and translates 203.0.113.1 to 192.168.10.5
+
+	- The reply is then sent to the translated IP by the router
+
+Problems that can be faced:
+
+	- NAT Overload -> Too many private IP's are being translated -> Increase the number of available IP's to solve.
+
+	- IP conflict -> Private IP overlaps with the Public IP range -> Use only defined IP provided by rules.
+
+Conclusion:
+
+	-Secure and Efficient IP address translation.
+
+	- Proper communication between internal and external networks.

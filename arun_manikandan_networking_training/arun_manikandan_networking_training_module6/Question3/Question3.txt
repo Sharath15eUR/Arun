@@ -1,0 +1,109 @@
+Objective -> Divide the network into 4 subnets
+
+What is subnetting?
+
+    - Subnetting is the process of dividing a larger IP network into smaller, more manageable subnetworks (subnets). It allows for more efficient use of IP addresses, improved network security, and better network organization.
+
+
+We are given the IP address range: 10.0.0.0/24 and we need to subnet the same into 4 subnetworks
+
+Steps to subnet:
+
+   - Analysing the given IP
+
+       - 10.0.0.0/24 belongs to the Class A Range of IP Address with a default subnet mask of 255.255.255.0
+
+       - The /24 in the IP tells us that there are 2^8 total addresses i.e., 256 total addresses
+
+       - The valid range would be 10.0.0.0 to 10.0.0.255 (256 addresses including 10.0.0.0 and 10.0.0.255)
+
+       - The first IP address is always set as the network address so 10.0.0.0 -> Network Address
+
+       - The last IP address is always set as the broadcast address so 10.0.0.255 -> Broadcast Address
+
+   - Dividing into subnets
+
+       - We need to increase the subnet bits to create 4 subnets, thus to create 4 subnets we need 2 additional bits
+
+       - 2^2 = 4 bits, thus the new subnet mask would be /26 -> 255.255.255.192
+
+Subnet Calculation
+
+	Subnet			Network Address			First Usable IP			Last Usable IP			Broadcast Address
+	
+	1				10.0.0.0/26				10.0.0.1				10.0.0.62				10.0.0.63
+	
+	2				10.0.0.64/26			10.0.0.65				10.0.0.126				10.0.0.127
+	
+	3				10.0.0.128/26			10.0.0.129				10.0.0.190				10.0.0.191
+	
+	4				10.0.0.192/26			10.0.0.193				10.0.0.254				10.0.0.255
+
+Steps:
+
+    - Open Cisco Packet Tracer
+
+    - Create a network with 4 devices each connected to a switch connected to a router (Ref to Setup Image)
+
+    - Assign IP address to the same for example:
+
+		Device			Subnet			IP Address			Subnet Mask			Gateway
+		PC1				Subnet 1		10.0.0.10			255.255.255.192		10.0.0.1
+		PC2				Subnet 2		10.0.0.70			255.255.255.192		10.0.0.65
+		PC3				Subnet 3		10.0.0.130			255.255.255.192		10.0.0.129
+		PC4				Subnet 4		10.0.0.200			255.255.255.192		10.0.0.193
+
+    - Connect devices using the switch
+
+    - Configure the static IP routes on the router
+
+    - Configure the router using:
+
+    	enable
+    	configure terminal
+    	
+    	interface GigabitEthernet0/0
+    	ip address 10.0.0.1 255.255.255.192
+    	no shutdown
+    	exit
+    	
+    	interface GigabitEthernet0/1
+    	ip address 10.0.0.65 255.255.255.192
+    	no shutdown
+    	exit
+    	
+    	interface GigabitEthernet0/2
+    	ip address 10.0.0.129 255.255.255.192
+    	no shutdown
+    	exit
+    	
+    	interface GigabitEthernet0/3
+    	ip address 10.0.0.193 255.255.255.192
+    	no shutdown
+    	exit
+    	
+    	ip route 10.0.0.64 255.255.255.192 10.0.0.65
+    	ip route 10.0.0.128 255.255.255.192 10.0.0.129
+    	ip route 10.0.0.192 255.255.255.192 10.0.0.193
+    	
+    	copy running-config startup-config
+    	
+    	show interfaces brief
+    	show ip interface brief
+    	show ip route
+    	
+
+Common Problems faced:
+
+    - PC cannot ping its gateway -> Incorrect gateway IP on PC -> Verify and correct gateway IP on PC.
+
+    - PC cannot ping a PC in a different subnet -> Missing static route on router -> Add static route on router to destination network.
+
+    - Router interface is down -> Cable unplugged or faulty -> Check cable connection and replace if needed.
+
+    - Ping fails intermittently -> IP address conflict -> Assign unique IP addresses to devices.
+
+Conclusion:
+
+    Thus by understanding how to subnet a network one can efficiently configure any real-world network and ensure better connectivity.
+
