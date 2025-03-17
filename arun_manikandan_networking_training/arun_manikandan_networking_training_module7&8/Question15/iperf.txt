@@ -1,0 +1,168 @@
+Objective -> Use iPerf to understand the output
+
+What is iPerf?
+iPerf is a network performance testing tool used to measure bandwidth, throughput, latency, and jitter between two devices over a network connection. It creates and sends traffic between a client and server to analyze network behavior under different conditions.
+
+How iPerf Works
+    - Client-Server Model:
+        - One device acts as the server – listens for connections.
+        - Another device acts as the client – sends data to the server.
+    - Protocols Supported:
+        - TCP → Measures connection reliability and bandwidth.
+        - UDP → Measures latency, jitter, and packet loss.
+    - Direction:
+        - Unidirectional – Measures one-way transmission.
+        - Bidirectional – Measures both upload and download simultaneously.
+    - Parallel Streams:
+        - Multiple streams increase load to test network handling.
+    - Multicast:
+        - Tests multicast communication over UDP.
+
+Why iPerf?
+    - Lightweight and simple to use.
+    - Platform-independent (available on Linux, macOS, Windows, Android, iOS).
+    - Measures actual bandwidth (not theoretical).
+    - Useful for diagnosing:
+        - Network bottlenecks
+        - Packet loss
+        - Jitter and delay issues
+        - TCP/UDP performance differences
+
+iPerf vs Other Tools
+    - Feature: iPerf
+        - Measurement Type: Bandwidth, latency, jitter
+        - Protocol: TCP, UDP
+        - Real-time Analysis: Yes
+        - Bidirectional Test: Yes
+        - Detailed Reporting: Yes
+        - Open Source: Yes
+    - Feature: Speedtest.net
+        - Measurement Type: Download/Upload speeds
+        - Protocol: TCP
+        - Real-time Analysis: Yes
+        - Bidirectional Test: No
+        - Detailed Reporting: Basic
+        - Open Source: No
+
+Installation
+    - Linux (Laptop):
+        - sudo apt install iperf3
+    - Android (Phone):
+        - Install Magic iPerf or iPerf3 from the Play Store.
+        - Or use Termux:
+            - pkg update
+            - pkg install iperf3
+    - iOS (Phone):
+        - Download iPerf3 from the App Store.
+
+Network Setup
+    - Ensure both devices are on the same network.
+    - Find the IP addresses:
+        - Laptop:
+            - ip a
+        - Phone:
+            - Settings → Wi-Fi → Network Details
+    - Example:
+        - Laptop IP: 192.168.1.10
+        - Phone IP: 192.168.1.15
+        - Subnet: 255.255.255.0
+
+Test Scenarios
+    - 1. Basic TCP Test
+        - Goal: Measure bandwidth and connection reliability over TCP.
+        - Start Server on Laptop:
+            - iperf3 -s
+        - Run Client on Phone:
+            - iperf3 -c 192.168.1.10
+        - Sample Output:
+            - [  5]   0.00-10.00 sec  115 MBytes  96.5 Mbits/sec   sender
+            - [  5]   0.00-10.00 sec  115 MBytes  96.5 Mbits/sec   receiver
+        - Analysis:
+            - 96.5 Mbits/sec → Effective bandwidth
+            - Sender and receiver values should match
+            - If sender > receiver, there may be packet loss
+        - Please refer to image: iperf_tcp_test.png
+
+    - 2. UDP Test with Bandwidth and Jitter
+        - Goal: Measure packet loss and jitter using UDP.
+        - Start UDP Server:
+            - iperf3 -s -u
+        - Run UDP Client:
+            - iperf3 -c 192.168.1.10 -u -b 10M
+        - Sample Output:
+            - [  5] 0.00-10.00 sec 12.0 MBytes  10.1 Mbits/sec  0.500 ms  0/10000 (0%)
+        - Analysis:
+            - 10.1 Mbits/sec → Achieved bandwidth
+            - 0.500 ms → Jitter (delay variation)
+            - 0/10000 (0%) → No packet loss
+        - Please refer to image: iperf_udp_test.png
+
+    - 3. Bidirectional Test
+        - Goal: Measure both upload and download simultaneously.
+        - Command:
+            - iperf3 -c 192.168.1.10 --bidir
+        - Sample Output:
+            - [  5]  0.00-10.00 sec  50.0 MBytes  42.0 Mbits/sec sender
+            - [  5]  0.00-10.00 sec  45.0 MBytes  38.0 Mbits/sec receiver
+        - Analysis:
+            - Tests both upstream and downstream
+            - Look for symmetric or asymmetric results
+        - Please refer to image: iperf_bidirectional_test.png
+
+    - 4. Reverse Test
+        - Goal: Measure download speed from server to client.
+        - Command:
+            - iperf3 -c 192.168.1.10 -R
+        - Sample Output:
+            - [  5]  0.00-10.00 sec  100 MBytes  85.0 Mbits/sec
+        - Analysis:
+            - If download speed is lower than upload → Network or ISP issue
+        - Please refer to image: iperf_reverse_test.png
+
+    - 5. Parallel Test
+        - Goal: Test network handling of multiple connections.
+        - Command:
+            - iperf3 -c 192.168.1.10 -P 4
+        - Sample Output:
+            - [SUM] 0.00-10.00 sec  400 MBytes  320 Mbits/sec
+        - Analysis:
+            - Total bandwidth increases with parallel streams
+            - If limited, network bottleneck may exist
+        - Please refer to image: iperf_parallel_test.png
+
+    - 6. Multicast Test
+        - Goal: Test multicast support on the network.
+        - Start Multicast Server:
+            - iperf3 -s -u -B 239.255.0.1
+        - Join Multicast Group:
+            - iperf3 -c 239.255.0.1 -u
+        - Analysis:
+            - Ensure multicast packets are delivered
+            - Packet loss or low bandwidth → Multicast not supported
+
+Metrics to Analyze
+    - Metric: Bandwidth
+        - Meaning: Rate of data transmission
+        - Good Value: High value
+    - Metric: Packet Loss
+        - Meaning: Percentage of lost packets
+        - Good Value: Near 0%
+    - Metric: Jitter
+        - Meaning: Variation in packet arrival time
+        - Good Value: < 5 ms
+    - Metric: Latency
+        - Meaning: Delay in data transmission
+        - Good Value: < 50 ms
+    - Metric: TCP Retransmissions
+        - Meaning: Number of packets resent
+        - Good Value: Near 0
+
+Troubleshooting Tips
+    - Check firewall settings if iPerf doesn't work.
+    - Ensure both devices are in the same subnet.
+    - Disable client isolation or MAC filtering if you face issues.
+    - If speeds are low, check router bandwidth limits or interference.
+
+Conclusion
+- iPerf is a powerful tool for diagnosing network issues, measuring bandwidth, and analyzing jitter and packet loss.
+- Through testing with different protocols, directions, and parallel streams, you can optimize your network for better performance!
