@@ -1,0 +1,20 @@
+Objective -> To understand what is the functionality of a Wi-Fi Access Point(AP)
+
+What is an Access Point (AP)?
+
+	- A Wifi Access Point or just AP is a device that allows wireless devices to connect to a wired network.
+
+Why do we need AP's in Wi-Fi networking?
+
+	- AP's extend Wi-Fi coverage , provide better connnectivity and allow multiple devices to communicate wirelessly.
+
+How does AP work?
+
+	- AP connects to a wired router or a switch
+	- It broadcasts Wi-Fi signals to all nearby devices.
+	- Devices can connect to the AP and receive an IP address from the router.
+	- Then they can communicate and access the network normally like in a wired connection.
+
+Conclusion
+
+	- Thus, an AP is a device that enhances network coverage , enabling seamless connectivity

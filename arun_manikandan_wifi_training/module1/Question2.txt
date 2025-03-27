@@ -1,0 +1,27 @@
+Ojective -> To analyze Wi-Fi devices in our day-to-day use and categorize the same into Wi-Fi generations and list some of their properties
+
+Some common day-to-day devices that use Wi-Fi incluse:
+
+	- Smartphones
+	- Laptops
+	- Routers
+	- IoT Devices
+	- Computers
+	- Gaming consoles / Consoles
+
+Some Wi-Fi generations include:
+
+	- Wi-Fi 4 (802.11n) -> Moderate speed , MIMO (Multiple Input Multiple Output) was introduced
+	- Wi-Fi 5 (802.11ac) -> High speed, better bandwidth
+	- Wi-Fi 6(802.11ax) -> Currently used generation , Improved efficiency , MU-MIMO (Multi User - Multiple Input Multiple Output)
+	- Wi-Fi 7 (802.11be) -> Latest , Ultra-high speed , low latency , not in the market yet.
+
+My devices Mapping:
+
+	- Laptop -> 802.11ax (Wi-Fi 6)
+	- Mobile -> 802.11ax (Wi-Fi 6)
+	- Television -> 802.11ac (Wi-Fi 5)
+
+Conclusion
+
+	- Thus through various generations the standards and qualities of Wi-Fi has been significantly improved and by understanding the same we can understand how to optimize their usage.

@@ -1,0 +1,50 @@
+Objective -> To explore different Wi-Fi backhaul types.
+
+Types of Wi-Fi Internet Connectivity Backhaul:
+
+    1. Fiber Optic: - Uses light pulses through glass fibers for high-speed data transmission.
+       	- Offers the highest bandwidth and lowest latency.
+        - Commonly used for residential and commercial connections.
+
+    2. Cable Broadband:
+        - Uses coaxial cables to transmit data.
+       	- Offers good bandwidth and reliability.
+        - Common in urban areas.
+
+    3. DSL (Digital Subscriber Line):
+        - Uses existing telephone lines for data transmission.
+        - Slower speeds compared to fiber or cable.
+        - Common in areas with established telephone infrastructure.
+
+    4. Wireless Broadband (Fixed Wireless Access - FWA): - Uses radio waves to transmit data between a base station and a customer's antenna.
+        - Useful in areas where wired infrastructure is limited.
+        - Can be affected by weather conditions.
+
+    4. Satellite Internet:
+        - Uses satellites to transmit data.
+        - Available in remote areas.
+        - Higher latency and lower speeds compared to other options.
+
+Why different backhauls?
+
+	- Each backhaul has different speed, latency, and cost factors.
+
+How it works:
+
+	- The backhaul connects Wi-Fi routers to the main internet provider.
+
+Home network backhaul and properties:
+
+	- Backhaul type : Fiber Optic
+	- Provider		: ACT
+	
+	- Backhaul Properties :
+
+		- Technology : GPON (Gigabit Passive Optical Network)
+		- Bandwidth  : Upto 1 Gbps
+		- Latency	 : Low (Mostly around and below 10ms)
+		- Reliablity : High
+
+Conclusion
+
+	- The speed , cost and availablity are some of the main factors that need to be kept in mind before choosing the right backhaul for the network.

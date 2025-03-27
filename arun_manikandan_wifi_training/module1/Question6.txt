@@ -1,0 +1,20 @@
+Objective -> To differentiate 802.11a and 902.11b
+
+What is 802.11a?
+
+	- 802.11a is a wireless networking standard that operates at 5 GHz band providing shorter coverage and speeds upto 54 Mbps (Megabits per second).
+	- 802.11b is also a wireless networking standard that operates at 2.4 GHz , providing longer coverage but slower speeds of upto 11 Mbps.
+
+How it works?
+
+	- 802.11a uses OFDM (Orthogonal Frequency-Division Multiplexing) for better efficiency.
+	- 802.11b uses DSSS (Direct Sequence Spread Spectrum) for wider coverage.
+
+When to use?
+
+	- Use 802.11a when there is a need for high-speed applications.
+	- Use 802.11b when there is a need for long-range connectivity.
+
+Conclusion
+
+	- 802.11a is faster compared to 802.11b but lacks at connectiity range / coverage.

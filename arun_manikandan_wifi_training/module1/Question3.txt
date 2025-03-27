@@ -1,0 +1,20 @@
+Objective -> To understand BSS and ESS
+
+What is BSS?
+
+	- BSS (Basic Service Set) -> A single Access Point (AP) and it's connected devices for a BSS
+
+What is ESS? 
+	- ESS (Extended Service Set) -> Multiple AP's connected to the same network form an ESS, this allows for roaming services
+
+
+Why BSS and ESS?
+
+	- BSS is primarily used for small and single AP networks
+	- ESS provides a larger coverage and is mostly used in enterprises and public networks
+	- ESS is acheived by setting a common SSID to multiple AP's enabling devices to switch between them without disconnecting.
+
+Conclusion
+
+	- Both BSS and ESS are essential in Wi-Fi networking.
+	- BSS is used when the network needed is small and ESS is ideal when the network needed is large.

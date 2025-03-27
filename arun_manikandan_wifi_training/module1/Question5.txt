@@ -1,0 +1,23 @@
+Objective -> To differentiate Bridge Mode and Repeater Mode in networking
+
+What is Bridge Mode?
+
+	- A Bridge Mode is where in we connect two seperate networks while maintaining the unique IP address ranges.
+
+What is Repeater Mode?
+
+	- A Repeater Mode is where we extend the existing Wi-Fi network without changing the IP structure.
+
+When to use?
+
+	- Use Bridge Mode when there is a need to interconnect two networks.
+	- Use Repeater Mode when there is a need to boost weak signals.
+
+How they work?
+
+	- Bridge Mode -> It disables it's routing functions and Wi-Fi broadcast and instead connects two sperate networks together.
+	- Repeater Mode -> It takes the weak incomming signal and boosts the same as the output.
+
+Conclusion
+
+	- Thus use Bridge Mode when there is a need for Network interconnection and Repeater Mode for boosting weak Wi-Fi signals.

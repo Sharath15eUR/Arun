@@ -1,0 +1,43 @@
+Objective -> To understand Wi-Fi toplogies
+
+Why?
+
+	- Each topology is used for different scenarios (e.g., home networks, large offices).
+
+How it works?
+
+    - Infrastructure Mode: Centralized AP manages devices.
+
+    - Mesh Networks: APs communicate with each other dynamically.
+
+    - Ad-Hoc Mode: Devices connect directly.
+
+Wi-Fi Topologies:
+
+    1. Star Topology (Infrastructure Mode):
+        - Description: All devices connect to a central access point (AP).
+        - Use Cases: Home networks, office networks, public Wi-Fi hotspots, enterprise networks.
+        - Advantages: Centralized control, easy management, good scalability.
+        - Disadvantages: Single point of failure (the AP).
+
+    2. Ad-Hoc Topology (Peer-to-Peer):
+        - Description: Devices communicate directly with each other without an AP.
+        - Use Cases: Temporary file sharing, direct device connections (e.g., Wi-Fi Direct), gaming sessions.
+        - Advantages: No central AP required, easy to set up for small groups.
+        - Disadvantages: Limited range, less secure, not suitable for large networks.
+
+    3. Mesh Topology:
+        - Description: Multiple access points (or mesh nodes) interconnect wirelessly, forming a mesh network.
+        - Use Cases: Large homes, offices, outdoor areas, areas with obstacles that block signals.
+        - Advantages: Extended coverage, self-healing (if one node fails, traffic reroutes), good reliability.
+        - Disadvantages: Can be more expensive than a single AP setup, more complex to configure.
+
+    4. Hybrid Topology:
+        - Description: Combines elements of different topologies. For example, a star topology with mesh extenders for better coverage.
+        - Use Cases: Complex environments where a single topology is not sufficient.
+        - Advantages: Flexibility to adapt to specific needs.
+        - Disadvantages: Can be more complex to design and manage.
+
+Conclusion
+
+	- Thus we need to choose the right topology as per the network size and the use case respectively

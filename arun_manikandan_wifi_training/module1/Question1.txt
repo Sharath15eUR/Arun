@@ -1,0 +1,13 @@
+Objective -> To determine where the WiFi standards/protocols fit withing the OSI Model
+
+
+- Wi-Fi operates on both the Data Link Layer (Layer2) and the Physical Layer (Layer 1) of the OSI Model.
+
+Why?
+
+	- The Physical Layer (Layer 1) is responsible for transmitting the data over the radio as radio waves.
+	- The Data Link Layer (Layer 2) is responsible for the reliable transfer of data along with the MAC address management and frame synchronization.
+
+Conclusion
+
+	- Thus the Wi-Fi Standards/Protocols fits at Layer 1 and Layer 2 ie., Physical Layer and Data Link Layer respectively ensuring inter-connectivity between device.

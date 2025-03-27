@@ -1,0 +1,70 @@
+Objective -> To configure our modem/hotspot to operate only in 2.4GHz and connect to laptop and analyze and understand the difference between 2.4GHz and 5GHz Wi-Fi
+
+Configuring Mobile Hotspot:
+
+	- In the mobile device go to the Network and Connectivity setting or the Wireless setting categories in settings.
+	- Choose the Mobile Hotspot setting in the same
+	- Now setup a name for the hotspot along with its security type (WPA/WPA2) along with password.
+	- Now choose the band that we want to use ie, 2.4GHz or 5GHz.
+	- Once done click on save changes and enable the same.
+	- Now from the computer turn on Wi-Fi and check for the setup Hotspot Name.
+	- Enter the password and check connectivity.
+
+My Wi-Fi device properties:
+
+	1. 5GHz:
+
+		Protocol: Wi-Fi 6 (802.11ax)
+		Security type: WPA3-Personal
+		Manufacturer: Intel Corporation (Killer)
+		Description: Intel(R) Killer(R) Wi-Fi 6 AX1650w 160MHz Wireless Network Adapter
+		Driver version: 2.2.1.200
+		Network band: 5 GHz
+		Network channel: 48
+		Link speed (Receive/Transmit): 1200/1200 (Mbps)
+		IPv6 address: 2400:abcd:1234:5678:9abc:def0:1234:5678
+		Link-local IPv6 address: fe80::1234:5678:abcd:ef01%12
+		IPv4 address: 192.168.1.100
+		IPv4 DNS servers: 192.168.1.1 (Encrypted)
+		Physical address (MAC): 00-11-22-33-44-55
+
+	2. 2.4GHz:
+
+		Protocol: Wi-Fi 6 (802.11ax)
+		Security type: WPA3-Personal
+		Manufacturer: Intel Corporation (Killer)
+		Description: Intel(R) Killer(R) Wi-Fi 6 AX1650w 160MHz Wireless Network Adapter
+		Driver version: 2.2.1.200
+		Network band: 2.4 GHz
+		Network channel: 6
+		Link speed (Receive/Transmit): 574/574 (Mbps)
+		IPv6 address: 2400:abcd:1234:5678:9abc:def0:1234:5678
+		Link-local IPv6 address: fe80::1234:5678:abcd:ef01%12
+		IPv4 address: 192.168.1.100
+		IPv4 DNS servers: 192.168.1.1 (Encrypted)
+		Physical address (MAC): 00-11-22-33-44-55
+						
+
+
+What is 2.4GHz?
+
+	- 2.4GHz refers to the lower frequency band that Wi-Fi uses for longer range, more interference and lower speeds.
+
+What is 5GHz?
+
+	- 5GHz refers to the higher frequency band that Wi-Fi uses for shroter range, less interference and faster speeeds.
+
+How they work?
+
+	- 2.4GHz penetrates wall better, making it better for larger areas.
+
+	- 5GHz offers higher sppeed but ultimately struggles with obstacle penetration.
+
+When to use which?
+
+	- Use 2.4GHz when longer coverage is required and speed is not a concern.
+	- Use 5GHz when higher speeds are required and coverage is not a concern.
+
+Conclusion
+
+	- Use 2.4GHz for coverage and 5GHz for higher speeds.

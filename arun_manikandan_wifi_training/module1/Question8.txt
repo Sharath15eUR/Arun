@@ -1,0 +1,28 @@
+Objective -> To differentiate IEEE and WFA
+
+What is IEEE?
+
+	- IEEE stands for Institute of Electrical and Electonics Engineers.
+	- They are the ones who defines the Wi-Fi Standards.
+
+What is WFA?
+
+	- WFA stands for Wi-Fi Alliance.
+	- They are the ones who certifices Wi-Fi products.
+
+Why IEEE?
+
+	- IEEE creates the technical specifications that the Wi-Fi has to follow.
+
+Why WFA?
+
+	- WFA ensures the interoperablity of the Wi-Fi products that hit the market.
+
+How they work?
+
+	- IEEE defines protocols/standards like 802.11ax and others.
+	- WFA tests and certifies the devices.
+
+Conclusion
+
+	- IEEE is responsible to set the rules (Standards and Protocols) for Wi-Fi where as WFA ensures the devices follow these set rules.
