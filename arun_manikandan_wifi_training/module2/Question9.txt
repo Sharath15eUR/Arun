@@ -1,0 +1,33 @@
+Objective -> Impact of WLC failure on clients connected to LAP in local mode.
+
+What Happens?
+
+	- WLC managing local mode LAP fails.
+
+Why is Local Mode Important?
+
+	- LAP (Lightweight AP) bridges traffic locally not via WLC for data.
+
+What Happens to Connected Clients
+
+	- Existing Connections Remain : Current users stay connected and pass traffic.
+
+	- No New Connections : New users cannot connect without WLC authentication.
+
+	- No Roaming : Moving users lose connection between APs.
+
+	- Loss of Management Functions : Cannot change settings or monitor LAP.
+
+	- Security Policy Enforcement (Existing Clients) : Old security rules still apply no updates.
+
+Possible Problems
+
+	- New users cannot access Wi-Fi.
+
+	- Users lose connection while moving.
+
+	- Cannot manage or fix AP issues.
+
+Conclusion
+
+	- WLC failure keeps current users connected locally but blocks new users roaming and management of the AP.

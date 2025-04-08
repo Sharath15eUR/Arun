@@ -1,0 +1,31 @@
+Objective -> To differentiate sniffer and monitor modes in wireless networks.
+
+What are They?
+
+    - Sniffer Mode: AP captures traffic and sends it to a remote analyzer.
+
+    - Monitor Mode: AP scans RF environment for rogue devices.
+
+Why Use These Modes?
+
+    - Sniffer mode is used for troubleshooting.
+
+    - Monitor mode is used for security and interference detection.
+
+How They Work?
+
+	Feature				Sniffer Mode							Monitor Mode
+
+	Purpose				Capture packets							Detect threats
+	Output				Sends data to analysis tool				Reports rogue APs
+	Packet Detail		Captures full raw 802.11 frames			Captures frames but often focused on headers/metadata
+	Association			Does not associate with any AP			Does not associate with any AP
+	Primary Output		Raw packet captures (e.g., .pcap files)	Reports on detected devices (APs, clients), signal levels, frame types
+
+Problems That Can Be Faced
+
+    - Sniffer mode can cause performance degradation.
+
+Conclusion
+
+	- Both modes help in network monitoring but serve different purposes.

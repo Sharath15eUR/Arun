@@ -1,0 +1,41 @@
+Objective -> Challenges of deploying 50+ autonomous APs in a university.
+
+What Happens?
+
+	- Many independent APs without central control in a large network.
+
+Why is it Challenging
+
+	- Autonomous APs lack central coordination.
+
+What are the Challenges
+
+	- Management Overhead : Configure each AP individually.
+
+	- Inconsistent Configuration:  Different settings across APs.
+
+	- Limited Scalability :  Manual setup for new APs is slow.
+
+	- Poor Roaming :  Dropped or sticky connections for moving users.
+	
+  	- Radio Resource Management Issues :  Interference and poor performance.
+
+	- Security Vulnerabilities :  Inconsistent and delayed security updates.
+
+	- Troubleshooting Complexity :  Hard to diagnose issues without central view.
+
+	- Lack of Centralized Monitoring :  No single dashboard for AP health.
+
+	- Cost Inefficiency (Operational) :  High manual management costs.
+
+Possible Problems
+
+	- Increased IT workload and errors.
+
+	- Inconsistent security policies.
+
+	- Poor user experience.
+
+Conclusion
+
+	- Autonomous APs create major management scalability roaming security and efficiency problems in large networks. Central management is needed.

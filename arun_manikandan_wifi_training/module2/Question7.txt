@@ -1,0 +1,37 @@
+Objective -> To determine best AP mode for local network with remote WLC
+
+What Happens?
+
+	- WLC is remotely connected via WAN to local APs and clients
+
+Why Consider Modes?
+
+	- AP modes handle data forwarding and control differently impacting WAN performance
+
+Which AP Mode is Best and How
+
+	- FlexConnect best mode for remote WLC setups
+
+How it Improves Local Network Performance
+
+	- Local Data Forwarding AP forwards client data locally not over WAN reducing latency and improving speed
+
+	- Centralized Control Local Survivability AP managed centrally but works if WAN fails ensuring local access
+
+	- Scalability Flexibility Central management across sites with local performance optimization
+
+How Other Modes Compare?
+
+	- Local Mode All data goes over WAN causing latency and WAN congestion AP fails if WAN down
+
+	- Autonomous Mode Lacks central management hard to manage consistently
+
+Possible Problems
+
+	- WAN Dependency for Control FlexConnect needs WAN for config and management outages impact this
+
+	- Complexity of Configuration FlexConnect setup can be harder than Local Mode
+
+Conclusion
+
+	- FlexConnect best for remote WLC allowing local data forwarding better performance and local operation during WAN issues
