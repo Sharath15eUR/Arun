@@ -1,0 +1,34 @@
+Objective -.To compare lightweight APs and cloud-based APs in terms of functionality and deployment.
+
+What are They?
+
+    - Lightweight AP (LWAP): APs managed by on-premises WLC.
+
+    - Cloud-based APs: APs managed via cloud-hosted controllers.
+
+Why Cloud-based APs?
+
+    - No need for on-site WLC.
+
+    - Centralized cloud management for multiple locations.
+
+How They Differ?
+
+	Feature					Lightweight AP								Cloud-based AP
+	
+	Controller				On-prem WLC									Cloud-based
+	Scalability				Limited to WLC capacity						Highly scalable
+	Maintenance				Requires on-site management					Managed via cloud
+	Initial Setup			More complex, requires WLC configuration	Often simpler, plug-and-play
+	Data Forwarding			Local or tunneled to WLC					Often centralized through cloud or local
+	Security				Organization's responsibility				Shared responsibility with cloud provider
+
+Problems That Can Be Faced
+
+    - Cloud-based APs require stable internet to connect to controllers.
+
+    - LWAPs depend on WLC, which is a single point of failure.
+
+Conclusion
+
+	- Cloud APs offer scalability and remote management, while LWAPs provide local control with better latency.

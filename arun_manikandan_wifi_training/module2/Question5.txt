@@ -1,0 +1,31 @@
+Objective -> To understand how CAPWAP tunnels are maintained between AP and WLC.
+
+What Happens?
+
+    - CAPWAP tunnels remain active through the exchange of periodic control messages that act as heartbeats.
+
+Why Maintain the Tunnel?
+
+    - Ensures continuous and reliable communication between the Access Point (AP) and the Wireless LAN Controller (WLC) for management and control.
+
+    - Helps in the timely detection of connectivity failures between the AP and the WLC.
+
+How is the Tunnel Maintained?
+
+    - The Lightweight AP (LAP) periodically sends CAPWAP control messages to the WLC. These messages serve as keepalives.
+
+    - The WLC responds to these keepalive messages to acknowledge their receipt and confirm that the control session remains active.
+
+    - The interval at which these keepalive messages are sent by the AP is configurable on the WLC.
+
+    - If the AP does not receive a response from the WLC within a defined timeout period, it will consider the control tunnel to be down. In such a scenario, the AP will attempt to rediscover and rejoin the WLC or, if configured, try to connect to a backup WLC.
+
+    - These periodic exchanges also play a crucial role in maintaining Network Address Translation (NAT) bindings if there are NAT devices present in the network path between the AP and the WLC.
+
+Problems That Can Be Faced
+
+    - Network congestion or latency can potentially delay the transmission or reception of these heartbeat messages, which could lead to falsePositive detection of a link failure.
+
+Conclusion
+
+    - CAPWAP tunnels are maintained through a regular exchange of control messages (heartbeats) between the AP and the WLC. This mechanism ensures the stability and continuous operation of the managed wireless network by detecting and facilitating recovery from connectivity issues.

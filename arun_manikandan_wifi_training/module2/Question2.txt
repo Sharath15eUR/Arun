@@ -1,0 +1,43 @@
+Objective -> To understand CAPWAP its flow between APs and WLC and its importance
+
+What is CAPWAP?
+
+	- Control and Provisioning of Wireless Access Points (CAPWAP) is a protocol used for managing APs from a centralized WLC over a secured tunnel.
+
+Why CAPWAP?
+
+	- Standard method for AP-WLC communication.
+
+	- Securely manages APs over Layer 3 networks.
+
+	- Reduces complexity in large wireless deployments.
+
+How does CAPWAP Work?
+
+	- AP discovers and establishes a connection with the WLC.
+
+	- AP downloads its configurations from the WLC.
+
+	- AP encapsulates data and control traffic inside the CAPWAP tunnel to WLC.
+
+	- WLC manages all APs centrally.
+
+AP-WLC Communication flow:
+
+	- AP Discovery : AP finds the WLC using DHCP, or static configuration.
+
+	- CAPWAP Establishment : AP and WLC establish secure tunnels for control and data.
+
+	- AP joins WLC : AP gets its configuration and policies fromt eh WLC.
+
+	- Client Authentication : WLC authenticates clients before allwoing network access.
+
+Possible Problems:
+
+	- CAPWAP increases latency if the WLC is far from AP.
+	
+	- If WLC falis AP's stop functioning in centralized mode.
+
+Conclusion:
+
+	- CAPWAP standardizes and secures AP management making wireless deployments more scalable and efficient.

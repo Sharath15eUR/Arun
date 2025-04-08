@@ -1,0 +1,43 @@
+Objective -> TO understand SplitMAC architecture its working and how it enhances the performance of APs.
+
+What is SplitMAC?
+
+	- SplitMAC is a wireless networking architecture where the functionalities of an AP are divided between the AP itself and a centralized Wireless LAN Controller (WLC).
+
+	- The AP handles lower MAC layer operations (Ex : RF Management , Frame transmission,etc.), while the WLC manages higher MACC layer functions(Ex: Authentication , Association , etc).
+
+Why SplitMAC?
+
+	- Reduces the processing burden on the AP by delegation of control related tasks to the WLC.
+
+	- Centralizes management.
+
+	- Enables scalability as APs function with minimal intelligence and letting the WLC handle policies.
+
+	- Improves security by delegating authentication and related tasks to WLC.		
+
+How does SplitMAC improve AP Performance?
+
+	- APs focus on forwarding frames and handling RF tasks thus making it perform better by reducing overhead on the AP.
+
+	- The WLC manages decisions making sure it efficiently load balances providing better load distribution.
+
+	- Ensures better network management with a single Point-of-Control leading to a centralized control.
+
+SplitMAC Working
+
+	- The AP captures the wireless frames and forwards the same to WLC over the CAPWAP(Control and Provisioning of Wireless Access Points) tunnel.
+
+	- WLC then processes these frames for Authentication, QoS and forwarding.
+
+	- WLC sends these processed frame back to the AP which transmits the same to its client.
+
+Possible Problems
+
+	- If the WLC is overloadded, packet processing may be delayed. (Higher Latencies).
+
+	- If the WLC fails al the APs relying on it will fail or lose functionality.
+
+Conclusion
+
+	- SplitMAC improves AP efficeincy by offloading control related functions to the WLC enabling scalablity performance and security in large wireless deployments.

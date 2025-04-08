@@ -1,0 +1,38 @@
+Objective -> To understand where CAPWAP fits in teh OSI model and the role of its tunnels.
+
+What OSI layer does CAPWAP operate at?
+
+	- CAPWAP operates at the Layer 2 (Data Link Layer) and Layer 3 (Network Layer)  of the OSI model.
+
+Why CAPWAP uses 2 tunnels?
+
+	- Two tunnels:
+
+		* Data Traffic
+		* Control Traffic
+
+	- Seperated control and data traffic for better efficiency and security.
+
+	- Control tunnel ensures secure AP management.
+
+	- Data tunnel enacpsulates client traffic reducing exposure.
+
+How CAPWAP Tunnels work?
+
+	- Control Tunnel (UDP 5246)
+
+		* Securely transmits AP-WLC control messages like configurations authentication,etc.
+
+	- Data Tunnel (UDP 5247)
+
+		* Carries client data traffic encapsulated within CAPWAP.
+
+Possible Problems:
+
+	- Increase overhead due to encapsulation.
+
+	- If the control tunnel fails AP looses WLC connection.
+
+Conclusion:
+
+	- CAPWAP uses seperate control and data tunnels for security and efficiency, enhancing centralized AP management.
