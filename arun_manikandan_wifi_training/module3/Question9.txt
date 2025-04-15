@@ -1,0 +1,71 @@
+Objective -> To differentiate MIMO and MU-MIMO
+
+What is MIMO and MU-MIMO?
+
+	- MIMO stands for Multiple Input Multiple Output
+
+	- Its a transmission technique that uses multiple antennnas at both the transmitter and receiver to send and receive more than on data stream at the same time.
+
+	- MU-MIMO stands for Multi User - Multiple Input Multiple Output
+
+	- Enhanced version of MIMO that allows the router to communicate with multiple devices simultaneously using different streams.
+
+Importance:
+
+	* MIMO:
+	
+	   - Improves throughput (data transfer rates).
+	
+	   - Helps with signal range by using multiple antennas to pick up weak signals.
+	
+	   - Reduces multipath interference by sending multiple signals along different paths.
+
+	* MU-MIMO:
+	
+	   - In multi-device environment MU-MIMO helps reduce congestion by allowing multiple devices to communicate at the same time.
+	
+	   - Decreases latency and improves overall network efficiency especially in crowded places like offices  stadiums or apartment buildings.
+
+Comparison:
+
+	* Number of users:
+	
+	    MIMO: 1 user at a time
+	
+	    MU-MIMO: Multiple users simultaneously
+	
+	* Data Streams:
+	
+	    MIMO: Multiple streams for 1 device
+	
+	    MU-MIMO: Multiple streams for multiple devices
+	
+	* Network Efficiency:
+	
+	    MIMO: Moderate
+	
+	    MU-MIMO: Higher (in crowded networks)
+	
+	* Latency:
+	
+	    MIMO: Higher latency (one device)
+	
+	    MU-MIMO: Lower latency (multiple devices)
+	
+	* Used in:
+	
+	    MIMO: Wi-Fi 4 (802.11n), Wi-Fi 5 (802.11ac)
+	
+	    MU-MIMO: Wi-Fi 6 (802.11ax)
+	
+	* Antenna Requirement:
+	
+	    MIMO: Requires multiple antennas per device
+	
+	    MU-MIMO: Requires router/AP with multiple antennas
+
+Conclusion:
+
+	- MIMO is best for improving the throughput and range by using multiple antennas to send more data straems. Great for single-device performance.
+
+	- MU MIMO is best for allowing multiple devices to use the same antenna resources at the same time. Greate for multi-device environments.

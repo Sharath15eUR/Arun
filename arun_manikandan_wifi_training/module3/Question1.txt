@@ -1,0 +1,52 @@
+Objective -> To understand different 802.11 PHY layer standards
+
+What and different 802.11 PHY Layer Standards :
+
+	- The 802.11 PHY layer standards are the ones those define how data is physically transmitted over a wireless network.
+
+	- Tehy are all the part of IEEE 802.11 family.
+
+	Standards:
+
+		* 802.11a
+		* 802.11b
+		* 802.11g
+		* 802.11g
+		* 802.11n
+		* 802.11ac
+		* 802.11ax
+		* 802.11be (Not released yet Wi-Fi 7)
+
+Why various PHY Standards?
+
+	- Speed 
+
+	- Frequency Bands
+
+	- Signal Quality 
+
+	- Energy Efficieny
+
+	- The above are some of the factors that keep evolving thus keeping Wi-Fi updated for HD video to enterprise level usages.
+
+How it works?
+
+	- The PHY layer works alongside closely witht he MAC layer but majorily focuses purely on raido signal transmission and reception.
+
+	- For each standard either one of the following are modified
+
+		* Modulation Techniques (DSSS , OFDM , OFDMA).
+		* Channel Bandwidth (20MHz , 40MHz , 160MHz).
+		* MIMO (Multiple Input , Multuiple Output) for 802.11n and above only.
+		* Maximum data rate (based on how fast and data needs to be encoded and sent per second)
+
+Common Problems faced:
+
+	* Interference between 2.4GHz bands
+	* Lower range for higher frequency bands
+	* More devices connected leads to slower speeds comapratively
+
+Conclusion:
+
+	- The 802.11 PHY standards evolve to provide better and faster speeds along with efficieny and energy control and support for more devices
+	

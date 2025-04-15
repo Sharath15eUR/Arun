@@ -1,0 +1,115 @@
+Objective -> To list and understand the different types of PPDU
+
+What are the types of PPDU:
+
+	- PPDU represents the unit of transmission.
+
+	- It includes both control and data infromation in a structured format.
+
+	- Mainly three types:
+
+		* Data PPDU -> used to carry actual data from higher layers.
+		* Control PPDU -> Used for control frames
+		* Management PPDU -> Used for management frames
+
+Importance:
+
+	- PPDU formats define how data is transferred from one device to another.
+
+	- Different generations of Wi-Fi uses different modulations and tansmission techniques to increase throughput and ensure reliable communciation.
+
+How it works accross generations:	
+
+	* Wi-Fi 4 (802.11n)
+	
+	    Modulation: OFDM (Orthogonal Frequency Division Multiplexing)
+	
+	    PPDU Structure:
+	
+	        Preamble
+	
+	        PLCP Header (Contains data rate frame length etc.)
+	
+	        MAC Header (Contains address/control info)
+	
+	        Data (Payload)
+	
+	        Tail (Padding for alignment)
+	
+	    Key Feature: MIMO for multiple spatial streams higher throughput
+	
+	Wi-Fi 4 PPDU Example:
+
+		| Preamble | PLCP Header | MAC Header | Data | Tail |
+
+	* Wi-Fi 5 (802.11ac)
+	
+	    Modulation: 256-QAM, supporting wider channels (up to 160 MHz)
+	
+	    PPDU Structure:
+	
+	        Short Preamble
+	
+	        PLCP Header
+	
+	        MAC Header
+	
+	        Data
+	
+	        Tail
+	
+	    Key Feature: MU-MIMO for simultaneous communication with multiple devices
+	
+	Wi-Fi 5 PPDU Example:
+
+		| Short Preamble | PLCP Header | MAC Header | Data | Tail |
+
+	* Wi-Fi 6 (802.11ax)
+	
+	    Modulation: 1024-QAM (higher-order modulation)
+	
+	    PPDU Structure:
+	
+	        Preamble
+	
+	        PLCP Header
+	
+	        MAC Header
+	
+	        Data
+	
+	        Tail
+	
+	    Key Features:
+	
+	        OFDMA for multiple users sharing the same channel
+	
+	        Target Wake Time (TWT) for power efficiency
+	
+	Wi-Fi 6 PPDU Example:
+
+		| Preamble | PLCP Header | MAC Header | Data | Tail |
+
+	* Wi-Fi 6E (Extended)
+	
+	    Modulation: Same as Wi-Fi 6 but includes the 6 GHz band
+	
+	    PPDU Structure: Same as Wi-Fi 6 but with 6 GHz frequency band
+	
+	    Key Feature: Addition of the 6 GHz band for more spectrum reduced interference
+	
+	Wi-Fi 6E PPDU Example:
+
+		| Preamble | PLCP Header | MAC Header | Data | Tail |
+
+Problems that can be faced:
+
+	- In crowded environments high density netowrks face intereference.
+
+	- Newer Wi-Fi standards are not backward compatible with devices
+
+Conclusion:
+
+	- The PPDU is a crucial unit for transmitting data across the PHY layer.
+
+	- Over generations PPDU has adapted to support higher data rates and better spectrum utilization.

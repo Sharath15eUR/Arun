@@ -1,0 +1,74 @@
+Objective -> To understand the structure of 802.11 PHY frame and its key components.
+
+What is 802.11 PHY Layer frame:
+
+	- The PHY layer frame (Physical Protocol Data Unit - PPDU) is the lowest layers of a Wi-Fi frame that gets modulated and trasmitted.
+
+	- It enacpsulates:
+
+		* Preamble (For sync)
+		* Header (transmission info)
+		* Payload (actual MAC Frame data)
+
+Importance:
+
+	- It allows devices to synchronize understand modulation and decode the incomming frame.
+
+	- Without proper PHY Wi-Fi receivers wouldnt know how to interpret the data.
+
+General Structure:
+
+	Preamble | PHY Header | PSDU (Payload)
+
+	1. Preamble:
+
+		- Used for timing synchronization channel estimation adn indentifying the PHY version.
+
+		- Short Training Field (STF) used for signal detection and automatic gain control.
+
+		- Long Training Field (LTF) used for channel estimation.
+
+		- Singal Field (SIG) contains modulation and coding with length.
+
+	2. PHY Header:
+
+		- Provides meta-info about the transmission itslef.
+
+		- It mainly includes:
+
+			* Data rate
+			* Frame lenght
+			* Coding rate
+			* Guard Interval Inforamtion
+			* MCS (Modulation and Coding Scheme) Index
+
+	3. PSDU (PLCP Service Data Unit):
+
+		- Contains the actual data from the MAC layer
+
+		- Contains:
+
+			 * MAC Header
+			 * Logical Link Control (LIC)
+			 * IP/TCP/UDP packets
+			 * QoS and Encryption
+
+		- This portion is apssed down from teh MAC and gets modulated using the shceme specified in the header.
+
+	PLCP:
+
+		- Stands for Physical Layer Convergence Protocol.
+
+		- Responsible for the Clear Channel Assessment (CCA) mode and building packets for different physical layer technologies.
+
+Problems faced:
+
+	- Weak signal or noise can prevent synchronization.
+
+	- Receiver may fail to decode data.
+
+	- Frames might clash if preamble isnt decoded early.
+
+Conclusion:
+
+	- The 802.11 PHY Frame is responsible for synchronizing transmission instruction of hwo to decode and delivering the data itslef.

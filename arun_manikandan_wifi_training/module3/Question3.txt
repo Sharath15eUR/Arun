@@ -1,0 +1,91 @@
+Objective -> To understand modulation schemes working in PHY layer and compare the same along with performances over different Wi-Fi standards.
+
+What are modulation schemes?
+
+	- Modulation is the process of encoding binary data into a carrier signal(sine wavce) so that it can be transmitted over the air.
+
+	- In PHY layer they essentialy determine how data is represented over the radio signal, how fast data is sent.
+
+	- Common Modulation Schemes include:
+
+		* BPSK -> Binary Phase Shift Keying
+		* QPSK -> Quadrature Phase Shift Keying
+		* QAM -> Quadrature Amplitude Modulation (16-QAM , 64-QAM , etc)
+
+Why are they important?
+
+	- Higher modulation means more bits transmitted.
+
+	- Some schemes provide more resistance to noise.
+
+	- Lower modulations have better range coverage.
+
+	- In noisy environments simpler modulations often perfrom better.
+
+How it works?
+
+	- A carrier wave is modiffied based on the data bits.
+
+	- Wi-Fi mainly uses phase and amplitude based waves to carry data
+
+	Example:
+
+		BPSK -> Two phases 0 or 180
+		QPSK -> Four phases (Twice as BPSK)
+		16-QAM -> Combines amplitude + phase
+
+Comparison:
+
+	* 802.11b
+	
+	    Modulation: CCK / DSSS
+	
+	    Improvement: Introduced digital modulation over analog; basic but reliable.
+
+	* 802.11a/g
+	
+	    Modulation: 64-QAM
+	
+	    Improvement: Jumped to OFDM with higher-order modulation enabling much faster speeds (up to 54 Mbps) compared to 11b.
+
+	* 802.11n
+	
+	    Modulation: 64-QAM (same as 11a/g)
+	
+	    Improvement: Not from modulation itself but from combining it with MIMO—boosted data rates using multiple streams.
+
+	* 802.11ac
+	
+	    Modulation: 256-QAM
+	
+	    Improvement: Higher symbol density—more bits per symbol than 64-QAM (8 vs. 6), giving significantly higher throughput over the same bandwidth.
+
+	* 802.11ax
+	
+	    Modulation: 1024-QAM
+	
+	    Improvement: Even denser modulation—10 bits per symbol, increasing efficiency and capacity, especially in crowded environments.
+
+	* 802.11be
+	
+	    Modulation: 4096-QAM (planned)
+	
+	    Improvement: Pushes the modulation further to 12 bits per symbol, enabling extremely high data rates for next-gen applications.
+
+Problems that can be faced:
+
+	- Higher modulations like 256-QAM and others are very sensitive to noises.
+
+	- Higher modulations work only for shorter distances.
+
+	- Older devices cant decode newer modulation techniques.
+
+Conclusion:
+
+	- Modulation schemes define how the binary data become radio waves.
+
+	- As Wi-Fi evolves even more complex modulation techniques are employed for faster data transmission.
+
+	- High Modulation means more speed but low range.
+	
+	- Low Modulation means lower speed but high reliability.

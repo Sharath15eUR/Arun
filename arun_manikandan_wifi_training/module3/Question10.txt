@@ -1,0 +1,76 @@
+Objective -> To understand PPDU PLCP and PMD
+
+What are PPDU PCLP and PMD:
+
+	PPDU (Physical Layer Protocol Data Unit)
+
+		- PPDU is the unit of transmission at the physical layer in Wi-Fi networks.
+
+		- It consists of both control and data info that is transmitted from transmitter to the receiver.
+
+	PLCP (Physical Layer Convergence Protocol)
+
+		- PLCP is a sublayer withing the PHY layer that is responsible for converting higher-layer data into format that can be transmitted at PPDU
+
+		- It adds a header to the data preparing it for the acutal transmission.
+
+	PMD (Physical Medium Dependent)
+
+		- PMD is asublayer that handles the actual transmission and reception of the data on the physical medium.
+
+		- It defines the modulation coding and how the data is tranmistted on the medium.
+
+Importance:
+
+	- PPDU ensures that data is transmitted in a standard structured format.
+
+	- PLCP helps in organizing and preparing data from higher layers for transmission.
+
+	- PMD manages how signals are actualyl encoded and transmitted over the air.
+
+Working:
+
+	* PPDU Structure:
+	
+	   - The PPDU is the entire data transmission unit in the PHY layer.
+	
+	   - It consists of:
+	
+	        PLCP Header: Information about the transmitted data.
+	
+	        Payload (Data): The actual data being sent.
+	
+	        Tail (Optional): Used for padding to ensure proper transmission alignment.
+	
+	* PLCP (Physical Layer Convergence Protocol) – What does it do?
+	
+	   - Prepares the data for transmission. The PLCP header encapsulates the higher-layer data and provides necessary control info such as:
+	
+	        Data rate
+	
+	        Signal information
+	
+	        Length of the data being transmitted
+	
+	   - Converts the data into a PPDU that the PMD can process.
+	
+	* PMD (Physical Medium Dependent) – What does it do?
+	
+	   - The PMD sub-layer handles the modulation and encoding of the data for transmission:
+	
+	        It modulates the signal (e.g., OFDM, DSSS).
+	
+	        It adds error correction codes to ensure reliable transmission.
+	
+	        It transmits data using radio waves via the physical medium (wireless spectrum).
+
+Problems that can be faced:
+
+	- Both PLCP and PMD add extra data which could reduce the overall efficiency.
+
+	- Synchronization between the PLCP and PMD is crucial if not transmission error occurs.
+
+Conclusion:
+
+	- PPDU is the data transmission unit at the PHY layer PLCP converts higher-layer data into a transmittable format and PMD handles the modulation and transmission using the physical medium.
+	

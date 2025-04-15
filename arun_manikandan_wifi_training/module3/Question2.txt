@@ -1,0 +1,57 @@
+Objective -> To differentiate and understand DSSS and FHSSS
+
+What are DSSS and FHSS:
+
+	- DSSS stands for Direct Sequence Spread Spectrum
+
+	- FHSS stands for Frequency Hopping Spread Spectrum
+
+	- Both are spread spectrum modulation techniques that are used in wireless communication and in standards like 802.11b (DHSS) and 802.11(FHSS)
+
+	- At its core they both spread the signal over a wide frequency band making it resistant to interference and jamming.
+
+Why DSSS and FHSS
+
+	- Minimizes interference from companion devices.
+
+	- Increases security.
+
+	- Improves reliability in noisy environments.
+
+How do they work?
+
+	DSSS:
+
+		- Each bit of the data is multiplied by a high-frequency pseudorandom noise (PN) code./
+
+		- Data -> PN Code -> Spread Signal
+
+		- This increases bandwidth and the signal becomes more resilient.
+
+		- At the receiver side the same PN code is used to un spread the signal and retrieve the data.
+
+	FHSS:
+
+		- The signal hops between different frequencies based on a predefined hopping sequence.
+
+		- Sender and receiver first synchorinize on the same hopping pattern (Important).
+
+		- Transmission occurs as burst (a number of signals are sent as batch) over different frequencies.
+
+		- If one of the frequency is noisy then it hops to anaother.
+
+Problems that can be faced:
+
+	DSSS:
+
+		- If sender and receiver are not synchronized can lead to loss of data.
+		- Uses more bandwidth.
+
+	FHSS:
+
+		- Lower data rate
+		- Synchronization delay can lead to loss of data.
+
+Conclusion:
+
+	- DSSS And FHSS provide secure and reliable wireless communication techniques.

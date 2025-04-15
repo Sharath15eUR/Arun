@@ -1,0 +1,47 @@
+Objective -> TO understand the role of Guard Intervals in WLAN and how it improves efficiency
+
+What is Guard Interval?
+
+	- A Guard Interval is a short time gap inserted between transmitted symbols in WLAN.
+
+	- It is done so to prevent inter-symbol intereference which occurs when signals from previos transmissions overlap the current one.
+
+Why is it important?
+
+	- Wi-Fi signals often bounce off surfaces
+
+	- Without guard interval there would be interference between symbols
+
+	- GI ensures that each symbol has a clean window.
+
+How does it work?
+
+	- Transmitter sends a symbol.
+
+	- Then adds a cyclic prefix (copy of end symbol) to act as GI.
+
+	- Receiver wiats during GI and then captures the clean signal.
+
+	- It uuses the cyclic prefix to sync timing and channel.
+
+	- 800ns is the default Guard Interval for most devices.
+
+How it improves Efficiency?
+
+	- Lower GI means less wait time between symbols which means higher data throughput.
+
+	- Shorter GI's typically tend to be more efficient in data transfers.
+
+Problems taht can be faced:
+
+	- Shorter GIs can increase decoding errors if echoses are there.
+
+	- Some older devices may not support short GI modes.
+
+Conclusions
+
+	- GI are crucial to enusre clean and reliable transmission in wireless networks
+
+	- Normal GI is 800ns which is safe in noisy environments.
+
+	- Short GI is 400ns boosts speeds and efficiiency but is prone ot erros.

@@ -1,0 +1,97 @@
+Objective -> To understand how frequency bands are divided
+
+What are frequency bands?
+
+	- Wi-Fi being operated on radio waves are grouped into bands.
+
+	- Each band having specific frequencies and are further divide into channels.
+
+	Common bands:
+
+		* 2.4 GHz
+		* 5 GHz
+		* 6 GHz
+
+	- Each band consists of multiple channels, which are narrow frequency ranges.
+
+Why is dividing bands important?
+
+	- Lower frequencies travel long distances.
+
+	- Higher frequencies support higher bandwidht.
+
+	- Some bands are more crowded.
+
+How it works?
+
+	* 2.4 GHz Band
+	
+	    Frequency Range: 2.400 – 2.4835 GHz
+	
+	    Typical Channel Width: 20 MHz
+	
+	    Total Channels: 14
+	
+	    Non-overlapping Channels: 1, 6, and 11 — all others overlap and cause interference
+	
+	    Used in Standards: 802.11b, 802.11g, and 802.11n
+	
+	    Channel Center Frequencies:
+	
+	        Channel 1: 2.412 GHz
+	
+	        Channel 6: 2.437 GHz
+	
+	        Channel 11: 2.462 GHz
+	
+	    Issue: Very crowded — commonly interfered by Bluetooth, microwaves, baby monitors, etc.
+
+	* 5 GHz Band
+	
+	    Frequency Range: 5.150 – 5.825 GHz
+	
+	    Supported Channel Widths: 20 MHz, 40 MHz, 80 MHz, 160 MHz
+	
+	    Channels Available: Ranges from 36 to 165 (depends on region)
+	
+	    Non-overlapping: Even at 20 MHz, channels are cleanly spaced
+	
+	    Used in Standards: 802.11a, 802.11n, 802.11ac, and 802.11ax
+	
+	    Channel Groups and Use:
+	
+	        Channels 36–64: UNII-1 and UNII-2A — Indoor use
+	
+	        Channels 100–144: UNII-2C — DFS channels; may temporarily disconnect if radar is detected
+	
+	        Channels 149–165: UNII-3 — Outdoor use
+	
+	    Note: DFS (Dynamic Frequency Selection) avoids radar interference by switching channels automatically
+
+	* 6 GHz Band (Wi-Fi 6E & Wi-Fi 7 only)
+	
+	    Frequency Range: 5.925 – 7.125 GHz
+	
+	    Supported Channel Widths: 20 MHz, 40 MHz, 80 MHz, 160 MHz, and up to 320 MHz
+	
+	    Total Channels: 59 new 20 MHz channels
+	
+	    Used in Standards: 802.11ax (Wi-Fi 6E) and 802.11be (Wi-Fi 7)
+	
+	    Channel Range: Channels 1 to 233 support wide bandwidth options
+	
+	    Advantage: Extremely clean spectrum — little to no interference. Ideal for high-bandwidth applications like VR, AR, and 8K streaming.
+
+Problems that can be faced:
+
+	- 2.4 GHz has interference problem meaning mode devices leads to congestion.
+
+	- 5GHz and 6GHz signals weaken faster.
+
+	- Only newer devices are capable of using 5/66 GHz.
+
+Conclusion:
+
+	- Thus each band has their own advantages and disadvantages.
+
+	- Further dividing these bands we ensure we avoid intereference and enable more users.

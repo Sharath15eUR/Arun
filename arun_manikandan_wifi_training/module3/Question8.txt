@@ -1,0 +1,85 @@
+Objective -> Differentiate between OFDM and OFDMA
+
+What is OFDM and OFDMA?
+
+	- OFDM stands for Orthogonal Frequency Division Multiplexing
+
+	- OFDMA stands for Orthogonal Frequency Division Multiplexing Access
+
+	- OFDM is a method of transmitting data by splitting into multiple narrow band channels and sendiing in parallel.
+
+	- OFDMA is an extension of OFDM that allows multiple users to transmit and recieve data simultaneously using different subset of subcarriers.
+
+Importance:
+
+	- They help in improving the efficieincy reducing interference and help in acheiveing higher data rates.
+
+	- OFDMA brings in multi-user access (Wi-Fi 6 uses OFDMA) making it more efficient in crowded networks and better than OFDM.
+
+Hopw they work
+
+	* OFDM:
+	
+	    - Takes a high-rate data stream and splits it into multiple slower sub-streams.
+	
+	    - Each sub-stream is transmitted on its own subcarrier orthogonal to others (so they don’t interfere).
+	
+	    - Subcarriers are spaced closely to maximize spectral efficiency.
+
+	* OFDMA:
+	
+	    - Works like OFDM but smarter.
+	
+	    - Instead of using all subcarriers for one user OFDMA divides them into Resource Units (RUs).
+	
+	    - Each user gets a subset of subcarriers → multiple users can transmit at the same time on the same channel.
+
+OFDM VS OFMDA:
+
+	* User per transmission:
+	
+	    OFDM: 1 user at a time
+	
+	    OFDMA: Multiple users at once
+	
+	* Subcarrier usage:
+	
+	    OFDM: All subcarriers assigned to one user
+	
+	    OFDMA: Subcarriers split into Resource Units (RUs)
+	
+	* Latency:
+	
+	    OFDM: Higher
+	
+	    OFDMA: Lower
+	
+	* Efficiency:
+	
+	    OFDM: Lower in dense networks
+	
+	    OFDMA: Much higher in dense networks
+	
+	* Use case:
+	
+	    OFDM: Good for high-throughput scenarios
+	
+	    OFDMA: Great for mixed traffic (IoT, voice, video)
+	
+	* Uplink multi-user support:
+	
+	    OFDM: Not supported
+	
+	    OFDMA: Supported (multi-user uplink)
+
+Problems that can be faced:
+
+	- OFDMA requires smarter scheduling and synchronization.
+
+	- Older devices cannot use OFDMA
+
+Conclusion:
+
+	- OFDM is fast reliable for one user at a time.
+
+	- OFDMA ont eh other hand is smarter more efficient and ideal for multi-user applications.

@@ -1,0 +1,49 @@
+Objective -> To understand the significance of OFDM and its performance perks
+
+What is OFDM?
+
+	- OFDM (Orthogonal Frequency Division Multiplexing) is a digital multi-carrier modulation technique.
+
+	- Mainly used in 802.11a/g/n/ac/ax
+
+	- Instead of sending one high-speed stream OFDM splits the signal into multiple slower sub-signals transmitted simultaneously on orthogonal subcarriers.
+
+Why OFDM?
+
+	 - Unlike DSSS which has issues like multiplath interference , limited bandwidth usage and others OFDM solves them.
+
+	 - OFDM solves these by being resistant to interference and multipath and making efficient use of the spectrum allowing higher data rates.
+
+How OFDM works?
+
+	- The available channel is divided into many subcarriers
+
+	- Each of these subcarriers are spaced orthogonally leading to no interference amongst them.
+
+	- The data is split into chunks and each chunk is modulated using BPSK/QPS/QAM and are sent on a different subcarrier.
+
+	- They are transmitted simultaneously making it more efficient.
+
+	- Uses Inverse Fast Fourier Transformation (IFFT) at the trasmitter so that teh data is in time-domain signals.
+
+	- At receiver side FFT(Fast Fourier Transformation) is used to recover the signal and decode the data.
+
+	- A part of the signal is copied and added to the beginning of each symbol.
+
+	- This prevents multipath delay.
+
+Benefits of OFDM in WLAN:
+
+	- Multipath resistance.
+
+	- High data rates.
+
+	- Spectral efficiency.
+
+	- Scalability.
+
+Conclusion:
+
+	- OFDM boosts speed by transmitting in parallel.
+
+	- Resilient againt interference.
