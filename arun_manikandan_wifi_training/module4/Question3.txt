@@ -1,0 +1,57 @@
+Objective -> To list and understand the different MAC layer funcionalities
+
+What are MAC layer functionalities:
+
+	- The MAC layer in IEEE 802.11 is responsible for managing how data is transmitted over the wireless medium.
+
+	- It handles fucntions like frame construction , access control etc of wireless devices.
+
+Management Plane Function:	
+
+	- Beacon Frame Transmission -> APs send periodic beacons to advertise network presence.
+
+	- Probe Request/Response -> Used for active scanning by stations to discover networks.
+
+	- Authentication -> Initial security handshake between a station and an AP.
+
+	- Association/Reassociation -> Establishes/updates connection between teh station and AP.
+
+	- Disassociation -> Notifies that a station is leaving the netwrok.
+
+	- Deauthentication -> Terminates the authentication state between the station and AP.
+
+Control Plane Function:
+
+	- Request to Send (RTS) -> Used to reserve the medium before sending frames.
+
+	- Clear to Send (CTS) -> Sent in response to RTS to allow the sender to transmit.
+
+	- Acknowledgement (ACK) -> Confirms the successful frame reception to avoid retransmission.
+
+	- Carrier Sensing -> Checks if the channel is clear before transmission.
+
+	- Fragmentation Control -> Breaks large frames intro smaller ones for reliable delivery.
+
+	- Retransmission Control -> Retransmits frames if no ACK is received for the transmitted frame.
+
+Data Plane Functions:
+
+	- Data Frame Delivery -> Transfers user data from source to destination.
+
+	- Frame Aggregation (A-MSDU , A-MPDU) -> Combines multiple frames to improve efficiency.
+
+	- Error Detection (FCS) -> Uses CRC to detect frame errros.
+
+	- Framentation and Reassembly -> Handles large packets in poor channel conditions.
+
+	- QoS Control -> Prioritizes traffic based on application needs.
+
+	- MAC Address -> Uses 48bit MAC address to uniquely ID devices.
+
+	- Encryption control -> Works with higher layers for encrypted paylaod delivery.
+
+Conclusion:	
+
+	- The MAC layer in IEEE 802.11 is responsible for setting up the connection , controlling access to the medium.
+
+	- These functions accross Management, Control, Data planes work together to deliver the data wirelessly.

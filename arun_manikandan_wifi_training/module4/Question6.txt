@@ -1,0 +1,102 @@
+Objective -> To understand how the EAPOL 4 way Handshake works
+
+What is EAPOL 4 way Handshake
+
+	- The 4 way Handshake is a security protocol defined by IEEE 892.11i (WPA2/WPA3) to:
+
+		* Prove mutual possession of the Pairwise Master Key (PMK).
+		* Derive and install encryption keys.
+		* Prevent replay and man-in-the-middle attacks.
+
+Keys Involved
+
+	- PMK (Pairwise Master  Key) -> Derived from teh preshared key or EAP.
+
+	- PTK (Pairwaise Transient Key) -> Session key for unicast communication derived during 4way handshake,
+
+	- GTK (Group Temporal Key) -> Used for broadcast/mutlicast communication
+
+	- Nonce -> A random number used to ensure uniqueness
+
+Steps:
+
+	1. AP to  Client
+	
+	    * AP sends:
+	
+	       -  ANonce (AP's random number)
+	
+	       -  Replay Counter
+	
+	    * Purpose:
+	
+	        - Begin key negotiation
+	
+	        - Provide randomness for PTK derivation
+
+	2. Client to  AP
+
+		* Client:
+		
+		    - Generates SNonce (its own random number)
+		
+		    - Derives PTK using PMK, ANonce, SNonce, AP MAC, STA MAC
+		
+		    - Sends SNonce
+		
+		    - Sends MIC (Message Integrity Code) over the message using PTK
+		
+		* Purpose:
+		
+		    - Confirms possession of PMK
+		
+		    - Contributes to PTK derivation
+		
+		    - Proves authenticity using MIC
+
+	3. AP to Client
+
+	    * AP:
+
+	        - Verifies MIC
+
+	        - Derives PTK independently (since it has all inputs)
+
+	        - Encrypts and sends GTK and Group Key Info
+
+	        - Sends MIC using PTK
+
+    	* Purpose:
+
+	        - Distribute group key securely
+
+	        - Confirm both sides have matching PTK
+
+	4. Client → AP
+	
+	   	* Client:
+	
+	        - Installs GTK
+	
+	        - Sends ACK with MIC (confirming key installation)
+	
+	    * Purpose:
+	
+	        - Completes handshake
+	
+	        - Confirms secure channel is ready
+
+PTK is desrived using:
+
+	PTK = PRF(PMK, "Pairwise key expansion", MAC_AP || MAC_STA || ANonce || SNonce)
+
+	Where:
+		KCK: Key Confirmation Key (for MIC)
+		kEK: Key Encryption Key (to encrypt GTK)
+		TK: Temporal Key (for actual encryption of data)
+
+Conclusion:
+
+	- The 4 way handshake is the core of WPA2/WPA3 security ensuring that both client and AP have the same PMK and securely derive PTK and GTK.
+
+	- This process ensures that even if a user captures the handshake packets, they cannot decrypt the traffic without knowing the PMK (i.e., the password or authentication key).

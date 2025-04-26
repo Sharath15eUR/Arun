@@ -1,0 +1,78 @@
+Objective -> To understand what Block ACK is why it was introduced how it works and its impact on wireless communication efficiency.
+
+What is Block ACK?
+
+	- Block ACK (Block Acknowledgment) is an enhancement to the traditional acknowledgment (ACK) method in IEEE 802.11 (Wi-Fi).
+
+	- Instead of sending an ACK for every frame Block ACK allows multiple frames to be acknowledged together in a single response.
+
+Why Block ACK?
+
+	- In normal ACK each frame waits for an individual ACK adding overhead and delay.
+
+	- Block ACK reduces overhead by:
+
+	    * Grouping acknowledgments.
+
+	    * Reducing the number of control frames.
+
+	    * Improving overall network throughput.
+
+WOrking:
+
+	1. Block ACK Request (BAR):
+	
+	    - Sender sends a Block ACK Request after transmitting a batch of frames.
+	
+	    - It asks the receiver for a collective acknowledgment.
+	
+	2. Block ACK (BA):
+	
+		    - Receiver responds with a Block ACK a bitmap indicating received and missing frames.
+	
+	3. Retransmission:
+	
+	    - Sender retransmits only the missing frames not the entire batch.
+
+Advantages:
+
+	- Higher Throughput:
+	
+	    * Fewer acknowledgment frames more time for data transmission.
+	
+	- Lower Overhead:
+	
+	    * Multiple ACKs combined into one frame saving bandwidth.
+	
+	- Better Efficiency:
+	
+	    * Effective for large bursts like video streaming or file downloads.
+	
+	- Improved Retransmission:
+	
+	    * Only missing frames are retransmitted.
+	
+	- Crucial for Modern Wi-Fi:
+	
+	    * Essential for 802.11n 802.11ac and 802.11ax where frame aggregation is common.
+
+POssible Issues:
+
+	- Block ACK Overhead for Small Traffic:
+	
+	    * For small bursts Block ACK might add unnecessary complexity.
+	
+	- Increased Complexity:
+	
+	    * Implementation is more complex compared to simple ACK.
+	
+	- Delay in Acknowledgment:
+	
+	    * Slight delay before receiving the Block ACK affecting very delay-sensitive applications.
+
+Conclusion:
+	
+	- Block ACK improves efficiency in wireless communications by reducing control overhead and increasing throughput.
+	
+	- It is a key feature in high-throughput Wi-Fi standards like 802.11n 802.11ac and 802.11ax.
+	

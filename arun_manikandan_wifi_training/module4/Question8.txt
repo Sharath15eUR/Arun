@@ -1,0 +1,124 @@
+Objective -> To understand the different methodologies used by the MAC layer
+
+What is Medium Access Control (MAC)?
+
+	- MAC is a sublayer of the Data Link Layer (Layer 2) in the OSI model.
+	
+	- It regulates access to the shared physical medium, ensuring multiple devices can communicate efficiently and fairly without causing collisions.
+
+Why Medium Access Control is Needed?
+
+	- In shared networks (wired or wireless) multiple devices want to transmit data at the same time.
+	
+	- If devices transmit simultaneously collisions occur leading to data loss and retransmisssions.
+	
+	- MAC methods coordinate transmissions prevent collisions, maximize throughout and ensure fairness.
+
+How MAC Methodologies Work:
+
+   -  MAC defines rules and mechanisms that decide:
+
+        * When a device can transmit.
+
+        * How collisions are handled if they occur.
+
+        * How the medium is shared among devices.
+
+Types:
+
+	1. Contention-Based Methodologies (Random Access):
+	
+	    - Devices compete for the medium.
+	
+	    - Collisions can happen, recovery methods are used.
+	
+		Techniques:
+		
+		1. ALOHA:
+		
+		    - Devices transmit whenever they have data, without checking the medium.
+		    - Very simple but high collision probability.
+		    - Used in early wireless networks.
+		
+		2. Slotted ALOHA:
+		
+		    - Time is divided into slots, and transmissions happen only at slot beginnings.
+		    - Reduces collisions.
+		    - Requires synchronization.
+		
+		3. Carrier Sense Multiple Access (CSMA):
+		
+		    - Devices sense the medium before transmitting.
+		    - If the medium is busy, they wait.
+		    - Reduces collisions compared to ALOHA.
+		
+		4. CSMA/CD (Collision Detection):
+		
+		    - Used in wired Ethernet (IEEE 802.3).
+		    - Devices detect collisions during transmission and back off before retrying.
+		    - Cannot be used in wireless networks.
+		
+		5. CSMA/CA (Collision Avoidance):
+		
+		    - Used in Wi-Fi (IEEE 802.11).
+		    - Devices avoid collisions using random backoff timers and RTS/CTS mechanism.
+		    - Necessary in wireless networks where collision detection is difficult.
+
+	2. Controlled Access Methodologies (Deterministic Access):
+	
+	    - Access is organized, collisions are avoided.
+	
+		Techniques:
+		
+		1. Polling:
+		
+		    - A central controller (like AP) polls each device asking if it has data to send.
+		    - Efficient under high load.
+		    - Adds overhead under low load.
+		
+		2. Token Passing:
+		
+		    - A special token circulates among devices.
+		    - Only the device with the token can transmit.
+		    - No collisions, used in Token Ring networks.
+		
+		3. Scheduling:
+		
+		    - Medium access is scheduled using predefined rules like TDMA.
+		    - Guarantees access.
+		    - Used in LTE and 5G networks.
+		    
+	3. Channelization-Based Methodologies (Sharing the Medium):
+	
+	    - Bandwidth is divided into separate channels to allow simultaneous transmissions.
+	
+		Techniques:
+		
+		1. Frequency Division Multiple Access (FDMA):
+		
+		    - Different users transmit over different frequency bands.
+		    - Used in 1G systems.
+		    - Low spectral efficiency.
+		
+		2. Time Division Multiple Access (TDMA):
+		
+		    - Users transmit in different time slots.
+		    - Used in GSM networks.
+		    - Needs tight synchronization.
+		
+		3. Code Division Multiple Access (CDMA):
+		
+		    - All users transmit over the same frequency using unique codes.
+		    - Used in 3G networks.
+		    - High resistance to interference.
+		
+		4. Orthogonal Frequency Division Multiple Access (OFDMA):
+		
+		    - Bandwidth is divided into multiple orthogonal subcarriers.
+		    - Used in 4G LTE and Wi-Fi 6.
+		    - Highly efficient and flexible.
+Conclusion:
+
+    - MAC methodologies are critical for efficient and fair communication over shared media.
+
+    - Depending on network type (wired, wireless, cellular), techniques like CSMA/CA, Polling, TDMA, or OFDMA are used.

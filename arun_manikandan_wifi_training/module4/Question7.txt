@@ -1,0 +1,107 @@
+Objective -> To understand the power-saving mechanisms implement in the MAC layer of IEEE 802.11
+
+What is Power-Saving in MAC Layer?
+
+	- In wireless networks power consumption is a concern mainly for mobile devices like laptops smartphones and other.
+
+	- Power-saving mechanisms in the MAC layer of IEEE 802.11 help reduce the energy consumend by the stations when not actively transmitting or receving.
+
+Importance:
+
+	- Mobile devices need to conserve battery life.
+
+	- Reducing power consumption helps make the wireless devices more energy-efficient.
+
+	- Power-saving mechanisms enable continuous netowrk connectivity while reducing the frequencyt of active communication.
+
+Types:
+
+	1. Sleep Mode (Basic);
+
+		- In sleep mode the station goes into a low power state and doesnt listen to the channel or incomming frames.
+
+		- It periodically wakes up to check if the AP has buffered any frames.
+
+		- The AP buffers frames for the station while its in sleep mode and signals for the wakeup.
+
+		- Ap sends a Traffic Indication Map (TIM) in the beacon frame which tells station about pending frames.
+
+		Working:
+
+			* The STA signals the AP that it wants to enter sleep mode.
+			
+			* The AP acknowledges and buffers frames destined for the STA.
+			
+			* The STA periodically wakes up and checks for buffered frames using the TIM.
+			
+			* If the AP has frames for the STA, it notifies the STA.
+
+	2. Power Save Polling (PS-Poll):
+
+		- The station sends a Power Save Poll (PS-Poll) request to the AP to request buffered data that has been waiting for it.
+		
+		- The AP responds with the buffered frames.
+		
+		- This mechanism is used to allow the station to stay in sleep mode but still retrieve data as needed.
+
+		Working:
+
+			* The station remains in sleep mode most of the time.
+			
+			* When it wakes up, it sends a PS-Poll frame to the AP to request any buffered frames.
+			
+			* The AP sends the buffered frames and waits for a confirmation.
+
+	3. Contention-Free Period (CFP) with Traffic Indication Map (TIM):
+	
+	   - CFP is used in IEEE 802.11e (WMM) for Quality of Service (QoS).
+	
+	   - The AP includes a Traffic Indication Map (TIM) in the beacon frame, which informs STAs about buffered traffic.
+	
+	   - During the Contention-Free Period, the AP schedules transmissions so that STAs can wake up and receive data without facing contention.
+	
+		Working:
+	
+		   * The AP sends a beacon frame containing the TIM that lists which stations have pending data.
+		
+		   * If the station sees that it has data buffered, it wakes up during the CFP.
+		
+		   * The station receives its data during this contention-free window.
+
+	4. Automatic Power Save Delivery (APSD):
+	
+	   - APSD is mainly used for real-time applications like VoIP.
+	
+	   - The AP and STA negotiate a schedule for data delivery to reduce the need for continuous channel listening.
+	
+	   - The STA enters sleep mode between the agreed wake-up times and receives data during scheduled delivery times.
+	
+		Working:
+	
+		   * The AP and STA agree on a data delivery schedule.
+		
+		   * The STA sleeps and only wakes up at specific intervals.
+		
+		   * The AP sends buffered packets during these wake-up times.
+		   
+	5. Hybrid Power Save (HPS):
+	
+	   - Hybrid Power Save combines scheduled and on-demand sleep mechanisms.
+	
+	   - It allows STAs to sleep for extended periods but also wake up based on network traffic needs or pre-established schedules.
+	
+	   - This method merges Active Mode (AM) and Power Save Mode (PSM) to balance performance and power saving.
+	
+		Working:
+	
+		   * The AP and STA negotiate a hybrid sleep and wake-up schedule.
+		
+		   * The STA sleeps but wakes up either as per the schedule or based on traffic conditions.
+		
+		   * Data transmission is managed to optimize both energy saving and network responsiveness.
+
+Conclusion:
+
+	- Power-saving mechanisms in the MAC layer of IEEE 802.11 are crucial for improving battery life in mobile and IoT devices.
+	
+	- Techniques like Sleep Mode, PS-Poll, CFP with TIM, APSD, and HPS allow devices to stay connected to the network while minimizing energy consumption.

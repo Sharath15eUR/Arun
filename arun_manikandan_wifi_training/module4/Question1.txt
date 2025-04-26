@@ -1,0 +1,50 @@
+Objective -> To understand the significance of MAC and its position in the OSI model
+
+What is MAC?
+
+	- MAC stands for Media Access Control and is a sublayer of the Layer2 (Data Link Layer) in the OSI model.
+
+	- It is responsible for controlling how devices on a network gain access to the medium and the permission to transmit the actual data.
+
+Why?
+
+	- MAC ensures efficient and collision-free data transmission.
+
+	- Prevents data loss and corruption during transmission.
+
+	- Capablity to identify devices uniquely based on MAC address.
+
+	- Enables fair access to the physical medium.
+
+Work
+
+	- Each device has a unique MAC address burned into the NIC (Netowrk Interface Card).
+
+	- It frames teh data received from the network layer before passing it to the physical layer.
+
+	- Provides CSMA/CD (Ethernet) and CSMA/CA (Wi-Fi) - Carrier Sense Multiple Access with Collision Detection / Collision Avoidance. 
+
+	- Provisions Cyclic Redunancy Check (CRC) for error detection.
+
+Why is it part of Layer 2?
+
+	- The MAC is a subpart of the Lyaer 2 - Data Link Layer.
+
+	- The Data Link layer itself is divided into 2 parts:
+
+		1. LLC (Logical Link Control) -> manages communication between network layter and MAC layer.
+		2. MAC (Media Access Control) -> manages access to the physical transmission medium.
+
+Problems that can be faced:
+
+	- Attackers can impersonate another devices MAC address.
+
+	- MAC-based communication is not scalalbe well over large networks.
+
+	- Can flood the network segment.
+
+Conclusion
+
+	- The MAC layer is crucial for ensuring orderly and efficient data transmission overa  shared medium.
+
+	- By uniquely IDing devices and amanaging they can send data without any collisions and data loss.

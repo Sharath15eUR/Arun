@@ -1,0 +1,81 @@
+Objective -> TO understand the MAC frame format in IEEE 802.11 and explain the same
+
+What is 802.11 MAC frame?
+
+	- The 802.11 MAC frame is a structured format used in Wi-Fi communication to transmit data wirelessly.
+
+	- It includes control , addressing and data fields for the same.
+
+Need
+
+	- Unlike 802.3 (Ethernet) Wi-Fi needs more addressing flexiblity.
+
+	- Needs additional control information for managing authentication , association etc.
+
+	- Deal with wireless-specific issues liek interference and power saving , etc.
+
+802.11 MAC Frame Format:
+
++------------+------------+-----------------+------------------+------------------+------------+------------------+
+| Frame Ctrl | Duration   | Address 1       | Address 2        | Address 3        | Seq Ctrl   | Address 4 (opt.) |
++------------+------------+-----------------+------------------+------------------+------------+------------------+
+|            Frame Body                 |        FCS (Frame Check Sequence)       |
++---------------------------------------+-----------------------------------------+
+
+Purpose of each field is as follows:
+
+	1. Frame Ctrl or Frame Control
+
+		- Contains subfields taht define the type fo frame and control information like:
+
+			* Protocol Version.
+			* Type
+			* Subtype
+
+			and others
+
+	2. Duration
+
+		- Indicates the time (in milliseconds) the channel will be reserved for the frame's transmission.
+
+		- Used for collision avoidance
+
+	3. Address Fields:
+
+		- Address 1 -> Receiver address (Final destination).
+
+		- Address 2 -> Transmitter address (Sender).
+
+		- Address 3 -> BSSID
+
+		- Address 4 (Optional) -> Used in Wireless Distribution System when both soruce and destination are beyound AP.
+
+	4. Sequence Control:
+
+		- Fragment Number -> helps in assembling fragmented frames.
+
+		- Sequence NUmber -> used to detect duplicate frames if any.
+
+	5. Frame Body
+
+		- Actual Data payload , can vary depending on frame type.
+
+	6. Frame Check Sequence (FCS):
+
+		- Provides error detection usign CRC.
+
+		- Helps the receiver validate the integrity of the received frame.
+
+Challenges:
+
+	- The MAC frame includes multiple address fields leading to an overhead.
+
+	- Wireless frames are more prone to data loss due to noise.
+
+	- Requires complex parsing.
+
+Conclusion:
+
+	- 802.11 MAC header format is designed to accomodate the complex needs of Wireless communication.
+
+	- Every field has a function and role of its own to ensure accurate delivery and device coordination in a Wi-Fi network.

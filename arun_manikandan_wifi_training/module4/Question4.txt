@@ -1,0 +1,82 @@
+Objective -> TO understand how wireless devices scan and discover Wi-Fi Networks
+
+What is Scanning?
+
+	- Scanning is the process through which a wiress devices (Station) searches for available wireless netowrks (APs) before associating with them.
+
+Why?
+
+	- To discover nearby Wi-Fi networks.
+
+	- To identify signal strength and others.
+
+	- To support roaming by scanning and switching to better AP.
+
+	- To establish initial connection or reconnect to a network.
+
+Types of Scanning:
+
+	1. Passive Scanning:
+
+		* Working:
+
+			- The station listens on each channel for Beacon frames sent by APs.
+			- It does not transmit any probe requests.
+
+		* Steps:
+
+			- Station tunes into a channel.
+			- Waits for Beacon Frame.
+			- Extracts SSID and other informations.
+			- Moves to next channel and repeats
+
+		* Advantages:
+
+			- Energy Efficient.
+			- Stealthy.
+
+		* Disadvantages:
+
+			- Slower since it depends on beacon interval.
+			- May miss APs that are not broadcasting beacons.
+
+	2. Active Scanning:
+
+		* Working:
+
+			- The station sends Probe Request on each channel.
+			- Nearby APs respond with a Probe Response.
+
+		* Steps:
+
+			- Station sends a Probe Request on a specific channel.
+			- APs receiving the request respond with a Probe Response.
+			- Station gathers information from responses and decides an AP.
+			- Switches to the next channel and repeats.
+
+		* Advantages:
+
+			- Faster AP discovery.
+			- Useful for hidden SSID.
+
+		* Disadvantages:
+
+			- Consumes more power.
+			- can be detected.
+			- Channel Congestion.
+
+Challenges:
+
+	- Active scanning on congested channles may lead to interference.
+
+	- Passive scanning may miss APs due to beacon loss or long intervals.
+
+	- Active scanning may cause latency spikes during real-time.
+
+Conclusion:
+
+	- 802.11 scannign process is essential for entowork discovery and roaming.
+
+	- Passive scanning is quiet and power efficient.
+
+	- Active scanning is faster and more aggressive.

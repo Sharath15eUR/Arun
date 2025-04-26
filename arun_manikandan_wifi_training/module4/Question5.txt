@@ -1,0 +1,37 @@
+Objective -> To understand how a station connects to an AP using association process
+
+What is Client Association?
+
+	- Association is the process by which a wireless client establishes a logical connection with an AP.
+
+	- This allows it to send and receive data on the network.
+
+Steps:
+
+	- Scanning (Discovery Phase);
+	
+		* The clinet scans for Aps using either Active or Passive Scanning.
+
+	- Authentication:
+
+		* A basic security handshake to verify identity.
+
+	- Association Request:
+
+		* Client sends Association Request frame to the AP.
+		* It includes SSID supported rates and power management settings.
+
+	- Association Response:
+
+		* The AP replies with an Association Repsonse frame
+		* It contains status code and Association ID
+
+	- 4 Way Handshake (if WPA2/WPA3):
+
+		* For secure networks , a 4 way handshake follows to exchange encryption keys
+
+Conclusion:
+
+	- The client association process is essential for joining a Wi-Fi network.
+
+	- It involves scannign , authentication and association.

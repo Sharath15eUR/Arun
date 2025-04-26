@@ -1,0 +1,88 @@
+Objective -> To understand A-MSDU A-MPDU and A-MSDU in A-MPDU their differences how they work and their benefits in Wi-Fi 802.11n/ac/ax.
+
+What are A-MSDU A-MPDU and A-MSDU in A-MPDU?
+
+	A-MSDU – Aggregated MAC Service Data Unit
+	
+	    - A-MSDU is a technique where multiple MSDUs (higher layer data packets) are combined into one MAC frame.
+	
+	    - Several data packets from the MAC service layer are aggregated into one frame.
+	
+	    - Key Feature: Compact—multiple MSDUs in a single MAC frame reduces overhead and increases throughput.
+	
+	A-MPDU – Aggregated MAC Protocol Data Unit
+	
+	    - A-MPDU is a method where multiple MPDUs (MAC frames) are grouped into one transmission.
+	
+	    - Each MPDU is a complete MAC frame but multiple are sent together in one packet.
+	
+	    - Key Feature: Flexibility—more flexible than A-MSDU as it can carry various data frames and individual MPDUs are treated separately making retransmissions easier
+	
+	A-MSDU in A-MPDU
+	
+	    - A-MSDU in A-MPDU combines both techniques.
+	
+	    - A large A-MPDU is created inside which there can be A-MSDUs.
+	
+	    - Key Feature: Maximized Efficiency—combining both methods improves use of the transmission medium especially in high-throughput scenarios.
+
+Why?
+
+	- In wireless networks small frames add overhead from headers and acknowledgments.
+	
+	- Aggregating frames reduces overhead and increases throughput.
+	
+	- A-MSDU and A-MPDU techniques allow multiple frames to be transmitted in one MAC frame reducing acknowledgments and overhead.
+
+Working:	
+
+	A-MSDU:
+	
+	    - Frame Aggregation: Several MSDUs from higher layers are concatenated into one MAC frame.
+	
+	    - Transmission: This single frame is transmitted.
+	
+	    - Acknowledgment: Receiver acknowledges the entire frame. If an MSDU is lost the whole frame is retransmitted.
+	
+	    - Example: A file with smaller packets is aggregated into a single A-MSDU and sent in one go instead of separate frames.
+	
+	A-MPDU:
+	
+	    - Frame Aggregation: Multiple MPDUs are bundled together to form a larger frame.
+	
+	    - Transmission: The larger frame is sent as one transmission.
+	
+	    - Retransmission: If an MPDU is lost only that specific MPDU is retransmitted.
+	
+	    - Example: Multiple data frames are bundled into one A-MPDU making it more efficient to use the medium.
+	
+	A-MSDU in A-MPDU:
+	
+	    - Aggregation Layering: A-MSDUs aggregate multiple MSDUs into a single MAC frame.
+	
+	    - Nested Aggregation: Several A-MSDUs are aggregated into one A-MPDU.
+	
+	    - Transmission and Acknowledgment: The A-MPDU is transmitted and individual A-MSDUs are acknowledged as part of the same frame. If anything is lost only that part is retransmitted
+	
+	    - Example: A high-speed file transfer involves grouping packets into A-MSDUs which are then aggregated into A-MPDU for maximum efficiency.
+
+Problems that can be faced:
+	
+	    - Packets too large must be fragmented before aggregation which adds complexity and overhead.
+		
+	    - In A-MSDU if any MSDU is lost the entire frame needs to be retransmitted which can be inefficient.
+	
+	    - Not all devices support A-MSDU or A-MPDU. Older devices may not benefit from these techniques.
+	
+	    - Aggregated frames require complex buffering and processing at both transmitter and receiver ends.
+
+Conclusion
+
+	- A-MSDU A-MPDU and A-MSDU in A-MPDU are techniques designed to improve Wi-Fi network efficiency and throughput
+
+	- A-MSDU reduces frame overhead
+
+	- A-MPDU allows flexible retransmissions
+
+	- A-MSDU in A-MPDU combines both techniques to maximize performance
+	
