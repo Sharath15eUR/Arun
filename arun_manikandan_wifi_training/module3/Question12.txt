@@ -1,6 +1,6 @@
 Objective -> To understand how data rate is calculated
 
-What is data rate?
+What is data rate? 
 
 	- Data rate refers to the speed at which data is transferred over a network.
 
@@ -10,7 +10,16 @@ How to calculate:
 
 	- Data rate is calculated using the below formula:
 
-		Data Rate = Modulation Rate × Channel Bandwidth × Number of Spatial Streams
+		Data Rate = (Bits per Symbol) × (Symbol Rate) × (Number of Spatial Streams) × (Coding Rate)
+	Where:
+
+		*Bits per Symbol (Modulation Order): The number of bits encoded in each transmitted symbol (e.g., QPSK = 2, 16-QAM = 4, 64-QAM = 6, 256-QAM = 8, 1024-QAM = 10).
+		
+		*Symbol Rate: The number of symbols transmitted per second, related to the channel bandwidth and subcarrier spacing (in OFDM/OFDMA).
+		
+		*Number of Spatial Streams: The number of independent data streams transmitted simultaneously using MIMO.   
+		
+		*Coding Rate: The efficiency of the Forward Error Correction (FEC) code (e.g., 1/2, 2/3, 3/4).
 
 Conclusion:
 
