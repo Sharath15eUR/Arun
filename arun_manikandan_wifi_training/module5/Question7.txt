@@ -1,0 +1,67 @@
+Objective -> To understand the concept of Multi-Link Operation (MLO) in Wi-Fi 7
+
+ What is Multi-Link Operation (MLO)?
+
+	- Multi-Link Operation (MLO) is a feature introduced in Wi-Fi 7 (802.11be) that enables a single device to communicate simultaneously across multiple frequency bands, such as 2.4 GHz, 5 GHz, and 6 GHz. 
+
+	- This allows devices to transmit and receive data in parallel, improving throughput and reducing latency.
+
+Why is Multi-Link Operation (MLO) Important?
+
+	- MLO is critical for addressing the growing need for higher data rates, stable connections, and low latency required by high-demand applications such as:
+
+	    * 4K/8K video streaming
+
+	    * Real-time communication (e.g., AR/VR)
+
+	    * Online gaming
+
+	- By using multiple frequency bands simultaneously, MLO optimizes the use of available spectrum, which results in more efficient communication.
+
+How MLO Works?
+
+	- MLO enhances communication by allowing devices to use the following:
+
+	    * Multiple Frequency Bands: Devices can communicate across 2.4 GHz, 5 GHz, and 6 GHz bands at the same time.
+
+	    * Load Balancing: Traffic is offloaded onto less congested bands, improving network capacity and reducing congestion.
+
+	    * Redundancy: If one band experiences interference or congestion, another band can take over, ensuring continuous and reliable communication.
+
+Impact on Latency
+
+	- Latency is the delay between sending a data packet and receiving a response.
+
+	- Reduced Latency:
+
+	    * MLO reduces latency by enabling devices to communicate across multiple channels simultaneously, speeding up data transmission.
+
+	    * MLO also helps avoid congestion by distributing traffic across bands, minimizing delays.
+
+Impact on Throughput
+
+	- Throughput is the amount of data transmitted over the network per unit of time.
+
+	- Increased Throughput:
+
+	    * MLO aggregates bandwidth from multiple bands, allowing devices to transmit and receive data faster.
+
+	- This results in higher speeds and better network performance, especially in high-demand scenarios like streaming and gaming.
+
+Problems taht can be faced:
+
+	- Both client devices and routers must support Wi-Fi 7 and MLO to fully take advantage of this feature.
+
+	- Using multiple bands can sometimes lead to interference, particularly in crowded environments.
+
+	- MLO increases power consumption since it requires simultaneous operation across multiple bands.
+
+Conclusion:
+
+	- Multi-Link Operation (MLO) in Wi-Fi 7 is a powerful feature that offers:
+	
+	    * Higher throughput by aggregating bandwidth from multiple frequency bands, leading to faster speeds and better data rates.
+	
+	    * Reduced latency by transmitting data across several bands in parallel, enhancing real-time applications like gaming, video conferencing, and AR/VR.
+	
+	    * It is an important tool for optimizing network performance, especially in environments with high device density and bandwidth demands.

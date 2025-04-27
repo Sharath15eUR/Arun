@@ -1,0 +1,34 @@
+Objective -> To understand the concept of Fast BSS Transition (802.11r) and its benefits in mobile environments.
+
+What is 802.11r (Fast BSS Transition)?
+
+	- 802.11r, also known as Fast BSS Transition (FT), is a Wi-Fi standard designed to improve the speed and efficiency of roaming between access points (APs) in a wireless network. 
+
+	- It allows for faster handoffs between APs by enabling pre-authentication and pre-association between the device and new APs. 
+
+	- This reduces the time required for a device to switch between APs, ensuring a smoother roaming experience.
+
+Why is 802.11r Important in Mobile Environments?
+
+	- Pre-authenticating the device with neighboring APs before the actual handoff. This reduces the time it takes for the device to connect to a new AP.
+	
+	- Enabling faster, seamless transitions between APs, which is crucial for real-time applications such as VoIP, video calls, and gaming, where delays can disrupt performance.
+
+How 802.11r Works
+
+    1. Pre-authentication: 
+
+    	* Before switching to a new AP, 802.11r allows the device to authenticate with that AP in advance. 
+    	* This ensures that the authentication process doesn't cause delays during the actual handoff.
+
+    2. Seamless Transition: 
+
+    	* Once the device moves to the new AP, the connection is quickly established, minimizing interruptions in service, even in high-density environments where many devices are trying to roam simultaneously.
+
+Conclusion
+
+	- 802.11r (Fast BSS Transition) significantly enhances roaming performance in mobile environments. 
+
+	- It enables faster, seamless handoffs between APs, reducing delays and ensuring stable connectivity. 
+
+	- This is particularly important in high-density areas where real-time applications such as voice and video calls depend on uninterrupted service.

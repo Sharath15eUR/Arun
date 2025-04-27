@@ -1,0 +1,60 @@
+Objective -> To understand how 802.11k, 802.11v, and 802.11r work together to provide seamless roaming in enterprise networks.
+
+What?	
+
+	1. 802.11k: 
+
+		- This standard focuses on radio resource management, providing devices with information about nearby access points (APs). 
+
+		- This allows the device to make more informed decisions regarding roaming, ensuring it connects to the most suitable AP based on signal strength and network conditions.
+	
+	2. 802.11v: 
+
+		- This standard enhances network management by allowing access points to suggest the best APs for roaming. 
+
+		- It also introduces BSS Transition Management, which optimizes the handoff process, making it smoother and more efficient.
+	
+	3. 802.11r: 
+
+		- Known as Fast BSS Transition (FT), this standard speeds up the roaming process by enabling pre-authentication and pre-association with new APs. 
+
+		- This reduces handoff time and minimizes delays during roaming.
+
+Why?	
+
+	- 802.11k:
+	
+		* Supplies neighbor reports, which give devices a list of nearby APs, including key metrics like load and signal strength. 
+		* This allows devices to assess which AP is optimal for roaming.
+	
+	- 802.11v: 
+	
+		* Utilizes the data from 802.11k to guide devices in choosing the best AP for roaming. 
+		* It also manages BSS transitions, ensuring the handoff process is as smooth as possible.
+	
+	- 802.11r: \
+	
+		* Speeds up the actual handoff process by allowing devices to pre-authenticate with a neighboring AP before the transition. 
+		* This minimizes downtime and helps avoid dropped connections.
+
+Working:
+
+	- 802.11k: 
+
+		* Provides a list of nearby APs, with important details like load, signal strength, and channel information, helping devices understand the network environment.
+	
+	- 802.11v: 
+	
+		* Uses the data from 802.11k to recommend or direct devices to the most appropriate AP. 
+		* It also helps with BSS Transition Management, ensuring smooth and efficient handoffs from one AP to another.
+	
+	- 802.11r:
+	 
+		* After selecting the best AP, 802.11r reduces handoff time by allowing the device to pre-authenticate with the new AP. 
+		* This ensures a seamless transition with minimal delay, improving the user experience during roaming.
+
+Conclsuion:	
+
+	- These standards work together to allow devices to make informed decisions about which AP to roam.
+
+	- This is especially crucial for applications requiring low latency and high reliability, such as VoIP, video conferencing, and real-time data access.

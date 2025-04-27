@@ -1,0 +1,118 @@
+Objective -> To understand the key features of Wi-Fi 6, 6E and 7 and their imporvements against Wi-Fi 5
+
+What?
+
+	1. Wi-Fi 5 (802.11ac):
+	
+		- Released in 2013, focused on improving speed (up to 3.5 Gbps theoretically), operating only in the 5 GHz band.
+	
+	2. Wi-Fi 6 (802.11ax):
+
+		- Introduced in 2019, it improves speed, efficiency, and performance in crowded networks, operating in both 2.4 GHz and 5 GHz bands.
+	
+	3. Wi-Fi 6E:
+	
+		- Extension of Wi-Fi 6 into the new 6 GHz band, offering more channels and less congestion.
+	
+	4. Wi-Fi 7 (802.11be):
+	
+		- Expected to roll out commercially between 2024–2025, focuses on extreme speeds, ultra-low latency, and multi-link operation across 2.4 GHz, 5 GHz, and 6 GHz bands.
+
+Why?
+
+	- Wi-Fi 5 was good for high-speed internet, but struggled with:
+	
+	    - Congested networks (too many devices)
+	
+	    - Latency problems in real-time apps like gaming and video calls
+	
+	    - Limited channels especially in crowded areas
+	
+	- Wi-Fi 6 and beyond were introduced to:
+	
+	    - Handle the huge growth of connected devices (IoT, smart homes)
+	
+	    - Improve battery life of devices
+	
+	    - Reduce network congestion
+	
+	    - Increase speed and reliability
+	
+	    - Support new tech like VR, AR, 8K streaming, cloud gaming
+
+How?
+
+	1. Spectrum Bands
+	
+	    Wi-Fi 5: 5 GHz
+	
+	    Wi-Fi 6: 2.4 GHz + 5 GHz
+	
+	    Wi-Fi 6E: 2.4 GHz + 5 GHz + 6 GHz
+	
+	    Wi-Fi 7: 2.4 GHz + 5 GHz + 6 GHz
+	
+	2. Speed (Theoretical)
+	
+	    Wi-Fi 5: ~3.5 Gbps
+	
+	    Wi-Fi 6: ~9.6 Gbps
+	
+	    Wi-Fi 6E: ~9.6 Gbps
+	
+	    Wi-Fi 7: ~46 Gbps
+
+	3. Technology Improvements
+	
+	    Wi-Fi 5: Wider channels (80/160 MHz)
+	
+	    Wi-Fi 6: OFDMA, MU-MIMO
+	
+	    Wi-Fi 6E: Same as Wi-Fi 6 + new 6 GHz band
+	
+	    Wi-Fi 7: MLO, CMU-MIMO, 320 MHz channels
+
+	4. Channel Width
+	
+	    Wi-Fi 5: Up to 160 MHz
+	
+	    Wi-Fi 6: Up to 160 MHz
+	
+	    Wi-Fi 6E: Up to 160 MHz
+	
+	    Wi-Fi 7: Up to 320 MHz
+
+Reason:
+
+	Wi-Fi 6 uses:
+
+		* OFDMA (Orthogonal Frequency Division Multiple Access) -> splits channels into smaller sub-channels to serve multiple devices simultaneously
+		* MU-MIMO -> allows communication with mulyiple devices at the smae time.
+
+	Wi-Fi 6E uses:
+
+		* Same as Wi-Fi 6 but with access to 6GHz spectrum bands.
+		* The 6GHz adds 14 additional 80MHz channels and 7 additional 160 MHz channels
+
+	Wi-Fi 7 implements:
+
+		* MLO (Multi-Link Operation) -> uses multiple bands (2.4 + 5 + 6GHz) simuiltaneously for faster and reliable connections.
+		* CMU-MIMO (Coordinated Multi-User MIMO) -> serves even more devices at once with high-speed connections.
+		* 320 MHz ultrawide channels -> double size of Wi-Fi channels leading to higher throughput.
+		* QAM 4096 -> more data per signal cycle comapred to Wi-Fi 5's 256-QAM
+
+Issues:
+
+	- New routers dont always work at full speed unless the end devices also support Wi-Fi 6/6E/7
+
+	- Routers and devices with Wi-Fi 6/6E/7 are more expensive.
+
+	- Not all ISPs or regions fully support it.
+
+Conclusion:	
+
+	- Wi-Fi tech is evolving rapidly to keep pace with demands of higher speeds and lower latency.
+
+	- Wi-Fi 6 and 6E brought better efficieny with batter saving and solved spectrum congestion with new 6GHz band.
+
+	- Wi-Fi 7 is set to have huge channel widths and unmatched speeds.

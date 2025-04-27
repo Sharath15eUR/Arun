@@ -1,0 +1,76 @@
+Objective -> To compare and contrast Wi-Fi 6 and Wi-Fi 6E based on three key factors: range, bandwidth, and interference.
+
+What is Wi-Fi 6 and Wi-Fi 6E?
+
+    - Wi-Fi 6 (802.11ax) is the latest Wi-Fi standard that improves speed, capacity, and efficiency, designed to handle the increasing number of connected devices.
+
+    - Wi-Fi 6E is an extension of Wi-Fi 6 that introduces the 6 GHz frequency band, in addition to the existing 2.4 GHz and 5 GHz bands used by Wi-Fi 6.
+
+Why Compare Wi-Fi 6 and Wi-Fi 6E?
+
+	- Understanding the differences in range, bandwidth, and interference helps in choosing the right technology for specific environments. 
+
+	- Wi-Fi 6E, while offering advancements, may have limitations in certain scenarios compared to Wi-Fi 6.
+
+Comparison: Range, Bandwidth, and Interference:
+
+	1. Range
+	
+	    - Wi-Fi 6:
+	
+	        * Operates on 2.4 GHz and 5 GHz bands.
+	
+	        * The 2.4 GHz band provides better range and can penetrate obstacles like walls more effectively, but it has more interference due to its widespread use.
+	
+	        * The 5 GHz band offers faster speeds but has a shorter range and struggles more with obstacles.
+	
+	    - Wi-Fi 6E:
+	
+	        * Operates on the newly added 6 GHz band, which offers higher bandwidth and faster speeds.
+	
+	        * However, 6 GHz signals have a shorter range and are more susceptible to attenuation (weakening of signal) by physical barriers like walls, floors, and furniture, compared to 2.4 GHz.
+	
+	        * The 6 GHz band's signals face higher attenuation due to their higher frequency, so while it offers faster speeds, it doesnt cover as large an area as the lower-frequency bands.
+	
+	
+	2. Bandwidth
+	
+	    - Wi-Fi 6:
+	
+	        * Offers a maximum bandwidth of 160 MHz on the 5 GHz band.
+	
+	        * Provides higher speed and capacity than older Wi-Fi standards, but its limited by the existing channels in the 2.4 GHz and 5 GHz bands.
+	
+	        * Can support speeds up to 9.6 Gbps (in ideal conditions).
+	
+	    - Wi-Fi 6E:
+	
+	        * Introduces the 6 GHz band, which adds up to 1,200 MHz of additional spectrum.
+	
+	        * The 6 GHz band allows more non-overlapping channels (14 additional 80 MHz channels and 7 additional 160 MHz channels), providing more bandwidth.
+	
+	        * This allows Wi-Fi 6E to support higher throughput and faster speeds, especially in high-demand environments, and handle more devices simultaneously without congestion.
+
+	3. Interference
+	
+	    - Wi-Fi 6:
+	
+	        * The 2.4 GHz band suffers from higher interference due to the presence of many other devices like Bluetooth, microwaves, and older Wi-Fi networks.
+	
+	        * The 5 GHz band has less interference but can still be crowded in dense areas.
+	
+	        * Wi-Fi 6 uses technologies like OFDMA (Orthogonal Frequency Division Multiple Access) and MU-MIMO (Multi-User, Multiple Input, Multiple Output) to mitigate interference and optimize bandwidth usage.
+	
+	    - Wi-Fi 6E:
+	
+	        * The introduction of the 6 GHz band offers a significant advantage by providing more clean, interference-free spectrum.
+	
+	        * Since the 6 GHz band is less crowded and doesn’t overlap with other legacy devices (like Bluetooth), there is much less interference.
+	
+	        * Wi-Fi 6E devices will have access to cleaner channels for data transmission, improving overall network reliability and performance.
+
+Conclusion:
+
+	- Wi-Fi 6 is a solid choice for most environments with a focus on improving capacity and network efficiency while using the 2.4 GHz and 5 GHz bands.
+
+	- Wi-Fi 6E enhances the performance of Wi-Fi 6 by introducing the 6 GHz band, offering more bandwidth, less interference, and higher speeds, but with the trade-off of shorter range due to the higher frequency.

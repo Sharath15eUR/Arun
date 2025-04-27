@@ -1,0 +1,65 @@
+Objective -> To understand what OFDMA is, why it was introduced in Wi-Fi 6, how it works.
+
+What is OFDMA?
+
+    - OFDMA stands for Orthogonal Frequency Division Multiple Access.
+
+    - Its a technique where a Wi-Fi channel is divided into smaller sub-channels (called Resource Units or RUs).
+
+    - Each sub-channel can be assigned to different devices simultaneously.
+
+Why OFDMA was introduced?
+
+	- In Wi-Fi 5 and older:
+
+	    * Devices had to wait for their turn to use the full channel.
+
+	    * Idle time and inefficiencies increased, especially when many devices (smartphones, IoT gadgets) were connected.
+
+	    * Congestion and delay happened in crowded places (airports, offices, stadiums).
+
+	- OFDMA solves this by:
+
+	    * Reducing wait times,
+
+	    * Allowing multiple small data transmissions at once,
+
+	    * Maximizing spectrum use.
+
+How OFDMA Works?
+
+	- Imagine the Wi-Fi channel like a highway:
+
+	- Without OFDMA (Wi-Fi 5):
+
+	    * Only one truck (device) could use all lanes at once to deliver goods (data), even if it had just a small package.
+
+	    * Huge waste of road space when small deliveries are happening.
+
+	- With OFDMA (Wi-Fi 6):
+
+	    * Multiple trucks (devices) can use different lanes at the same time.
+
+	    * Small deliveries don’t block the whole road.
+
+	    * Big deliveries can still use multiple lanes if needed.
+
+	- More technically:
+
+	    * A 20 MHz Wi-Fi channel could be split into multiple smaller RUs like 2 MHz or 4 MHz units.
+
+	    * The router coordinates the transmissions → multiple users send/receive data simultaneously over different parts of the spectrum.
+
+Problems that can be faced
+
+   - Both the router and the end devices must support OFDMA to get the full benefit.
+    
+   - Improperly tuned networks might not fully leverage OFDMA; it requires smart management.
+
+   - If you have very few devices (like just one or two), OFDMA’s impact might not be very noticeable.
+
+Conclusion
+
+	- OFDMA is one of the most important innovations in Wi-Fi 6.
+
+	- It transforms Wi-Fi from a one-at-a-time system into a true multi-user system by letting multiple devices share a single channel simultaneously.

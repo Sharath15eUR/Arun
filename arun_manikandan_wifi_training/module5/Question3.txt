@@ -1,0 +1,53 @@
+Objective -> To understand the role of Target Wake Time (TWT) in Wi-Fi 6
+
+What is Target Wake Time (TWT)?
+
+    - TWT is a feature introduced in Wi-Fi 6 that helps devices save power by scheduling when they need to wake up and communicate over the network.
+
+    - Instead of constantly listening for transmissions (which uses a lot of power), devices can wake up only at scheduled times, check for data, and then go back to sleep. 
+
+Why TWT was introduced
+
+    - IoT devices like smart sensors, cameras, and thermostats typically dont need to send data continuously. However, previous Wi-Fi standards (like Wi-Fi 5) required devices to constantly check for data, which led to significant battery drain.
+
+    - With the rise of IoT and the need for more efficient power consumption, TWT was introduced to allow devices to operate for longer periods without frequent recharging.
+
+How TWT Works
+
+   -  Scheduling Wake Times:
+    
+	    * In Wi-Fi 6, devices and the access point (AP) negotiate when each device should wake up to transmit or receive data.
+
+	    * This reduces the idle time during which devices would otherwise be consuming energy. They only wake up during their assigned times, leading to better battery efficiency.
+
+How TWT Benefits IoT Devices
+
+    1. Power Efficiency:
+
+    	* Since IoT devices dont have to constantly stay awake or keep checking for data, they consume much less energy, leading to longer battery life.
+
+    2. Reduced Congestion:
+
+	    * Since devices wake up only when needed, theres  less network traffic congestion because fewer devices are trying to transmit data at the same time. 
+
+	    * This makes the network more efficient, especially in environments with many connected devices.
+
+    3. Better for IoT:
+
+   		* IoT devices often dont need high bandwidth or low latency. 
+   		
+   		* TWT is perfect for devices that only send small amounts of data, as it helps them conserve energy without affecting performance.
+   		
+Problems that can be faced
+
+    - Configuring TWT requires proper coordination between the device and the router. Devices need to support TWT, and the AP needs to manage the schedules for different devices.
+
+    - Devices that don’t support Wi-Fi 6 will not benefit from TWT, which limits its usefulness in older devices or networks.
+    
+    - While TWT helps save power, time-sensitive applications (like real-time security monitoring) might experience slight delays if the device has to wait until its scheduled wake time.
+
+Conclusion
+
+	- Target Wake Time (TWT) in Wi-Fi 6 is a revolutionary feature for IoT devices.
+
+	- It significantly reduces power consumption and increases battery life.

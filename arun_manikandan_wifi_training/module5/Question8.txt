@@ -1,0 +1,57 @@
+Objective -> To understand the purpose of 802.11k and 802.11v standards and how they improve roaming in wireless networks.
+
+What are 802.11k and 802.11v?
+
+	- 802.11k and 802.11v are extensions to the IEEE 802.11 Wi-Fi standards designed to enhance wireless network performance, particularly in terms of roaming.
+
+	    * 802.11k focuses on radio resource management. It enables devices to make more informed decisions about which access point (AP) to connect to when roaming.
+
+	    * 802.11v enhances network management and roaming optimization. It provides more efficient information about the network environment, helping devices manage their connections during roaming.
+
+Why are 802.11k and 802.11v Important for Roaming?
+
+	- In wireless networks, especially with multiple access points (APs) across large spaces, roaming occurs when a device moves from the range of one AP to another. 
+
+	- A seamless transition is critical for applications like VoIP, video conferencing, and real-time streaming, where latency and downtime can severely affect performance.
+
+	- Both 802.11k and 802.11v improve how devices and APs coordinate, allowing for smoother transitions between APs, reducing poor connections, signal drops, and unnecessary delays.
+
+How Do 802.11k and 802.11v Aid in Roaming?
+
+    1. 802.11k: Radio Resource Management
+
+        * Neighbor Reports: Devices can request a report from an AP that lists nearby APs, their signal strength, channel information, etc. This helps devices make better roaming decisions.
+
+        * Channel Scanning: Devices can scan channels more efficiently to reduce the handoff time.
+
+        * Load Balancing: 802.11k helps devices select less congested APs, improving overall performance.
+
+    2. 802.11v: Network Management and Roaming Optimization
+
+        * BSS Transition Management: This feature allows APs to suggest or direct devices to other APs for better performance based on factors like signal strength or AP load.
+
+        * AP Advertisement: APs can advertise their capabilities, including roaming options, helping devices make smarter roaming decisions.
+
+        * Power Save Mode: Devices can conserve power by avoiding frequent channel scanning during roaming.
+
+Benefits of 802.11k and 802.11v in Roaming:	
+
+	- Real-time data about nearby APs allows faster, more reliable handoffs.
+
+	- Devices can avoid congested APs, ensuring more balanced traffic distribution.
+
+	- Ppower consumption is reduced as devices don’t need to scan for new APs as frequently.
+
+Problems thatt can be faced:
+
+	- Not all devices support 802.11k and 802.11v.
+
+	- Proper network configuration is essential.
+
+Conclusion:
+
+	- The 802.11k and 802.11v standards significantly enhance roaming by improving both radio resource management (802.11k) and network management (802.11v). They allow for:
+	
+	    * More informed roaming decisions based on nearby AP conditions.
+	
+	    * Smarter roaming with suggestions for better APs.

@@ -1,0 +1,68 @@
+Objective -> To understand major innovation in Wi-Fi 7 (802.11be)
+
+What is Wi-Fi 7 (802.11be)?
+
+	- Wi-Fi 7 (802.11be) is the next-generation Wi-Fi standard designed to further enhance wireless network performance.
+	- It main focuses for high-bandwidth applications like AR/VR, 4K/8K video streaming, gaming, and large-scale IoT devices.
+
+Why is Wi-Fi 7 Important?
+
+	- Wi-Fi 7 is designed to handle:
+
+	    * A growing number of connected devices.
+
+	    * Increasing network speeds.
+
+	    * More demanding applications (e.g., AR/VR, smart cities, and immersive media).
+
+	- With the rise of 4K/8K content and high-demand applications, Wi-Fi 7 is set to meet the growing need for high-performance, ultra-low-latency wireless communication.
+
+Major Innvoations:
+
+	1. 320 MHz Channel Width:
+	
+	    - Wi-Fi 7 doubles the maximum channel width to 320 MHz compared to Wi-Fi 6’s 160 MHz on the 6 GHz band.
+
+	2. Multi-Link Operation (MLO):
+	
+	    - MLO allows devices to transmit data across multiple frequency bands (2.4 GHz, 5 GHz, and 6 GHz) simultaneously.
+
+	3. 4096-QAM (Quadrature Amplitude Modulation):
+	
+	    - Wi-Fi 7 uses a higher modulation scheme of 4096-QAM (up from 1024-QAM in Wi-Fi 6), allowing more data to be transmitted per symbol.
+
+	4. Enhanced MU-MIMO (Multi-User, Multiple Input Multiple Output):
+	
+	    - Wi-Fi 7 supports up to 16 streams of MU-MIMO, compared to Wi-Fi 6’s 8 streams.
+
+	5. Lower Latency:
+	
+	   - Wi-Fi 7 introduces features like Multi-Link Operation, improved scheduling, and enhanced Target Wake Time (TWT) for IoT devices, reducing latency.
+
+	6. Better Channel Access with New Protocols:
+	
+	    - Wi-Fi 7 introduces the 802.11be protocol, which optimizes time allocation for better channel access.
+
+Problems taht can be faced:
+
+	- Wi-Fi 7 will require new hardware, both for routers and client devices, which might take time for widespread adoption.
+
+	- Higher frequency bands, like the 6 GHz band, are susceptible to interference and signal attenuation over long distances or through obstacles.
+
+	- While Wi-Fi 7 offers better performance, especially with Multi-Link Operation and wider channels, the 6 GHz band has a shorter range compared to lower frequencies like 2.4 GHz.
+
+Conclusion:
+
+	- Wi-Fi 7 (802.11be) introduces several innovative features that drastically improve network performance:
+	
+	    * 320 MHz channel widths for faster speeds.
+	
+	    * Multi-Link Operation (MLO) for efficient use of spectrum.
+	
+	    * 4096-QAM for higher data rates and improved efficiency.
+	
+	    * Enhanced MU-MIMO for better capacity in dense environments.
+	
+	    * Ultra-low latency for real-time applications.
+	
+	    * Improved channel access protocols for handling congestion better.
