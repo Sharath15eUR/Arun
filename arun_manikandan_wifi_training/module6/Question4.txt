@@ -1,0 +1,53 @@
+Objective -> To understand why WEP is considered insecure compared to WPA2 and WPA3
+
+What is WEP?
+
+	- WEP (Wired Equivalent Privacy) was the first attempt at securing WiFi networks.
+
+	- It was introduced in 1997 along with the original IEEE 802.11 WiFi standard.
+
+	- Its goal was to provide a level of privacy similar to that of a wired network.
+
+	- WEP uses:
+
+	    * The RC4 stream cipher for encryption.
+
+	    * A shared static key (manually set on all devices).
+
+	    * A 24-bit Initialization Vector (IV) to vary the encryption.
+
+Why is it insecure?
+
+	1. Short Initialization Vector (IV)
+	
+	    - WEP uses a 24-bit IV, which is very small.
+	
+	    - In busy networks, the IV values start repeating very quickly (sometimes in minutes).
+	
+	    - When IVs repeat, attackers can collect packets and detect patterns that allow them to derive the encryption key.
+	
+	2. Weak Encryption Design
+	
+	    - WEP simply concatenates the IV with the key and uses that to encrypt data.
+	
+	    - This simplistic method leaves it open to statistical attacks, where attackers analyze large volumes of captured packets to guess the key.
+	
+	3. No Key Management
+	
+	    - WEP relies on static keys — meaning the encryption key never changes unless manually updated.
+	
+	    - If one device or user leaks the key, the entire network becomes insecure.
+	
+	    - Modern systems like WPA2 and WPA3 dynamically generate session keys to prevent this.
+
+Current issue wit WEP:
+
+	- Data theft (passwords, emails, sensitive files)
+	
+	- Man-in-the-Middle (MITM) attacks
+	
+	- Network hijacking where attackers can reroute traffic
+
+Conclusion:
+
+	- WEP is insecure because of its poor design, short IVs, static key usage, weak encryption, and the ease of cracking it with readily available tools.

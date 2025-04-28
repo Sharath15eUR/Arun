@@ -1,0 +1,61 @@
+Objective -> TO understand how 802.1x enhaces wireless network security 
+
+How 802.1X Enhances Wireless Network Security
+
+	1. Strong Authentication Mechanism
+
+		- Problem: Wireless networks are vulnerable to unauthorized access as data is transmitted over the air.
+
+		- How 802.1X Solves It: Uses centralized authentication with the 4-way handshake to verify devices, supporting strong EAP methods like EAP-TLS, EAP-PEAP, and EAP-TTLS. EAP-TLS ensures mutual authentication with digital certificates, making interception by attackers difficult.
+	
+	2. Mutual Authentication (Client and AP Authentication)
+
+		- Problem: Traditional protocols only authenticate the client, leaving the network open to man-in-the-middle attacks.
+
+		- How 802.1X Solves It: Ensures mutual authentication between the client and AP using EAP methods (e.g., EAP-TLS) that require both parties to exchange certificates, preventing attackers from spoofing the AP.
+	
+	3. Encryption of Authentication Credentials
+
+		- Problem: Credentials like passwords or keys sent in plaintext are vulnerable to interception.
+
+		- How 802.1X Solves It: EAP methods encrypt authentication credentials and messages. WPA2/WPA3 further enhances security by generating a unique session key (PTK) to encrypt data traffic between the client and AP.
+	
+	4. Dynamic Key Management
+
+		- Problem: Static encryption keys can be compromised over time.
+
+		- How 802.1X Solves It: Generates dynamic encryption keys for each session after successful authentication, reducing the risk of key compromise. If a key is compromised, only the current session is affected.
+	
+	5. Prevention of Rogue Access Points and Devices
+
+		- Problem: Rogue access points set up by attackers can intercept data.
+
+		- How 802.1X Solves It: Requires devices to authenticate before accessing the network, blocking rogue devices. The RADIUS server ensures only authorized devices are allowed to connect.
+	
+	6. Granular Access Control
+
+		- Problem: Unauthorized devices may gain access to sensitive parts of the network.
+
+		- How 802.1X Solves It: Integrates with Network Access Control (NAC) systems to enforce granular access policies based on user role, device health, or location, restricting access to certain network areas.
+	
+	7. Protection Against Replay Attacks
+
+		- Problem: Attackers can intercept and replay valid authentication messages to gain unauthorized access.
+
+		- How 802.1X Solves It: The 4-way handshake includes a unique nonce in each exchange, preventing replay attacks by ensuring that intercepted messages cannot be reused.
+
+Conclusion:
+
+	- 802.1X enhances wireless network security by addressing multiple vulnerabilities and providing strong, dynamic protections, including:
+	
+	    Strong authentication and mutual authentication between devices and access points.
+	
+	    Encryption of credentials to protect sensitive information during authentication.
+	
+	    Dynamic key management to generate unique session keys for encryption.
+	
+	    Prevention of unauthorized or rogue devices from gaining network access.
+	
+	    Granular access control to enforce policies based on device/user roles.
+	
+	    Protection against man-in-the-middle and replay attacks.

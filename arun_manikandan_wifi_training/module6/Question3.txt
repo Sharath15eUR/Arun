@@ -1,0 +1,53 @@
+Objective -> To understand the differences between WEP, WPA, WPA2, and WPA3.
+
+What?
+
+	- WEP (Wired Equivalent Privacy) was the first WiFi security protocol designed to make wireless networks as secure as wired networks.
+	
+	- WPA (WiFi Protected Access) was developed as a quick replacement for WEP when serious flaws were discovered.
+	
+	- WPA2 is an improvement over WPA, offering stronger security mechanisms, especially for modern wireless networks.
+	
+	- WPA3 is the latest standard, designed to address new types of attacks and improve protection even on weak passwords.
+
+Why?
+
+		- WEP was found to be highly vulnerable — attackers could break into a WEP-protected network within minutes.
+		
+		- WPA was introduced as a stopgap solution to quickly patch the vulnerabilities of WEP.
+		
+		- WPA2 provided a full and proper security framework suitable for long-term use.
+		
+		- WPA3 was needed because even WPA2 started showing weaknesses, especially against newer, smarter hacking techniques like brute-force password guessing.
+
+Working:
+
+	WEP:
+
+	    - Uses the RC4 stream cipher for encryption with a static key.
+
+	    - It uses a small Initialization Vector (IV), making it easy for attackers to predict the key by capturing enough packets.
+
+    WPA:
+
+	    - Introduces TKIP (Temporal Key Integrity Protocol) to dynamically change encryption keys during the session.
+
+	    - It still uses RC4 internally but adds more complexity to make attacks harder.
+
+    WPA2:
+
+    	- Replaces TKIP with CCMP (Counter Mode with Cipher Block Chaining Message Authentication Code Protocol) based on AES encryption.
+
+   		- AES is far more secure and robust than RC4.
+   		
+    	- WPA2 can run in Personal mode (home networks) with a pre-shared key or Enterprise mode (corporate networks) with a RADIUS server.
+
+    WPA3:
+
+    	- Introduces Simultaneous Authentication of Equals (SAE) instead of PSK, making password guessing much harder.
+
+    	- It mandates stronger encryption (192-bit in Enterprise mode) and forward secrecy (so that even if someone captures encrypted traffic today, they cannot decrypt it later even if they learn the password).
+
+Conclusion:
+
+	- The evolution from WEP → WPA → WPA2 → WPA3 shows how WiFi security has improved step-by-step to keep up with advancing hacking techniques.

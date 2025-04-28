@@ -1,0 +1,64 @@
+Objective -> To understand the main foundations that keep Wi Fi networks safe.
+
+What?	
+
+	- The pillars of Wi Fi security are the key areas that protect wireless networks and ensure only the right people can connect and communicate safely.
+
+Why?
+
+	- Wi Fi is open by nature and can be easily attacked without protection.
+	
+	- Good security makes sure that data stays private.
+	
+	- Devices stay safe and hackers cannot misuse the network.
+
+How?	
+
+	- Wi Fi security uses rules methods and tools to control who can join the network.
+	
+	- Encrypt data during transfer and check if the devices are trusted.
+
+Pillars:
+
+	- There are mainly four pillars
+	
+	    1. Authentication
+
+		    - Confirms if the person or device trying to connect is who they claim to be
+
+		    - Example using a password or certificate.
+	
+	    2. Authorization
+
+	    	- Gives permission to users to access certain resources
+
+	    	- Example allowing a guest device only to access the internet but not printers.
+	
+	    3. Encryption
+
+	   		- Protects data so that no one else can read it even if they capture it
+
+	    	- Example using WPA3 to encrypt Wi Fi traffic.
+	
+	    4. Integrity
+
+	    	- Makes sure that the data is not changed or tampered with during transfer
+	   		- Example using message authentication codes.
+
+Problems that can be faced
+
+    - Weak passwords can lead to easy break ins.
+
+    - Old security protocols like WEP are easily hacked.
+
+    - Rogue access points can mimic trusted networks.
+
+    - Poor device settings can create hidden backdoors.
+
+    - If encryption is not strong hackers can steal sensitive data.
+
+Conclusion:	
+
+	- Wi Fi security is built on strong pillars like authentication authorization encryption and integrity.
+
+	- Without them any Wi Fi system is open to big risks.

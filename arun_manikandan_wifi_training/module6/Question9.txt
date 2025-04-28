@@ -1,0 +1,59 @@
+Onejctive -> To understand the role of 802.1X in solving specific network security problems
+
+Problems solved:
+
+	1. Unauthorized Access to the Network
+
+		- Problem: Devices can attempt to access the network without authentication, risking unauthorized access.
+
+		- How 802.1X Solves It: Implements a client-server authentication system (Supplicant, Authenticator, and Authentication Server), ensuring only devices with valid credentials can access the network.
+	
+	2. Lack of Centralized Control for Authentication
+
+		- Problem: Managing authentication manually in large networks is error-prone and inefficient.
+
+		- How 802.1X Solves It: Uses a RADIUS server for centralized authentication, storing and managing credentials securely for consistent device verification.
+	
+	3. Weaknesses in Traditional Network Access Control
+
+		- Problem: Traditional methods like static passwords or WEP are easily bypassed.
+
+		- How 802.1X Solves It: Supports strong authentication methods (e.g., EAP-TLS, EAP-PEAP), including client-server certificates for secure mutual authentication.
+	
+	4. Lack of Device and User Authentication in Wireless Networks
+
+		- Problem: Wireless networks are vulnerable to unauthorized access due to data transmission over the air.
+
+		- How 802.1X Solves It: Acts as port-based authentication in wireless networks, using EAP methods to authenticate devices before allowing network access.
+	
+	5. Network Access Without User Credentials
+
+		- Problem: Network access is needed based on user or device identity, not just physical connection.
+
+		- How 802.1X Solves It: Allows user-specific authentication (e.g., username and password), enabling granular control over network access.
+	
+	6. Prevention of Man-in-the-Middle Attacks
+
+		- Problem: Attackers can impersonate the network or spoof devices, intercepting communication.
+
+		- How 802.1X Solves It: Uses mutual authentication (e.g., EAP-TLS) and digital certificates to ensure both parties are legitimate, preventing man-in-the-middle attacks.
+	
+	7. Network Access Control Based on Policy
+
+		- Problem: Access to resources needs to be controlled based on user role or device compliance.
+
+		- How 802.1X Solves It: Integrates with Network Access Control (NAC) systems, enforcing policies like device health or security patch compliance before granting network access.
+
+Conclusion
+
+	- 802.1X solves several key problems related to network security, primarily focused on ensuring authorized access to the network and protecting against unauthorized access. It provides:
+
+	    Centralized authentication
+
+	    Stronger, more secure authentication methods
+
+	    Protection from unauthorized devices
+
+	    Increased security for wireless networks
+
+	    Network access control based on device or user credentials

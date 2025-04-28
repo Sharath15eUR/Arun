@@ -1,0 +1,49 @@
+Objective -> To underwtand the difference between authentication and encryption.
+
+What?
+
+	Authentication
+
+		- It is the process of checking if a user or device is real and allowed to connect.
+	
+	Encryption
+
+		- It is the process of turning data into a secret code so that even if someone captures it they cannot understand it.
+
+Why?	
+
+	- Authentication is needed to stop unknown devices from joining the network.
+	
+	- Encryption is needed to keep the data safe while it travels through the air.
+
+How?
+
+    - In authentication the Wi Fi system asks for a password certificate or something similar before allowing access.
+
+    - In encryption after the user is allowed data is changed into unreadable form using methods like WPA2 or WPA3.
+
+Working:	
+
+	1. Authentication:
+
+		- When we try to connect to a WiFi network, your device usually sends credentials (like a password or digital certificate).
+
+		- The WiFi router or authentication server checks these credentials.
+
+		- If valid, you are allowed onto the network.
+
+		- Examples of authentication protocols include WPA2-PSK (Pre-Shared Key) and WPA2-Enterprise (using username/password or certificates).
+	
+	2. Encryption:
+
+		- Once you are authenticated, the WiFi system establishes a secure communication channel.
+
+		- A shared encryption key is created (or securely exchanged) between your device and the router.
+
+		- All the data you send or receive is then encrypted using protocols like AES (Advanced Encryption Standard), making it unreadable to outsiders.
+
+Conclusion:
+
+	- Authentication ensures that only trusted devices/users connect to the network.
+
+	- Encryption ensures that the information shared remains private and protected from unauthorized access.

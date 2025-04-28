@@ -1,0 +1,41 @@
+Objective -> To understand why was WPA2 Released
+
+What is WPA2?
+
+	- WPA2 (WiFi Protected Access 2) is a WiFi security standard introduced in 2004 by the WiFi Alliance.
+
+	- It is an upgrade over WPA (WiFi Protected Access) and became mandatory for all WiFi-certified devices starting in 2006.
+
+	- WPA2 is based on IEEE 802.11i — a more complete, secure specification for wireless security compared to the interim WPA solution.
+
+How does  WPA2 imporve things?
+
+    - Encryption: Switched from TKIP (weak) to AES (strong).
+
+    - Integrity: Used CCMP instead of MIC (Message Integrity Check), which is much harder to break.
+
+    - Authentication: Strengthened both Personal (PSK) and Enterprise (EAP) authentication methods.
+
+    - Performance: Though AES required more computation, by 2004 hardware had improved enough to handle it without significant slowdowns.
+
+Why was WPA2 release?
+
+	- WPA was a rushed, temporary fix for WEP’s security flaws.
+	
+	- WPA relied on TKIP and outdated RC4 encryption, needing stronger protection.
+	
+	- WPA2 introduced AES for modern, robust encryption against new attacks.
+	
+	- WPA2 improved message integrity and tamper protection with CCMP.
+	
+	- WPA only partially followed the 802.11i standard; WPA2 fully implemented it.
+	
+	- WPA2 supports Enterprise features like 802.1X authentication and RADIUS servers.
+	
+	- Enterprise networks needed per-user encryption and stronger authentication than WPA offered.
+
+Conclusion:
+
+	- WPA2 was introduced to properly and permanently fix the deep security flaws that WEP and WPA left open.
+
+	- It moved WiFi security to a strong cryptographic foundation based on AES, introduced robust authentication mechanisms, and aligned wireless protection with the more complete IEEE 802.11i standard.

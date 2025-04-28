@@ -1,0 +1,37 @@
+Objective -> To understand the 4-way handshake
+
+What is Mutual Authentication?
+
+	- Mutual authentication means both parties — the client (device) and the access point (AP) — verify each other’s identity and ensure they are communicating with the legitimate counterpart.
+
+	In the context of WPA2:
+
+	   - The client ensures it is connecting to a legitimate AP, not a rogue one.
+
+	   - The AP ensures it is connecting to a legitimate client, not a malicious attacker trying to access the network.
+
+How the 4-Way Handshake Ensures Mutual Authentication
+
+    1. AP to Client — AP Sends Nonce:
+
+    	* The AP sends a unique random nonce to the client to prevent replay attacks and includes its SSID/MAC for identification.
+    	* Mutual Authentication: Ensures the handshake is fresh and prevents attackers from replaying old handshakes.
+
+    2. Client to AP — Client Sends Nonce and MIC:
+
+    	* The client generates its own nonce and sends it back along with a Message Integrity Code (MIC) based on the PMK, both nonces, and MAC addresses.
+    	* Mutual Authentication: Proves the client knows the shared PMK by using it to generate the MIC.
+
+    3. AP to Client — AP Confirms PTK and GTK:
+
+    	* The AP generates and sends the Pairwise Transient Key (PTK) and Group Temporal Key (GTK) using the nonces and shared PMK.
+    	* Mutual Authentication: Confirms the AP knows the PMK, as it can generate the same PTK and GTK. The GTK secures multicast traffic.
+
+    4. Client to AP — Client Acknowledges PTK:
+
+    	* The client sends a confirmation to the AP to acknowledge receipt of the PTK and GTK.
+    	* Mutual Authentication: Confirms that the client has securely received the keys.
+
+Conclusion:
+
+ 	- The 4-way handshake in WPA2 offers a basic level of mutual authentication by ensuring that both the client and access point know the shared Pairwise Master Key (PMK) and can generate the necessary session keys for secure communication.

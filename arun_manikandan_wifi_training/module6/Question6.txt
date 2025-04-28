@@ -1,0 +1,39 @@
+Objective -> To understand the role of the Pairwise Master Key (PMK) in the 4-way handshake.
+
+What is the 4-Way Handshake?
+
+	- The 4-way handshake is a process used in WPA and WPA2 to securely establish a connection between a client device (e.g., laptop, phone) and an access point (AP).
+
+	- The handshake is used to:
+
+	   * Confirm that both the client and the AP know the correct Pairwise Master Key (PMK).
+
+	   * Generate fresh session keys for encryption during communication.
+
+Role of the PMK in the 4-Way Handshake
+
+    Step 1: The Access Point (AP) sends a nonce (random number) to the client.
+
+        * This nonce is used to prevent replay attacks and ensures fresh keys are generated.
+
+    Step 2: The client responds with its own nonce and a Message Integrity Code (MIC) that verifies the message's authenticity.
+
+    Step 3: The AP sends back a message to the client containing the Pairwise Transient Key (PTK) and Group Temporal Key (GTK).
+
+        * The PTK is derived from the PMK, the AP’s nonce, and the client’s nonce. This PTK is used for encryption and decryption of the communication data.
+
+        * The GTK is used for encrypting broadcast and multicast traffic.
+
+    Step 4: The client confirms receipt of the PTK and GTK, completing the handshake.
+
+Importance:
+
+	- Key Agreement
+
+	- Protection Against Replay Attacks
+
+	- Session Key Generation
+
+Conclusion:"
+
+	- The Pairwise Master Key (PMK) plays a crucial role in WPA2 security by providing the foundation for generating session keys that protect the communication between the client and access point.
