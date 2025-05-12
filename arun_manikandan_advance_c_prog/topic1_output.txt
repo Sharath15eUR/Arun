@@ -1,0 +1,93 @@
+arunm@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_advance_c_prog$ gcc -o problem1 topic1.c
+arunm@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_advance_c_prog$ ls
+problem1  topic1.c
+arunm@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_advance_c_prog$ ./problem1
+
+Enter the day (or type 'exit' to quit): Monday
+
+---- Monday ----
+You can add 3 more task(s).
+Choose an option:
+1. Add Task
+2. Select another day
+3. Show all tasks
+4. Exit
+Enter choice: 1
+Enter task: Buy dog food
+Task added to Monday.
+
+---- Monday ----
+You can add 2 more task(s).
+Choose an option:
+1. Add Task
+2. Select another day
+3. Show all tasks
+4. Exit
+Enter choice: 2
+
+Enter the day (or type 'exit' to quit): Friday
+
+---- Friday ----
+You can add 3 more task(s).
+Choose an option:
+1. Add Task
+2. Select another day
+3. Show all tasks
+4. Exit
+Enter choice: 1
+Enter task: Buy groceries
+Task added to Friday.
+
+---- Friday ----
+You can add 2 more task(s).
+Choose an option:
+1. Add Task
+2. Select another day
+3. Show all tasks
+4. Exit
+Enter choice: 3
+
+====== Weekly Task List ======
+Monday:
+  - Buy dog food
+Tuesday:
+  No tasks.
+Wednesday:
+  No tasks.
+Thursday:
+  No tasks.
+Friday:
+  - Buy groceries
+Saturday:
+  No tasks.
+Sunday:
+  No tasks.
+
+---- Friday ----
+You can add 2 more task(s).
+Choose an option:
+1. Add Task
+2. Select another day
+3. Show all tasks
+4. Exit
+Enter choice: 4
+
+Final Task Overview:
+
+====== Weekly Task List ======
+Monday:
+  - Buy dog food
+Tuesday:
+  No tasks.
+Wednesday:
+  No tasks.
+Thursday:
+  No tasks.
+Friday:
+  - Buy groceries
+Saturday:
+  No tasks.
+Sunday:
+  No tasks.
+arunm@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_advance_c_prog$
+

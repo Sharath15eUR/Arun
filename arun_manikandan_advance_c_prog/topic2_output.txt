@@ -1,0 +1,21 @@
+arunm@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_advance_c_prog$ gcc -o problem2 topic2.c
+arunm@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_advance_c_prog$ ./problem2
+Enter the number of elements : 7
+Enter your elements :
+12
+7
+4
+9
+6
+5
+8
+
+
+======== Before sorting the array ========
+12      7       4       9       6       5       8
+
+======== After sorting the array ========
+12      4       6       8       7       9       5
+
+arunm@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_advance_c_prog$
+
