@@ -1,0 +1,9 @@
+arunm@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_advance_c_prog/assignment1$ vim topic3.c
+arunm@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_advance_c_prog/assignment1$ gcc -o topic3 ./topic3.c
+arunm@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_advance_c_prog/assignment1$ ./topic3
+The key is found at :  2 1
+
+Key 29 found.
+arunm@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_advance_c_prog/assignment1$
+
+
