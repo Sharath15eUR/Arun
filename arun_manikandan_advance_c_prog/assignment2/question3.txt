@@ -1,0 +1,194 @@
+
+1. Child process - fork()
+
+	- What
+	    * the fork() system call creates a new process that is an exact duplicate of the calling process the parent
+	    * the new process is called the child process
+	    * both parent and child processes continue execution from the point immediately after the fork() call
+	    * the parent process receives the Process ID PID of the child while the child receives 0 zero
+
+	- Why
+	    * it is fundamental for creating new programs or daemons
+	    * allows a process to spawn another process to perform a specific task or run a different executable
+
+	- Working
+	    * a successful fork() results in two independent processes
+	    * the child inherits a copy of the parent's memory space open file descriptors current working directory and environment variables
+	    * a  common pattern is for the child to then call one of the exec() family of functions to replace its process image with a new program
+	    * this fork-exec model is essential for implementing shell functionality and running background processes
+
+	    - Snippet and Explanation
+
+		    // This is how we use fork()
+		    pid = fork();
+		        pid = fork();: This line calls the fork() system function to create a new process. The return value pid will be 0 in the child process and the child's PID in the parent process.
+
+	- Problems
+	    * resource duplication can be inefficient if the child immediately execs a new program
+	    * copy-on-write COW mechanism is used to optimize memory usage where pages are shared until one process modifies them
+	    * managing communication between parent and child processes requires additional IPC mechanisms like pipes or shared memory
+
+	- Conclusion
+	    * fork() is a powerful system call providing a flexible way to create new processes in Unix-like systems
+	    * its combination with exec() forms the basis for how new programs are launched
+
+2. Handing common signals
+
+	- What
+	    * signals are asynchronous notifications sent to a process or a group of processes
+	    * they indicate that an event has occurred such as a user pressing Ctrl+C or an error condition
+
+	- Why
+	    * used for inter-process communication IPC
+	    * allows the kernel or other processes to notify a process of an event
+	    * crucial for robust program behavior graceful shutdown and error recovery
+
+	- Working
+	    * signals can originate from the kernel other processes or user input
+	    * processes can define how they respond to most signals using signal handlers
+	    * a signal handler is a function executed when a specific signal is received
+	    * processes can choose to ignore catch or allow the default action for a signal
+	    * some signals like SIGKILL and SIGSTOP cannot be caught ignored or blocked
+
+	    - Snippet and Explanation
+
+		    // This is how we register a signal handler for SIGINT
+		    signal(SIGINT, sigint_handler);
+
+		    // This is how we send a signal from the command line
+		    // kill -TERM <pid>
+
+		        signal(SIGINT, sigint_handler);: This line registers the function sigint_handler to be executed when the SIGINT signal (e.g., Ctrl+C) is received.
+
+		        kill -TERM <pid>: This is a command-line utility used to send the SIGTERM signal to a process with the specified process ID (<pid>).
+
+	- Problems
+	    * signal handlers can be difficult to write correctly due to their asynchronous nature
+	    * re-entrancy issues can arise if a signal handler calls non-reentrant functions
+	    * race conditions can occur if shared data is not properly protected within signal handlers
+
+	- Conclusion
+	    * signal handling is a vital mechanism for managing events and ensuring program stability
+	    * careful design and implementation of signal handlers are necessary to avoid common pitfalls
+
+3. Exploring different Kernel crashes
+
+	- What
+	    * a kernel crash also known as a kernel panic or Blue Screen of Death BSOD is a critical system error
+	    * it means the operating system kernel has encountered an unrecoverable problem
+
+	- Why
+	    * indicates a severe issue that prevents the kernel from continuing normal operation
+	    * often leads to system reboot or halt to prevent further data corruption
+
+	- Working
+	    * when an unrecoverable error occurs the kernel halts execution
+	    * an error message is displayed and a kernel crash dump or minidump is often generated
+	    * this dump contains the state of the system at the time of the crash for later analysis
+
+	    - Snippet and Explanation
+
+		    // Conceptual kernel code that might lead to a crash
+		    // Dereferencing a NULL pointer
+		    // int* ptr = NULL;
+		    // *ptr = 123; // This would cause a segmentation fault (kernel panic)
+
+		        *ptr = 123;
+		        dmesg: A command-line utility on Linux to view kernel messages, including potential crash reports.
+
+		        crash: A powerful utility for analyzing kernel crash dumps.
+
+	- Problems
+	    * loss of unsaved data
+	    * potential damage to the file system
+	    * debugging requires specialized tools and expertise to analyze crash dumps
+	    * identifying the root cause can be challenging due to complex interactions between hardware and software
+
+	- Conclusion
+	    * kernel crashes are serious events indicating fundamental system instability
+	    * understanding their causes and having tools for analysis are crucial for system reliability
+
+4. Time complexity
+
+	- What
+	    * time complexity is a measure of how the running time of an algorithm grows as the size of its input increases
+	    * it is a theoretical measure of algorithm efficiency expressed using Big O notation O()
+
+	- Why
+	    * vital for choosing efficient algorithms especially for large datasets
+	    * helps predict an algorithm's performance characteristics and scalability
+	    * crucial for designing scalable and efficient software solutions
+
+	- Working
+	    * Big O notation describes the upper bound or worst-case growth rate of an algorithm's running time
+	    * it focuses on the dominant term in the function describing the running time ignoring constant factors and lower-order terms
+	    * examples include O(1) constant O(log n) logarithmic O(n) linear O(n^2) quadratic O(2^n) exponential
+
+	    - Snippet and Explanation
+
+		    # O(1) Constant Time
+		    # Accessing an element by index:
+		    # arr[0]
+
+		    # O(n) Linear Time
+		    # Iterating through a list:
+		    # for x in arr:
+
+		    # O(n^2) Quadratic Time
+		    # Nested loops:
+		    # for i in range(n):
+		    #     for j in range(n):
+
+	- Problems
+	    * Big O notation provides an asymptotic analysis so it doesn't account for constant factors which can be significant for small input sizes
+	    * actual running time can vary based on hardware compiler and specific input data
+	    * it doesn't capture the memory usage of an algorithm space complexity
+
+	- Conclusion
+	    * time complexity is a fundamental concept for evaluating and comparing algorithm efficiency
+	    * it guides developers in selecting the most appropriate algorithms for different problem scales
+
+5. Locking mechanism - mutex/spinlock
+
+	- What
+	    * locking mechanisms are synchronization primitives used in concurrent programming
+	    * they control access to shared resources to prevent race conditions and ensure data consistency
+
+	- Why
+	    * essential for protecting shared resources from concurrent access by multiple threads or processes
+	    * ensures data integrity and prevents inconsistent states in multi-threaded environments
+
+	- Working
+	    - Mutex Mutual Exclusion Lock
+	        * allows only one thread to hold the lock at a time
+	        * if a thread tries to acquire a locked mutex it blocks or goes to sleep until the mutex is released
+	        * the operating system scheduler manages the blocking and waking of threads
+	    - Spinlock
+	        * a busy-waiting lock
+	        * if a thread tries to acquire a locked spinlock it repeatedly checks if the lock is available instead of blocking
+	        * consumes CPU cycles while waiting
+
+	    - Snippet and Explanation
+
+		    // This is how we acquire a mutex
+		    pthread_mutex_lock(&count_mutex);
+
+		    // This is how we release a mutex
+		    pthread_mutex_unlock(&count_mutex);
+
+		    // Spinlock acquisition
+		    // while (__sync_lock_test_and_set(&spin_lock_flag, 1)) { /* spin */ }
+
+	- Problems
+	    - Mutex
+	        * overhead of context switching when threads block and unblock
+	        * potential for deadlocks if locks are acquired in inconsistent orders
+	    - Spinlock
+	        * consumes CPU cycles while waiting which can be inefficient for long waits
+	        * can lead to priority inversion if a high-priority thread spins waiting for a low-priority thread
+	        * not suitable for long critical sections
+
+	- Conclusion
+	    * both mutexes and spinlocks are vital for managing concurrency
+	    * the choice between them depends on the length of the critical section and the expected contention
+	    * mutexes are generally preferred for longer critical sections while spinlocks are used for very short critical sections in performance-critical areas like kernel code

@@ -1,0 +1,39 @@
+arunm@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_advance_c_prog/assignment2$ micro question1.c 
+arunm@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_advance_c_prog/assignment2$ gcc ./question1.c -o question1 -pthread -lm
+arunm@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_advance_c_prog/assignment2$ ./question1 
+Enter N (number of primes to sum): 5
+Sum of first 5 primes = 28
+Thread 1 running
+Thread 2 running
+Thread 1 running
+Thread 2 running
+Thread 1 running
+Thread 1 running
+Thread 2 running
+Thread 1 running
+Thread 2 running
+Thread 1 running
+Thread 1 running
+Thread 2 running
+Thread 1 running
+Thread 2 running
+Thread 1 running
+Thread 1 running
+Thread 2 running
+Thread 1 running
+Thread 2 running
+Thread 1 running
+Thread 1 running
+Thread 2 running
+Thread 1 running
+Thread 2 running
+Thread 1 running
+Thread 1 running
+Thread 2 running
+Thread 1 running
+Thread 2 running
+Thread 1 running
+Thread 1 running
+Thread 2 running
+^C
+arunm@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_advance_c_prog/assignment2$ 

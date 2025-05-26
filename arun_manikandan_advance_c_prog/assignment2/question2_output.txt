@@ -1,0 +1,26 @@
+arunm@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_advance_c_prog/assignment2$ micro question2.c 
+arunm@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_advance_c_prog/assignment2$ gcc ./question2.c -o question2 -pthread -lm
+arunm@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_advance_c_prog/assignment2$ ./question2 
+Enter N (number of primes to sum): 10
+Thread 2 running
+Thread A: Sum of first 10 primes = 129
+Thread A: Computation took 0.000000 seconds
+Thread 1 running
+Thread 1 running
+Thread 2 running
+Thread 1 running
+^C
+Caught signal 2 – continuing execution.
+Thread 2: signal caught, continuing
+Thread 2 running
+Thread 1 running
+Thread 1 running
+Thread 2 running
+^C
+Caught signal 2 – continuing execution.
+Thread 1: signal caught, continuing
+Thread 1 running
+^C
+Caught signal 2 – continuing execution.
+Received 3 signals – force exiting...
+arunm@KDE-ORG:~/arun_manikandan_linux_training/arun_manikandan_advance_c_prog/assignment2$ 
